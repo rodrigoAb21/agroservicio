@@ -1,23 +1,42 @@
-@extends('layouts.app')
+@extends('layouts.index')
 
-@section('content')
-<div class="container">
+@section('contenido')
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
+        <div class="col-12 m-t-30">
+            <div class="card-columns">
 
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
+                <div class="card text-center p-3" >
+                    <div class="card-body">
+                        <h4 class="card-title">Usuarios</h4>
+                        <p class="card-text"><i class="fa fa-user-tie fa-3x"></i></p>
+                        <a class="btn btn-info btn-block" href="{{url('administrador/usuarios')}}"> Ver </a>
+                    </div>
                 </div>
+
+                <div class="card text-center p-3" >
+                    <div class="card-body">
+                        <h4 class="card-title">Juzgados</h4>
+                        <p class="card-text"><i class="fa fa-gavel fa-3x"></i></p>
+                        <a class="btn btn-info btn-block" href="{{url('administrador/juzgados')}}"> Ver </a>
+                    </div>
+                </div>
+
+                <div class="card text-center p-3" >
+                    <div class="card-body">
+                        <h4 class="card-title">Tipos de procesos</h4>
+                        <p class="card-text"><i class="fa fa-window-restore fa-3x"></i></p>
+                        <a class="btn btn-info btn-block" href="{{url('administrador/tipos')}}"> Ver </a>
+                    </div>
+                </div>
+                <div class="card text-center p-3" >
+                    <div class="card-body">
+                        <h4 class="card-title">Expedientes</h4>
+                        <p class="card-text"><i class="fa fa-archive fa-3x"></i></p>
+                        <a class="btn btn-info btn-block" href="{{url('administrador/expedientes')}}"> Ver </a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
-</div>
 @endsection
