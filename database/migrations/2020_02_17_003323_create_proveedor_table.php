@@ -18,8 +18,8 @@ class CreateProveedorTable extends Migration
             $table->text('nombre');
             $table->text('direccion');
             $table->text('telefono');
-            $table->double('lat');
-            $table->double('lng');
+            $table->double('lat')->nullable();
+            $table->double('lng')->nullable();
         });
     }
 

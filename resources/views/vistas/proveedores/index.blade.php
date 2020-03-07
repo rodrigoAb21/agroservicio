@@ -7,10 +7,10 @@
 
 
                     <h2 class="pb-2">
-                        <i class="fa fa-ruler"></i> Unidades de Medida
+                        <i class="fa fa-industry"></i> Proveedores
                         <div class="float-right">
-                            <a class="btn btn-success" href="{{url('unidades/create')}}">
-                                <i class="fa fa-plus"></i>  Nueva
+                            <a class="btn btn-success" href="{{url('proveedores/create')}}">
+                                <i class="fa fa-plus"></i>  Nuevo
                             </a>
                         </div>
                     </h2>
@@ -20,22 +20,26 @@
                             <thead>
                             <tr>
                                 <th>ID</th>
-                                <th class="w-75">NOMBRE</th>
+                                <th>NOMBRE</th>
+                                <th>DIRECCION</th>
+                                <th>TELEFONO</th>
                                 <th>OPCIONES</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($unidades as $unidad)
+                            @foreach($proveedores as $proveedor)
                                 <tr>
-                                    <td>{{$unidad->id}}</td>
-                                    <td>{{$unidad->nombre}}</td>
+                                    <td>{{$proveedor->id}}</td>
+                                    <td>{{$proveedor->nombre}}</td>
+                                    <td>{{$proveedor->direccion}}</td>
+                                    <td>{{$proveedor->telefono}}</td>
                                     <td class="text-right ">
-                                        <a href="{{url('unidades/'.$unidad->id.'/edit')}}">
+                                        <a href="{{url('proveedores/'.$proveedor->id.'/edit')}}">
                                             <button class="btn btn-warning">
                                                 <i class="fa fa-pen"></i>
                                             </button>
                                         </a>
-                                        <button type="button" class="btn btn-danger" onclick="modalEliminar('{{$unidad -> nombre}}', '{{url('unidades/'.$unidad -> id)}}')">
+                                        <button type="button" class="btn btn-danger" onclick="modalEliminar('{{$proveedor -> nombre}}', '{{url('proveedores/'.$proveedor -> id)}}')">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>
@@ -43,7 +47,7 @@
                             @endforeach
                             </tbody>
                         </table>
-                        {{$unidades->links('pagination.default')}}
+                        {{$proveedores->links('pagination.default')}}
                     </div>
                 </div>
             </div>
@@ -56,8 +60,8 @@
             function modalEliminar(nombre, url) {
                 $('#modalEliminarForm').attr("action", url);
                 $('#metodo').val("delete");
-                $('#modalEliminarTitulo').html("Eliminar Unidad de Medida");
-                $('#modalEliminarEnunciado').html("Realmente desea eliminar la unidad de medida: " + nombre + "?");
+                $('#modalEliminarTitulo').html("Eliminar Tipo");
+                $('#modalEliminarEnunciado').html("Realmente desea eliminar al proveedor: " + nombre + "?");
                 $('#modalEliminar').modal('show');
             }
 

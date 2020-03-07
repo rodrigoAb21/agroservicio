@@ -1,7 +1,7 @@
 @extends('layouts.index')
 
 @section('contenido')
-    <div class="row pt-3">
+    <div class="row">
         <div class="col-12">
             <div class="card">
                 <div class="card-body">

@@ -126,6 +126,13 @@
                             </a>
                         </li>
 
+                        <li class="{{ Request::is('proveedores*') ? 'nav-item active' : 'nav-item' }}">
+                            <a href="{{url('proveedores')}}" >
+                                <i class="fa fa-industry"></i>
+                                <span class="hide-menu"> Proveedores</span>
+                            </a>
+                        </li>
+
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
@@ -142,7 +149,7 @@
             <!-- ============================================================== -->
             <!-- Container fluid  -->
             <!-- ============================================================== -->
-            <div class="container-fluid">
+            <div class="container-fluid pt-3">
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
                 @yield('contenido')

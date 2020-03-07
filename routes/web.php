@@ -21,4 +21,5 @@ Route::middleware('auth')->group(function () {
     Route::resource('tipos','TipoInsumoController');
     Route::resource('unidades','UnidadMedidaController');
     Route::resource('insumos','InsumoController');
+    Route::resource('proveedores','ProveedorController');
 });
