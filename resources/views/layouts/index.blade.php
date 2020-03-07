@@ -119,8 +119,8 @@
                                 <span class="hide-menu"> Tipos de Insumo</span>
                             </a>
                         </li>
-                        <li class="{{ Request::is('umedida*') ? 'nav-item active' : 'nav-item' }}">
-                            <a href="{{url('umedida')}}" >
+                        <li class="{{ Request::is('unidades*') ? 'nav-item active' : 'nav-item' }}">
+                            <a href="{{url('unidades')}}" >
                                 <i class="fa fa-ruler"></i>
                                 <span class="hide-menu"> Unidades de Medida</span>
                             </a>
