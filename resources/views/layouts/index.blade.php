@@ -133,6 +133,13 @@
                             </a>
                         </li>
 
+                        <li class="{{ Request::is('ingresos*') ? 'nav-item active' : 'nav-item' }}">
+                            <a href="{{url('ingresos')}}" >
+                                <i class="fa fa-dolly"></i>
+                                <span class="hide-menu"> Ingresos</span>
+                            </a>
+                        </li>
+
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
