@@ -14,7 +14,7 @@
     <!-- Custom CSS -->
     <link href="{{asset('plantilla/material/css/style.css')}}" rel="stylesheet">
     <!-- You can change the theme colors from here -->
-    <link href="{{asset('plantilla/material/css/colors/blue.css')}}" id="theme" rel="stylesheet">
+    <link href="{{asset('plantilla/material/css/colors/blue-dark.css')}}" id="theme" rel="stylesheet">
     @stack('arriba')
 </head>
 
@@ -39,15 +39,15 @@
                 <!-- Logo -->
                 <!-- ============================================================== -->
                 <div class="navbar-header">
-                    <a class="navbar-brand ligh" href="{{url('administrador')}}">
+                    <a class="navbar-brand ligh" href="{{url('/')}}">
                         <!-- Logo icon -->
                         <b class="light-logo">
-                            <i class="fa fa-archive"></i>
+                            <i class="fa fa-seedling"></i>
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text -->
                         <span>
-                            <b class="light-logo"> Expedientes</b>
+                            <b class="light-logo"> SOFTWARE</b>
                         </span> </a>
                 </div>
                 <!-- ============================================================== -->
@@ -107,30 +107,25 @@
 
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
-                        <li class="{{ Request::is('administrador/usuarios*') ? 'nav-item active' : 'nav-item' }}">
-                            <a href="{{url('administrador/usuarios')}}" >
-                                <i class="fa fa-user-tie"></i>
-                                <span class="hide-menu"> Usuarios</span>
+                        <li class="{{ Request::is('insumos*') ? 'nav-item active' : 'nav-item' }}">
+                            <a href="{{url('insumos')}}" >
+                                <i class="fa fa-box-open"></i>
+                                <span class="hide-menu"> Insumos</span>
                             </a>
                         </li>
-                        <li class="{{ Request::is('administrador/juzgados*') ? 'nav-item active' : 'nav-item' }}">
-                            <a href="{{url('administrador/juzgados')}}" >
-                                <i class="fa fa-gavel"></i>
-                                <span class="hide-menu"> Juzgados</span>
+                        <li class="{{ Request::is('tipos*') ? 'nav-item active' : 'nav-item' }}">
+                            <a href="{{url('tipos')}}" >
+                                <i class="fa fa-object-group"></i>
+                                <span class="hide-menu"> Tipos de Insumo</span>
                             </a>
                         </li>
-                        <li class="{{ Request::is('administrador/tipos*') ? 'nav-item active' : 'nav-item' }}">
-                            <a href="{{url('administrador/tipos')}}" >
-                                <i class="fa fa-window-restore"></i>
-                                <span class="hide-menu"> Tipos de procesos</span>
+                        <li class="{{ Request::is('umedida*') ? 'nav-item active' : 'nav-item' }}">
+                            <a href="{{url('umedida')}}" >
+                                <i class="fa fa-ruler"></i>
+                                <span class="hide-menu"> Unidades de Medida</span>
                             </a>
                         </li>
-                        <li class="{{ Request::is('administrador/expedientes*') ? 'nav-item active' : 'nav-item' }}">
-                            <a href="{{url('administrador/expedientes')}}" >
-                                <i class="fa fa-archive"></i>
-                                <span class="hide-menu"> Expedientes</span>
-                            </a>
-                        </li>
+
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->

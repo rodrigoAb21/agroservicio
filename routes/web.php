@@ -16,3 +16,7 @@ Route::post('logout', [
 Route::get('/', function () {
     return view('home');
 })->middleware('auth');
+
+Route::middleware('auth')->group(function () {
+    Route::resource('tipos','TipoInsumoController');
+});
