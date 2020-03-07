@@ -16,7 +16,7 @@ class CreateInsumoTable extends Migration
         Schema::create('insumo', function (Blueprint $table) {
             $table->increments('id');
             $table->text('nombre');
-            $table->text('ingrediente_reactivo');
+            $table->text('ingrediente_reactivo')->nullable();
             $table->integer('existencias');
             $table->unsignedInteger('tipo_id');
             $table->unsignedInteger('unidad_medida_id');

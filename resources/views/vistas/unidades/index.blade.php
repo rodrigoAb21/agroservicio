@@ -7,7 +7,7 @@
 
 
                     <h2 class="pb-2">
-                        <i class="fa fa-object-group"></i> Unidades de Medida
+                        <i class="fa fa-ruler"></i> Unidades de Medida
                         <div class="float-right">
                             <a class="btn btn-success" href="{{url('unidades/create')}}">
                                 <i class="fa fa-plus"></i>  Nueva
