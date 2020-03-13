@@ -6,7 +6,7 @@
             <div class="card">
                 <div class="card-body">
                     <h3 class="pb-2">
-                        NUEVO INGRESO
+                        INGRESO DE SUMINISTROS: {{$ingreso->id}}
                     </h3>
 
                         {{csrf_field()}}
