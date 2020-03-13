@@ -98,7 +98,7 @@
                         </div>
 
                         <a href="{{url('ingresos')}}" class="btn btn-warning">Atras</a>
-                        <button type="submit" class="btn btn-info">Guardar</button>
+                        <button type="submit" id="guardar" class="btn btn-info">Guardar</button>
                     </form>
                 </div>
             </div>
@@ -111,7 +111,7 @@
         <script>
             $(document).ready(
                 function () {
-
+                    evaluar();
                 }
             );
 
@@ -119,6 +119,7 @@
             var cantidad = [];
             var precio = [];
             var subTotal = [];
+            var total = 0;
 
             function agregar() {
 
@@ -157,26 +158,42 @@
                         '</td> ' +
                         '</tr>';
 
+                    total = total + subTotal[cont];
+                    $('#totalIngreso1').val(total);
+                    $('#totalIngreso2').val(total);
+
                     cont++;
                     limpiar();
 
                     $("#detalle").append(fila); // sirve para anhadir una fila a los detalles
+                    evaluar();
 
                 }
 
             }
 
             function quitar(index){
+                total = total - subTotal[index];
                 cont--;
-                $("#fila" + index).remove();
-            }
 
+                $("#fila" + index).remove();
+                $('#totalIngreso1').val(total);
+                $('#totalIngreso2').val(total);
+                evaluar();
+            }
 
             function limpiar(){
                 $("#cantidad").val("");
                 $("#precio").val("");
             }
 
+            function evaluar(){
+                if (cont > 0) {
+                    $("#guardar").show();
+                }else{
+                    $("#guardar").hide();
+                }
+            }
 
 
         </script>

@@ -7,6 +7,7 @@ use App\Ingreso;
 use App\Insumo;
 use App\Proveedor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class IngresoController extends Controller
 {
@@ -27,6 +28,14 @@ class IngresoController extends Controller
             ]);
     }
 
+    public function show($id){
+        //dd(Ingreso::with('proveedor', 'detalles', 'detalles.insumo')->get());
+        return view('vistas.ingresos.show',
+            [
+                'ingreso' => Ingreso::findOrFail($id),
+            ]);
+    }
+
 
     public function store(Request $request)
     {
@@ -40,8 +49,8 @@ class IngresoController extends Controller
             $ingreso->proveedor_id = $request['proveedor_id'];
             $ingreso->save();
 
-            $insumo = $request->get('insumoT');
-            $cant = $request->get('cantT');
+            $insumo = $request->get('idInsumoT');
+            $cant = $request->get('cantidadT');
             $precio_unitario = $request->get('precioT');
             $cont = 0;
 

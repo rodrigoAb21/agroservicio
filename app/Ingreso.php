@@ -19,4 +19,8 @@ class Ingreso extends Model
     {
         return $this->belongsTo('App\Proveedor', 'proveedor_id', 'id');
     }
+
+    public function detalles(){
+        return $this->hasMany(DetalleIngreso::class);
+    }
 }

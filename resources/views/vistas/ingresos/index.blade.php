@@ -31,6 +31,11 @@
                                     <td>{{$ingreso -> proveedor->nombre}}</td>
                                     <td>{{$ingreso -> total}}</td>
                                     <td class="text-right ">
+                                        <a href="{{url('ingresos/'.$ingreso->id)}}">
+                                            <button class="btn btn-outline-info">
+                                                <i class="fa fa-eye"></i>
+                                            </button>
+                                        </a>
                                         <button type="button" class="btn btn-danger" onclick="modalEliminar('{{$ingreso -> id}}', '{{url('ingresos/'.$ingreso -> id)}}')">
                                             <i class="fa fa-times"></i>
                                         </button>

@@ -15,4 +15,8 @@ class DetalleIngreso extends Model
         'insumo_id',
         'ingreso_id',
     ];
+
+    public function insumo(){
+        return $this->belongsTo('App\Insumo', 'insumo_id', 'id');
+    }
 }
