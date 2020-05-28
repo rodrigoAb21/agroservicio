@@ -134,6 +134,7 @@
                     subTotal[cont] = cantidad[cont] * precio[cont];
 
 
+
                     var fila=
                         '<tr id="fila'+cont+'">' +
                         '<td>' +
@@ -154,7 +155,7 @@
                         +precio[cont]+
                         '</td>' +
                         '<td>'
-                        +subTotal[cont]+
+                        +subTotal[cont].toFixed(1)+
                         '</td> ' +
                         '</tr>';
 

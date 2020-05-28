@@ -140,6 +140,13 @@
                             </a>
                         </li>
 
+                        <li class="{{ Request::is('reportes*') ? 'nav-item active' : 'nav-item' }}">
+                            <a href="{{url('reporteInventario')}}" >
+                                <i class="fa fa-file"></i>
+                                <span class="hide-menu"> Reportes</span>
+                            </a>
+                        </li>
+
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
