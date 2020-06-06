@@ -40,7 +40,7 @@
                                                 <i class="fa fa-pen"></i>
                                             </button>
                                         </a>
-                                        <button type="button" class="btn btn-danger" onclick="modalEliminar('{{$insumo -> nombre}}', '{{url('insumos/'.$insumo -> id)}}')">
+                                        <button type="button" class="btn btn-danger" onclick="modalEliminar('{{$insumo -> nombre}}', '{{url('insumos/'.$insumo -> id)}}');">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>

@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Insumo;
 use App\TipoInsumo;
 use App\UnidadMedida;
+use App\DetalleInsumo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class InsumoController extends Controller
 {
@@ -29,13 +31,44 @@ class InsumoController extends Controller
 
     public function store(Request $request)
     {
-        $insumo = new Insumo();
-        $insumo->nombre = $request['nombre'];
-        $insumo->ingrediente_reactivo = $request['ingrediente_reactivo'];
-        $insumo->existencias = 0;
-        $insumo->tipo_id = $request['tipo_id'];
-        $insumo->unidad_medida_id = $request['unidad_medida_id'];
-        $insumo->save();
+
+        try {
+            DB::beginTransaction();
+
+            $insumo = new Insumo();
+            $insumo->nombre = $request['nombre'];
+            $insumo->ingrediente_reactivo = $request['ingrediente_reactivo'];
+            $insumo->info = $request['info'];
+            $insumo->existencias = 0;
+            $insumo->tipo_id = $request['tipo_id'];
+            $insumo->unidad_medida_id = $request['unidad_medida_id'];
+            $insumo->save();
+
+            $cultivo = $request->get('cultivoT');
+            $plaga = $request->get('plagaT');
+            $dosis = $request->get('dosisT');
+            $cont = 0;
+
+            while ($cont < count($cultivo)) {
+                $detalle = new DetalleInsumo();
+                $detalle->cultivo = $cultivo[$cont];
+                $detalle->plaga = $plaga[$cont];
+                $detalle->dosis = $dosis[$cont];
+                $detalle->insumo_id = $insumo[$cont];
+                $detalle->save();
+
+                $cont = $cont + 1;
+            }
+
+            DB::commit();
+
+        } catch (Exception $e) {
+
+            DB::rollback();
+
+        }
+        
+    
 
         return redirect('insumos');
     }

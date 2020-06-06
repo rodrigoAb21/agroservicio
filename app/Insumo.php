@@ -12,6 +12,7 @@ class Insumo extends Model
     protected $fillable = [
         'nombre',
         'ingrediente_reactivo',
+        'info',
         'existencias',
         'tipo_id',
         'unidad_medida_id',

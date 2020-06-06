@@ -17,11 +17,14 @@ class CreateInsumoTable extends Migration
             $table->increments('id');
             $table->text('nombre');
             $table->text('ingrediente_reactivo')->nullable();
+            $table->text('info')->nullable();
             $table->integer('existencias');
             $table->unsignedInteger('tipo_id');
             $table->unsignedInteger('unidad_medida_id');
-            $table->foreign('tipo_id')->references('id')->on('tipo')->onDelete('cascade');
-            $table->foreign('unidad_medida_id')->references('id')->on('unidad_medida')->onDelete('cascade');
+            $table->foreign('tipo_id')->references('id')
+                ->on('tipo')->onDelete('cascade');
+            $table->foreign('unidad_medida_id')->references('id')
+                ->on('unidad_medida')->onDelete('cascade');
 
         });
     }
