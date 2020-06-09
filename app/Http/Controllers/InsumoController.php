@@ -54,7 +54,7 @@ class InsumoController extends Controller
                 $detalle->cultivo = $cultivo[$cont];
                 $detalle->plaga = $plaga[$cont];
                 $detalle->dosis = $dosis[$cont];
-                $detalle->insumo_id = $insumo[$cont];
+                $detalle->insumo_id = $insumo->id;
                 $detalle->save();
 
                 $cont = $cont + 1;
