@@ -27,4 +27,5 @@ class Insumo extends Model
     {
         return $this->belongsTo('App\UnidadMedida', 'unidad_medida_id', 'id');
     }
+
 }
