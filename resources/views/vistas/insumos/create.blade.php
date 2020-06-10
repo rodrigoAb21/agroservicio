@@ -114,11 +114,11 @@
             '</button>' +
             '</td>' +
             '<td class="text-center">' +
-            '<input class"form-control "  name="cultivoT[]"></td>' +
+            '<input class"form-control "  name="cultivoT[]" required></td>' +
             '<td class="text-center">' +
-            '<input class"form-control "  name="plagaT[]"></td>' +
+            '<input class"form-control "  name="plagaT[]" required></td>' +
             '<td class="text-center">' +
-            '<input class"form-control "  name="dosisT[]"></td>' +
+            '<input class"form-control "  name="dosisT[]" required></td>' +
             '</tr>';
 
 
