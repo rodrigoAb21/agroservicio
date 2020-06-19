@@ -14,32 +14,52 @@
                         <div class="row">
                             <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
                                 <div class="form-group">
-                                    <label>Nombre</label>
+                                    <label>Contacto</label>
                                     <input required
                                            type="text"
                                            class="form-control"
-                                           value="{{old('nombre')}}"
-                                           name="nombre">
+                                           value="{{old('contacto')}}"
+                                           name="contacto">
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                                 <div class="form-group">
-                                    <label>Telefono</label>
-                                    <input required
+                                    <label>Celular</label>
+                                    <input
                                            type="number"
                                            class="form-control"
-                                           value="{{old('telefono')}}"
-                                           name="telefono">
+                                           value="{{old('celular')}}"
+                                           name="celular">
+                                </div>
+                            </div>
+                            <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <label>Empresa</label>
+                                    <input required
+                                           type="text"
+                                           class="form-control"
+                                           value="{{old('empresa')}}"
+                                           name="empresa">
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <label>Telefono empresa</label>
+                                    <input
+                                           type="text"
+                                           class="form-control"
+                                           value="{{old('tel_empresa')}}"
+                                           name="tel_empresa">
                                 </div>
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="form-group">
-                                    <label>Direccion</label>
-                                    <input required
+                                    <label>Direccion empresa</label>
+                                    <input
                                            type="text"
                                            class="form-control"
-                                           value="{{old('direccion')}}"
-                                           name="direccion">
+                                           value="{{old('dir_empresa')}}"
+                                           name="dir_empresa">
                                 </div>
                             </div>
                         </div>

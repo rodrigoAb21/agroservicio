@@ -10,10 +10,10 @@ class Proveedor extends Model
     protected $primaryKey = 'id';
     public $timestamps = false;
     protected $fillable = [
-        'nombre',
-        'direccion',
-        'telefono',
-        'lat',
-        'lng',
+        'contacto',
+        'celular',
+        'empresa',
+        'tel_empresa',
+        'dir_empresa',
     ];
 }

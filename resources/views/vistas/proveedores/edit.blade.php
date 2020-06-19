@@ -15,32 +15,52 @@
                         <div class="row">
                             <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
                                 <div class="form-group">
-                                    <label>Nombre</label>
+                                    <label>Contacto</label>
                                     <input required
                                            type="text"
                                            class="form-control"
-                                           value="{{$proveedor->nombre}}"
-                                           name="nombre">
+                                           value="{{$proveedor->contacto}}"
+                                           name="contacto">
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                                 <div class="form-group">
-                                    <label>Telefono</label>
-                                    <input required
+                                    <label>Celular</label>
+                                    <input
                                            type="number"
                                            class="form-control"
-                                           value="{{$proveedor->telefono}}"
-                                           name="telefono">
+                                           value="{{$proveedor->celular}}"
+                                           name="celular">
+                                </div>
+                            </div>
+                            <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <label>Empresa</label>
+                                    <input required
+                                           type="text"
+                                           class="form-control"
+                                           value="{{$proveedor->empresa}}"
+                                           name="empresa">
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <label>Telefono empresa</label>
+                                    <input
+                                           type="text"
+                                           class="form-control"
+                                           value="{{$proveedor->tel_empresa}}"
+                                           name="tel_empresa">
                                 </div>
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="form-group">
-                                    <label>Direccion</label>
-                                    <input required
+                                    <label>Direccion empresa</label>
+                                    <input
                                            type="text"
                                            class="form-control"
-                                           value="{{$proveedor->direccion}}"
-                                           name="direccion">
+                                           value="{{$proveedor->dir_empresa}}"
+                                           name="dir_empresa">
                                 </div>
                             </div>
                         </div>

@@ -4,8 +4,6 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-
-
                     <h2 class="pb-2">
                         <i class="fa fa-industry"></i> Proveedores
                         <div class="float-right">
@@ -20,9 +18,11 @@
                             <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>NOMBRE</th>
-                                <th>DIRECCION</th>
-                                <th>TELEFONO</th>
+                                <th>CONTACTO</th>
+                                <th>CELULAR</th>
+                                <th>EMPRESA</th>
+                                <th>TEL_EMPRESA</th>
+                                <th>DIR_EMPRESA</th>
                                 <th>OPCIONES</th>
                             </tr>
                             </thead>
@@ -30,16 +30,18 @@
                             @foreach($proveedores as $proveedor)
                                 <tr>
                                     <td>{{$proveedor->id}}</td>
-                                    <td>{{$proveedor->nombre}}</td>
-                                    <td>{{$proveedor->direccion}}</td>
-                                    <td>{{$proveedor->telefono}}</td>
+                                    <td>{{$proveedor->contacto}}</td>
+                                    <td>{{$proveedor->celular}}</td>
+                                    <td>{{$proveedor->empresa}}</td>
+                                    <td>{{$proveedor->tel_empresa}}</td>
+                                    <td>{{$proveedor->dir_empresa}}</td>
                                     <td class="text-right ">
                                         <a href="{{url('proveedores/'.$proveedor->id.'/edit')}}">
                                             <button class="btn btn-warning">
                                                 <i class="fa fa-pen"></i>
                                             </button>
                                         </a>
-                                        <button type="button" class="btn btn-danger" onclick="modalEliminar('{{$proveedor -> nombre}}', '{{url('proveedores/'.$proveedor -> id)}}')">
+                                        <button type="button" class="btn btn-danger" onclick="modalEliminar('{{$proveedor -> contacto}}', '{{url('proveedores/'.$proveedor -> id)}}')">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>
