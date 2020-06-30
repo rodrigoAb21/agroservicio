@@ -28,7 +28,7 @@
                                     <label>Proveedor</label>
                                     <select class="form-control" name="proveedor_id">
                                         @foreach($proveedores as $proveedor)
-                                            <option value="{{$proveedor->id}}">{{$proveedor->nombre}}</option>
+                                            <option value="{{$proveedor->id}}">{{$proveedor->contacto}} - {{$proveedor->empresa}}</option>
                                         @endforeach
                                     </select>
                                 </div>

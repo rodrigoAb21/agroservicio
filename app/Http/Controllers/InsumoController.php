@@ -45,19 +45,23 @@ class InsumoController extends Controller
             $insumo->save();
 
             $cultivo = $request->get('cultivoT');
-            $plaga = $request->get('plagaT');
-            $dosis = $request->get('dosisT');
-            $cont = 0;
 
-            while ($cont < count($cultivo)) {
-                $detalle = new DetalleInsumo();
-                $detalle->cultivo = $cultivo[$cont];
-                $detalle->plaga = $plaga[$cont];
-                $detalle->dosis = $dosis[$cont];
-                $detalle->insumo_id = $insumo->id;
-                $detalle->save();
 
-                $cont = $cont + 1;
+            if($cultivo){
+                $plaga = $request->get('plagaT');
+                $dosis = $request->get('dosisT');
+                $cont = 0;
+
+                while ($cont < count($cultivo)) {
+                    $detalle = new DetalleInsumo();
+                    $detalle->cultivo = $cultivo[$cont];
+                    $detalle->plaga = $plaga[$cont];
+                    $detalle->dosis = $dosis[$cont];
+                    $detalle->insumo_id = $insumo->id;
+                    $detalle->save();
+
+                    $cont = $cont + 1;
+                }
             }
 
             DB::commit();
