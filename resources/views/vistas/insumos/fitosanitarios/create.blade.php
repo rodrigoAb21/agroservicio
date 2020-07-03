@@ -6,10 +6,10 @@
         <div class="card">
             <div class="card-body">
                 <h3 class="pb-2">
-                    Nuevo Insumo
+                    Nuevo Fitosanitario
                 </h3>
 
-                <form method="POST" action="{{url('insumos')}}" autocomplete="off">
+                <form method="POST" action="{{url('insumos/fitosanitarios')}}" autocomplete="off">
                     {{csrf_field()}}
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -21,15 +21,15 @@
 
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="form-group">
-                                <label>Ingrediente Reactivo</label>
-                                <input type="text" class="form-control" value="{{old('ingrediente_reactivo')}}" name="ingrediente_reactivo">
+                                <label>Ingrediente Activo</label>
+                                <input type="text" class="form-control" value="{{old('ingrediente_activo')}}" name="ingrediente_activo">
                             </div>
                         </div>
 
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <div class="form-group">
-                                <label>Tipo de Insumo</label>
-                                <select class="form-control" name="tipo_id">
+                                <label>Tipo de Fitosanitario</label>
+                                <select class="form-control" name="tipoFitosanitario_id">
                                     @foreach($tipos as $tipo)
                                     <option value="{{$tipo->id}}">{{$tipo->nombre}}</option>
                                     @endforeach
@@ -93,7 +93,7 @@
 
 
 
-                    <a href="{{url('insumos')}}" class="btn btn-warning">Atras</a>
+                    <a href="{{url('insumos/fitosanitarios')}}" class="btn btn-warning">Atras</a>
                     <button type="submit" class="btn btn-info">Guardar</button>
                 </form>
             </div>

@@ -119,8 +119,8 @@
                                         <span>  Semillas</span>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="app-calendar.html">
+                                <li class="{{ Request::is('insumos/fitosanitarios*') ? 'nav-item active' : 'nav-item' }}">
+                                    <a href="{{url('insumos/fitosanitarios')}}" >
                                         <i class="fa fa-biohazard"></i>
                                         <span>  Fitosanitarios</span>
                                     </a>

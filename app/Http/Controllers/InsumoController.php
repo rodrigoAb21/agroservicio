@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Insumo;
 use App\TipoInsumo;
 use App\UnidadMedida;
-use App\DetalleInsumo;
+use App\DetalleFitosanitario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -53,7 +53,7 @@ class InsumoController extends Controller
                 $cont = 0;
 
                 while ($cont < count($cultivo)) {
-                    $detalle = new DetalleInsumo();
+                    $detalle = new DetalleFitosanitario();
                     $detalle->cultivo = $cultivo[$cont];
                     $detalle->plaga = $plaga[$cont];
                     $detalle->dosis = $dosis[$cont];
@@ -84,7 +84,7 @@ class InsumoController extends Controller
                 'insumo' => Insumo::findOrFail($id),
                 'unidades' => UnidadMedida::all(),
                 'tipos' => TipoInsumo::all(),
-                'detalles' => DetalleInsumo::where('insumo_id','=', $id)->get(),
+                'detalles' => DetalleFitosanitario::where('insumo_id','=', $id)->get(),
             ]);
     }
 
@@ -109,7 +109,7 @@ class InsumoController extends Controller
             $cont = 0;
 
             while ($cont < count($cultivo)) {
-                $detalle = new DetalleInsumo();
+                $detalle = new DetalleFitosanitario();
                 $detalle->cultivo = $cultivo[$cont];
                 $detalle->plaga = $plaga[$cont];
                 $detalle->dosis = $dosis[$cont];
