@@ -108,10 +108,31 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li class="{{ Request::is('insumos*') ? 'nav-item active' : 'nav-item' }}">
-                            <a href="{{url('insumos')}}" >
+                            <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
                                 <i class="fa fa-box-open"></i>
                                 <span class="hide-menu"> Insumos</span>
                             </a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li class="{{ Request::is('insumos/semillas*') ? 'nav-item active' : 'nav-item' }}">
+                                    <a href="{{url('insumos/semillas')}}" >
+                                        <i class="fa fa-leaf"></i>
+                                        <span>  Semillas</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="app-calendar.html">
+                                        <i class="fa fa-biohazard"></i>
+                                        <span>  Fitosanitarios</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="app-calendar.html">
+                                        <i class="fa fa-bolt"></i>
+                                        <span>  Abonos</span>
+                                    </a>
+                                </li>
+
+                            </ul>
                         </li>
                         <li class="{{ Request::is('tipos*') ? 'nav-item active' : 'nav-item' }}">
                             <a href="{{url('tipos')}}" >

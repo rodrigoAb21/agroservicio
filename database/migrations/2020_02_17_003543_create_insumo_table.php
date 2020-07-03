@@ -16,16 +16,16 @@ class CreateInsumoTable extends Migration
         Schema::create('insumo', function (Blueprint $table) {
             $table->increments('id');
             $table->text('nombre');
-            $table->text('ingrediente_reactivo')->nullable();
+            $table->text('ingrediente_activo')->nullable();
+            $table->text('tipo');
             $table->text('info')->nullable();
             $table->integer('existencias');
-            $table->unsignedInteger('tipo_id');
+            $table->unsignedInteger('tipoFitosanitario_id')->nullable();
             $table->unsignedInteger('unidad_medida_id');
-            $table->foreign('tipo_id')->references('id')
-                ->on('tipo')->onDelete('cascade');
+            $table->foreign('tipoFitosanitario_id')->references('id')
+                ->on('tipoFitosanitario')->onDelete('cascade');
             $table->foreign('unidad_medida_id')->references('id')
                 ->on('unidad_medida')->onDelete('cascade');
-
         });
     }
 

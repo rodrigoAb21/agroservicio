@@ -11,16 +11,17 @@ class Insumo extends Model
     public $timestamps = false;
     protected $fillable = [
         'nombre',
-        'ingrediente_reactivo',
+        'ingrediente_activo',
         'info',
         'existencias',
-        'tipo_id',
+        'tipo',
+        'tipoFitosanitario_id',
         'unidad_medida_id',
     ];
 
-    public function tipo()
+    public function tipoFitosanitario()
     {
-        return $this->belongsTo('App\TipoInsumo', 'tipo_id', 'id');
+        return $this->belongsTo('App\TipoFitosanitario', 'tipoFitosanitario_id', 'id');
     }
 
     public function unidad()
