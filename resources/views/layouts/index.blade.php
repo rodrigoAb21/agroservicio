@@ -134,18 +134,7 @@
 
                             </ul>
                         </li>
-                        <li class="{{ Request::is('tipos*') ? 'nav-item active' : 'nav-item' }}">
-                            <a href="{{url('tipos')}}" >
-                                <i class="fa fa-object-group"></i>
-                                <span class="hide-menu"> Tipos de Insumo</span>
-                            </a>
-                        </li>
-                        <li class="{{ Request::is('unidades*') ? 'nav-item active' : 'nav-item' }}">
-                            <a href="{{url('unidades')}}" >
-                                <i class="fa fa-ruler"></i>
-                                <span class="hide-menu"> Unidades de Medida</span>
-                            </a>
-                        </li>
+
 
                         <li class="{{ Request::is('proveedores*') ? 'nav-item active' : 'nav-item' }}">
                             <a href="{{url('proveedores')}}" >
@@ -167,7 +156,26 @@
                                 <span class="hide-menu"> Reportes</span>
                             </a>
                         </li>
-
+                        <li class="{{ Request::is('config*') ? 'nav-item active' : 'nav-item' }}">
+                            <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
+                                <i class="fa fa-cogs"></i>
+                                <span class="hide-menu"> Configuracion</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li class="{{ Request::is('config/unidades*') ? 'nav-item active' : 'nav-item' }}">
+                                    <a href="{{url('config/unidades')}}" >
+                                        <i class="fa fa-ruler"></i>
+                                        <span class="hide-menu"> Unidades de Medida</span>
+                                    </a>
+                                </li>
+                                <li class="{{ Request::is('config/tipoFitosanitarios*') ? 'nav-item active' : 'nav-item' }}">
+                                    <a href="{{url('config/tipoFitosanitarios')}}" >
+                                        <i class="fa fa-book-dead"></i>
+                                        <span class="hide-menu"> Tipos Fitosanitario</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->

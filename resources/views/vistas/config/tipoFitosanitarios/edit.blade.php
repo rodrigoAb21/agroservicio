@@ -9,7 +9,7 @@
                         Editar tipo: {{$tipo->id}}
                     </h3>
 
-                    <form method="POST" action="{{url('tipoFitosanitarios/'.$tipo->id)}}" autocomplete="off">
+                    <form method="POST" action="{{url('config/tipoFitosanitarios/'.$tipo->id)}}" autocomplete="off">
                         {{csrf_field()}}
                         {{method_field('PATCH')}}
                         <div class="row">
@@ -24,7 +24,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="{{url('tipoFitosanitarios')}}" class="btn btn-warning">Atras</a>
+                        <a href="{{url('config/tipoFitosanitarios')}}" class="btn btn-warning">Atras</a>
                         <button type="submit" class="btn btn-info">Guardar</button>
                     </form>
                 </div>

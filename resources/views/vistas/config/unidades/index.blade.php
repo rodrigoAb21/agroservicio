@@ -7,10 +7,10 @@
 
 
                     <h2 class="pb-2">
-                        <i class="fa fa-object-group"></i> Tipos de Fitosanitarios
+                        <i class="fa fa-ruler"></i> Unidades de Medida
                         <div class="float-right">
-                            <a class="btn btn-success" href="{{url('tipoFitosanitarios/create')}}">
-                                <i class="fa fa-plus"></i>  Nuevo
+                            <a class="btn btn-success" href="{{url('config/unidades/create')}}">
+                                <i class="fa fa-plus"></i>  Nueva
                             </a>
                         </div>
                     </h2>
@@ -25,17 +25,17 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($tipos as $tipo)
+                            @foreach($unidades as $unidad)
                                 <tr>
-                                    <td>{{$tipo->id}}</td>
-                                    <td>{{$tipo->nombre}}</td>
+                                    <td>{{$unidad->id}}</td>
+                                    <td>{{$unidad->nombre}}</td>
                                     <td class="text-right ">
-                                        <a href="{{url('tipoFitosanitarios/'.$tipo->id.'/edit')}}">
+                                        <a href="{{url('config/unidades/'.$unidad->id.'/edit')}}">
                                             <button class="btn btn-warning">
                                                 <i class="fa fa-pen"></i>
                                             </button>
                                         </a>
-                                        <button type="button" class="btn btn-danger" onclick="modalEliminar('{{$tipo -> nombre}}', '{{url('tipoFitosanitarios/'.$tipo -> id)}}')">
+                                        <button type="button" class="btn btn-danger" onclick="modalEliminar('{{$unidad -> nombre}}', '{{url('config/unidades/'.$unidad -> id)}}')">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>
@@ -43,7 +43,7 @@
                             @endforeach
                             </tbody>
                         </table>
-                        {{$tipos->links('pagination.default')}}
+                        {{$unidades->links('pagination.default')}}
                     </div>
                 </div>
             </div>
@@ -56,8 +56,8 @@
             function modalEliminar(nombre, url) {
                 $('#modalEliminarForm').attr("action", url);
                 $('#metodo').val("delete");
-                $('#modalEliminarTitulo').html("Eliminar Tipo");
-                $('#modalEliminarEnunciado').html("Realmente desea eliminar al tipo: " + nombre + "?");
+                $('#modalEliminarTitulo').html("Eliminar Unidad de Medida");
+                $('#modalEliminarEnunciado').html("Realmente desea eliminar la unidad de medida: " + nombre + "?");
                 $('#modalEliminar').modal('show');
             }
 

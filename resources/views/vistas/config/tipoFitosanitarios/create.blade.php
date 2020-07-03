@@ -6,10 +6,10 @@
             <div class="card">
                 <div class="card-body">
                     <h3 class="pb-2">
-                        Nuevo tipo de insumo
+                        Nuevo tipo de fitosanitario
                     </h3>
 
-                    <form method="POST" action="{{url('tipoFitosanitarios')}}" autocomplete="off">
+                    <form method="POST" action="{{url('config/tipoFitosanitarios')}}" autocomplete="off">
                         {{csrf_field()}}
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -23,7 +23,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="{{url('tipoFitosanitarios')}}" class="btn btn-warning">Atras</a>
+                        <a href="{{url('config/tipoFitosanitarios')}}" class="btn btn-warning">Atras</a>
                         <button type="submit" class="btn btn-info">Guardar</button>
                     </form>
                 </div>

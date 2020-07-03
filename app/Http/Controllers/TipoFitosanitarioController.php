@@ -1,14 +1,15 @@
-<?php    //
+<?php
 
 namespace App\Http\Controllers;
 
+use App\TipoFitosanitario;
 use Illuminate\Http\Request;
 
 class TipoFitosanitarioController extends Controller
 {
     public function index()
     {
-        return view('vistas.tipos.index',
+        return view('vistas.config.tipoFitosanitarios.index',
             [
                 'tipos' => TipoFitosanitario::paginate(10),
             ]);
@@ -16,7 +17,7 @@ class TipoFitosanitarioController extends Controller
 
     public function create()
     {
-        return view('vistas.tipos.create');
+        return view('vistas.config.tipoFitosanitarios.create');
     }
 
 
@@ -26,12 +27,12 @@ class TipoFitosanitarioController extends Controller
         $tipo->nombre = $request['nombre'];
         $tipo->save();
 
-        return redirect('tipos');
+        return redirect('config/tipoFitosanitarios');
     }
 
     public function edit($id)
     {
-        return view('vistas.tipos.edit',
+        return view('vistas.config.tipoFitosanitarios.edit',
             [
                 'tipo' => TipoFitosanitario::findOrFail($id),
             ]);
@@ -44,7 +45,7 @@ class TipoFitosanitarioController extends Controller
         $tipo->nombre = $request['nombre'];
         $tipo->update();
 
-        return redirect('tipos');
+        return redirect('config/tipoFitosanitarios');
     }
 
 
@@ -53,6 +54,6 @@ class TipoFitosanitarioController extends Controller
         $tipo = TipoFitosanitario::findOrFail($id);
         $tipo->delete();
 
-        return redirect('tipos');
+        return redirect('config/tipoFitosanitarios');
     }
 }

@@ -9,7 +9,7 @@ class UnidadMedidaController extends Controller
 {
     public function index()
     {
-        return view('vistas.unidades.index',
+        return view('vistas.config.unidades.index',
             [
                 'unidades' => UnidadMedida::paginate(10),
             ]);
@@ -17,7 +17,7 @@ class UnidadMedidaController extends Controller
 
     public function create()
     {
-        return view('vistas.unidades.create');
+        return view('vistas.config.unidades.create');
     }
 
 
@@ -27,12 +27,12 @@ class UnidadMedidaController extends Controller
         $unidad->nombre = $request['nombre'];
         $unidad->save();
 
-        return redirect('unidades');
+        return redirect('config/unidades');
     }
 
     public function edit($id)
     {
-        return view('vistas.unidades.edit',
+        return view('vistas.config.unidades.edit',
             [
                 'unidad' => UnidadMedida::findOrFail($id),
             ]);
@@ -45,7 +45,7 @@ class UnidadMedidaController extends Controller
         $unidad->nombre = $request['nombre'];
         $unidad->update();
 
-        return redirect('unidades');
+        return redirect('config/unidades');
     }
 
 
@@ -54,6 +54,6 @@ class UnidadMedidaController extends Controller
         $unidad = UnidadMedida::findOrFail($id);
         $unidad->delete();
 
-        return redirect('unidades');
+        return redirect('config/unidades');
     }
 }

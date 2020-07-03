@@ -18,7 +18,8 @@ Route::get('/', function () {
 })->middleware('auth');
 
 Route::middleware('auth')->group(function () {
-    Route::resource('unidades','UnidadMedidaController');
+    Route::resource('config/unidades','UnidadMedidaController');
+    Route::resource('config/tipoFitosanitarios','TipoFitosanitarioController');
     Route::resource('insumos/semillas','SemillaController');
     Route::resource('proveedores','ProveedorController');
     Route::resource('ingresos','IngresoController');
