@@ -22,7 +22,7 @@
                                 <th class="text-center">TIPO</th>
                                 <th class="text-center">U. MEDIDA</th>
                                 <th class="text-center">EXISTENCIAS</th>
-                                <th class="text-right">OPCIONES</th>
+                                <th class="text-center">OPCIONES</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -34,7 +34,12 @@
                                     <td>{{$insumo -> tipoFitosanitario->nombre}}</td>
                                     <td>{{$insumo -> unidad->nombre}}</td>
                                     <td>{{$insumo -> existencias}}</td>
-                                    <td class="text-right ">
+                                    <td class="text-center ">
+                                        <a href="{{url('insumos/fitosanitarios/'.$insumo->id)}}">
+                                            <button class="btn btn-outline-info">
+                                                <i class="fa fa-eye"></i>
+                                            </button>
+                                        </a>
                                         <a href="{{url('insumos/fitosanitarios/'.$insumo->id.'/edit')}}">
                                             <button class="btn btn-warning">
                                                 <i class="fa fa-pen"></i>
