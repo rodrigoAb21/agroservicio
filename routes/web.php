@@ -22,6 +22,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('config/tipoFitosanitarios','TipoFitosanitarioController');
     Route::resource('insumos/semillas','SemillaController');
     Route::resource('insumos/fitosanitarios','FitosanitarioController');
+    Route::resource('insumos/abonos','AbonoController');
     Route::resource('proveedores','ProveedorController');
     Route::resource('ingresos','IngresoController');
     Route::get('reporteInventario', 'ReporteController@inventario');

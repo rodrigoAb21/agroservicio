@@ -125,8 +125,8 @@
                                         <span>  Fitosanitarios</span>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="app-calendar.html">
+                                <li class="{{ Request::is('insumos/abonos*') ? 'nav-item active' : 'nav-item' }}">
+                                    <a href="{{url('insumos/abonos')}}" >
                                         <i class="fa fa-bolt"></i>
                                         <span>  Abonos</span>
                                     </a>

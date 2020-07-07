@@ -5,9 +5,9 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h2 class="pb-2"><i class="fa fa-biohazard"></i> Fitosanitario
+                    <h2 class="pb-2"><i class="fa fa-bolt"></i> Abono
                         <div class="float-right">
-                            <a class="btn btn-success" href="{{url('insumos/fitosanitarios/create')}}">
+                            <a class="btn btn-success" href="{{url('insumos/abonos/create')}}">
                                 <i class="fa fa-plus"></i> Nuevo
                             </a>
                         </div>
@@ -19,7 +19,6 @@
                                 <th class="text-center">ID</th>
                                 <th class="text-center">NOMBRE</th>
                                 <th class="text-center">INGREDIENTE ACTIVO</th>
-                                <th class="text-center">TIPO</th>
                                 <th class="text-center">U. MEDIDA</th>
                                 <th class="text-center">EXISTENCIAS</th>
                                 <th class="text-center">OPCIONES</th>
@@ -31,21 +30,20 @@
                                     <td>{{$insumo -> id}}</td>
                                     <td>{{$insumo -> nombre}}</td>
                                     <td>{{$insumo -> ingrediente_activo}}</td>
-                                    <td>{{$insumo -> tipoFitosanitario->nombre}}</td>
                                     <td>{{$insumo -> unidad->nombre}}</td>
                                     <td>{{$insumo -> existencias}}</td>
                                     <td class="text-center ">
-                                        <a href="{{url('insumos/fitosanitarios/'.$insumo->id)}}">
+                                        <a href="{{url('insumos/abonos/'.$insumo->id)}}">
                                             <button class="btn btn-outline-info">
                                                 <i class="fa fa-eye"></i>
                                             </button>
                                         </a>
-                                        <a href="{{url('insumos/fitosanitarios/'.$insumo->id.'/edit')}}">
+                                        <a href="{{url('insumos/abonos/'.$insumo->id.'/edit')}}">
                                             <button class="btn btn-warning">
                                                 <i class="fa fa-pen"></i>
                                             </button>
                                         </a>
-                                        <button type="button" class="btn btn-danger" onclick="modalEliminar('{{$insumo -> nombre}}', '{{url('insumos/fitosanitarios/'.$insumo -> id)}}');">
+                                        <button type="button" class="btn btn-danger" onclick="modalEliminar('{{$insumo -> nombre}}', '{{url('insumos/abonos/'.$insumo -> id)}}');">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>
@@ -66,8 +64,8 @@
             function modalEliminar(nombre, url) {
                 $('#modalEliminarForm').attr("action", url);
                 $('#metodo').val("delete");
-                $('#modalEliminarTitulo').html("Eliminar Fitosanitario");
-                $('#modalEliminarEnunciado').html("Realmente desea eliminar el fitosanitario: " + nombre + "?");
+                $('#modalEliminarTitulo').html("Eliminar Abono");
+                $('#modalEliminarEnunciado').html("Realmente desea eliminar el abono: " + nombre + "?");
                 $('#modalEliminar').modal('show');
             }
 

@@ -89,6 +89,15 @@ class FitosanitarioController extends Controller
             ]);
     }
 
+    public function show($id)
+    {
+        return view('vistas.insumos.fitosanitarios.show',
+            [
+                'insumo' => Insumo::findOrFail($id),
+                'detalles' => DetalleFitosanitario::where('insumo_id','=', $id)->get(),
+            ]);
+    }
+
 
     public function update(Request $request, $id)
     {
