@@ -14,7 +14,9 @@ class AbonoController extends Controller
     {
         return view('vistas.insumos.abonos.index',
             [
-                'insumos' => Insumo::where('tipo', '=', 'Abono')->paginate(10),
+                'insumos' => Insumo::where('tipo', '=', 'Abono')
+                    ->orderBy('nombre')
+                    ->paginate(10),
             ]);
     }
 

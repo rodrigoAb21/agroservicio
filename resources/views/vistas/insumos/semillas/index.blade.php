@@ -16,7 +16,6 @@
                         <table class="table table-hover table-bordered color-table info-table">
                             <thead>
                             <tr>
-                                <th class="text-center">ID</th>
                                 <th class="text-center">NOMBRE</th>
                                 <th class="text-center">CONT TOTAL</th>
                                 <th class="text-center">EXISTENCIAS</th>
@@ -26,7 +25,6 @@
                             <tbody>
                             @foreach($insumos as $insumo)
                                 <tr class="text-center">
-                                    <td>{{$insumo -> id}}</td>
                                     <td>{{$insumo -> nombre}}</td>
                                     <td>{{$insumo -> contenido_total}} {{$insumo -> unidad->nombre}}</td>
                                     <td>{{$insumo -> existencias}}</td>

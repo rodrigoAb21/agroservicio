@@ -13,7 +13,7 @@ class SemillaController extends Controller
     {
         return view('vistas.insumos.semillas.index',
             [
-                'insumos' => Insumo::where('tipo','=', 'Semilla')->paginate(10),
+                'insumos' => Insumo::where('tipo','=', 'Semilla')->orderBy('nombre')->paginate(10),
             ]);
     }
 

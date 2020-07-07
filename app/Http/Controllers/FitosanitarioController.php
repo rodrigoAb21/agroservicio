@@ -15,7 +15,9 @@ class FitosanitarioController extends Controller
     {
         return view('vistas.insumos.fitosanitarios.index',
             [
-                'insumos' => Insumo::where('tipo', '=', 'Fitosanitario')->paginate(10),
+                'insumos' => Insumo::where('tipo', '=', 'Fitosanitario')
+                    ->orderBy('nombre')
+                    ->paginate(10),
             ]);
     }
 
