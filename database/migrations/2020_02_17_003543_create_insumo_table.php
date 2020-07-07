@@ -17,6 +17,7 @@ class CreateInsumoTable extends Migration
             $table->increments('id');
             $table->text('nombre');
             $table->text('ingrediente_activo')->nullable();
+            $table->text('contenido_total')->nullable();
             $table->text('tipo');
             $table->text('info')->nullable();
             $table->integer('existencias');

@@ -16,11 +16,10 @@
                         <table class="table table-hover table-bordered color-table info-table">
                             <thead>
                             <tr>
-                                <th class="text-center">ID</th>
                                 <th class="text-center">NOMBRE</th>
+                                <th class="text-center">CONT TOTAL</th>
                                 <th class="text-center">INGREDIENTE ACTIVO</th>
                                 <th class="text-center">TIPO</th>
-                                <th class="text-center">U. MEDIDA</th>
                                 <th class="text-center">EXISTENCIAS</th>
                                 <th class="text-center">OPCIONES</th>
                             </tr>
@@ -28,11 +27,10 @@
                             <tbody>
                             @foreach($insumos as $insumo)
                                 <tr class="text-center">
-                                    <td>{{$insumo -> id}}</td>
                                     <td>{{$insumo -> nombre}}</td>
+                                    <td>{{$insumo -> contenido_total}} {{$insumo -> unidad->nombre}}</td>
                                     <td>{{$insumo -> ingrediente_activo}}</td>
                                     <td>{{$insumo -> tipoFitosanitario->nombre}}</td>
-                                    <td>{{$insumo -> unidad->nombre}}</td>
                                     <td>{{$insumo -> existencias}}</td>
                                     <td class="text-center ">
                                         <a href="{{url('insumos/fitosanitarios/'.$insumo->id)}}">

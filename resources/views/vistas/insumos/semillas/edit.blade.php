@@ -13,7 +13,7 @@
                         {{csrf_field()}}
                         {{method_field('PATCH')}}
                         <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <label>Nombre</label>
                                     <input required
@@ -24,7 +24,13 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <label>Contenido Total</label>
+                                    <input type="number" class="form-control" value="{{old('contenido_total')}}" name="contenido_total">
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <label>Unidad de Medida</label>
                                     <select class="form-control" name="unidad_medida_id">

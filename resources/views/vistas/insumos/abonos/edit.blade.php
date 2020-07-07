@@ -13,7 +13,7 @@
                         {{csrf_field()}}
                         {{method_field('PATCH')}}
                         <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <label>Nombre</label>
                                     <input required
@@ -24,7 +24,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <label>Ingrediente Activo</label>
                                     <input
@@ -32,6 +32,16 @@
                                             class="form-control"
                                             value="{{$insumo->ingrediente_activo}}"
                                             name="ingrediente_activo">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <label>Contenido Total</label>
+                                    <input
+                                            type="number"
+                                            class="form-control"
+                                            value="{{$insumo->contenido_total}}"
+                                            name="contenido_total">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -51,7 +61,10 @@
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <label>Info</label>
-                                    <textarea class="form-control" name="info" rows="3">{{$insumo->info}}</textarea>
+                                    <textarea
+                                            class="form-control"
+                                            name="info"
+                                            rows="3">{{$insumo->info}}</textarea>
                                 </div>
                             </div>
 

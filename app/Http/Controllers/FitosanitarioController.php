@@ -38,6 +38,7 @@ class FitosanitarioController extends Controller
             $insumo = new Insumo();
             $insumo->nombre = $request['nombre'];
             $insumo->ingrediente_activo = $request['ingrediente_activo'];
+            $insumo->contenido_total = $request['contenido_total'];
             $insumo->info = $request['info'];
             $insumo->existencias = 0;
             $insumo->tipo = 'Fitosanitario';
@@ -106,27 +107,31 @@ class FitosanitarioController extends Controller
             $insumo = Insumo::findOrFail($id);
             $insumo->nombre = $request['nombre'];
             $insumo->ingrediente_activo = $request['ingrediente_activo'];
+            $insumo->contenido_total = $request['contenido_total'];
             $insumo->info = $request['info'];
             $insumo->tipoFitosanitario_id = $request['tipoFitosanitario_id'];
             $insumo->unidad_medida_id = $request['unidad_medida_id'];
+
             if ($insumo->update()){
                 DB::table('detalle_fitosanitario')->where('insumo_id', '=', $id)->delete();
-            }
-            $cultivo = $request->get('cultivoT');
-            $plaga = $request->get('plagaT');
-            $dosis = $request->get('dosisT');
-            $cont = 0;
+                $cultivo = $request->get('cultivoT');
+                if ($cultivo){
+                    $plaga = $request->get('plagaT');
+                    $dosis = $request->get('dosisT');
+                    $cont = 0;
+                    while ($cont < count($cultivo)) {
+                        $detalle = new DetalleFitosanitario();
+                        $detalle->cultivo = $cultivo[$cont];
+                        $detalle->plaga = $plaga[$cont];
+                        $detalle->dosis = $dosis[$cont];
+                        $detalle->insumo_id = $insumo->id;
+                        $detalle->save();
 
-            while ($cont < count($cultivo)) {
-                $detalle = new DetalleFitosanitario();
-                $detalle->cultivo = $cultivo[$cont];
-                $detalle->plaga = $plaga[$cont];
-                $detalle->dosis = $dosis[$cont];
-                $detalle->insumo_id = $insumo->id;
-                $detalle->save();
-
-                $cont = $cont + 1;
+                        $cont = $cont + 1;
+                    }
+                }
             }
+
 
             DB::commit();
 

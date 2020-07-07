@@ -18,7 +18,7 @@
                             <tr>
                                 <th class="text-center">ID</th>
                                 <th class="text-center">NOMBRE</th>
-                                <th class="text-center">U. MEDIDA</th>
+                                <th class="text-center">CONT TOTAL</th>
                                 <th class="text-center">EXISTENCIAS</th>
                                 <th class="text-right">OPCIONES</th>
                             </tr>
@@ -28,7 +28,7 @@
                                 <tr class="text-center">
                                     <td>{{$insumo -> id}}</td>
                                     <td>{{$insumo -> nombre}}</td>
-                                    <td>{{$insumo -> unidad->nombre}}</td>
+                                    <td>{{$insumo -> contenido_total}} {{$insumo -> unidad->nombre}}</td>
                                     <td>{{$insumo -> existencias}}</td>
                                     <td class="text-right ">
                                         <a href="{{url('insumos/semillas/'.$insumo->id.'/edit')}}">

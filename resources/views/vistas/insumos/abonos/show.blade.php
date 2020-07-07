@@ -6,61 +6,68 @@
             <div class="card">
                 <div class="card-body">
                     <h3 class="pb-2">
-                        INGRESO DE SUMINISTROS: {{$ingreso->id}}
+                        Ver Abono: {{$insumo->nombre}}
                     </h3>
-
-                        {{csrf_field()}}
-                        <div class="row">
-                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                                <div class="form-group">
-                                    <h5>Fecha</h5>
-                                    <p>{{$ingreso->fecha}}</p>
-                                </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <h5><b>Nombre</b></h5>
+                                <p>
+                                    {{$insumo->nombre}}
+                                </p>
                             </div>
-
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                <div class="form-group">
-                                    <h5>Proveedor</h5>
-                                    <p>{{$ingreso->proveedor->nombre}}</p>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                                <div class="form-group">
-                                    <h5>Total</h5>
-                                    <p>{{$ingreso->total}}</p>
-                                </div>
-                            </div>
-
                         </div>
-                        <hr>
-                    <h4>Detalle</h4>
 
-                        <div class="table-responsive">
-                            <table class="table table-hover table-bordered color-table info-table">
-                                <thead>
-                                <tr>
-                                    <th class="text-center w-50">INSUMO</th>
-                                    <th class="text-center">CANT</th>
-                                    <th class="text-center">P. UNITARIO</th>
-                                    <th class="text-center w-25">SUB-TOTAL</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                @foreach($ingreso->detalles as $detalle)
-                                    <tr class="text-center">
-                                        <td>{{$detalle->insumo->nombre}}</td>
-                                        <td>{{$detalle->cantidad}}</td>
-                                        <td>{{$detalle->precio_unitario}}</td>
-                                        <td>{{$detalle->precio_unitario * $detalle->cantidad}}</td>
+
+
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <h5><b>Contenido Total</b></h5>
+                                <p>{{$insumo->contenido_total}} {{$insumo->unidad->nombre}}</p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <h5><b>Ingrediente Activo</b></h5>
+                                <p>{{$insumo->ingrediente_activo}}</p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <h5><b>Info</b></h5>
+                                <p>{{$insumo->info}}</p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="table-responsive">
+                                <table class="table table-hover table-bordered color-table info-table">
+                                    <thead>
+                                    <tr>
+                                        <th class="text-center">CULTIVO</th>
+                                        <th class="text-center">DOSIS</th>
                                     </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($detalles as $detalle)
+                                        <tr class="text-center">
 
+                                            <td>{{$detalle -> cultivo}}</td>
+                                            <td>{{$detalle -> dosis}}</td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
 
-                        <a href="{{url('ingresos')}}" class="btn btn-warning">Atras</a>
+
+                    </div>
+                    <a href="{{url('insumos/abonos')}}" class="btn btn-warning">Atras</a>
+
+
                 </div>
             </div>
         </div>

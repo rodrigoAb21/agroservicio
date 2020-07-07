@@ -36,6 +36,7 @@ class AbonoController extends Controller
             $insumo = new Insumo();
             $insumo->nombre = $request['nombre'];
             $insumo->ingrediente_activo = $request['ingrediente_activo'];
+            $insumo->contenido_total = $request['contenido_total'];
             $insumo->info = $request['info'];
             $insumo->existencias = 0;
             $insumo->tipo = 'Abono';
@@ -83,6 +84,15 @@ class AbonoController extends Controller
             ]);
     }
 
+    public function show($id)
+    {
+        return view('vistas.insumos.abonos.show',
+            [
+                'insumo' => Insumo::findOrFail($id),
+                'detalles' => DetalleAbono::where('insumo_id','=', $id)->get(),
+            ]);
+    }
+
 
     public function update(Request $request, $id)
     {
@@ -91,23 +101,27 @@ class AbonoController extends Controller
             $insumo = Insumo::findOrFail($id);
             $insumo->nombre = $request['nombre'];
             $insumo->ingrediente_activo = $request['ingrediente_activo'];
+            $insumo->contenido_total = $request['contenido_total'];
             $insumo->info = $request['info'];
             $insumo->unidad_medida_id = $request['unidad_medida_id'];
             if ($insumo->update()){
-                DB::table('detalle_fitosanitario')->where('insumo_id', '=', $id)->delete();
-            }
-            $cultivo = $request->get('cultivoT');
-            $dosis = $request->get('dosisT');
-            $cont = 0;
+                DB::table('detalle_abono')->where('insumo_id', '=', $id)->delete();
 
-            while ($cont < count($cultivo)) {
-                $detalle = new DetalleAbono();
-                $detalle->cultivo = $cultivo[$cont];
-                $detalle->dosis = $dosis[$cont];
-                $detalle->insumo_id = $insumo->id;
-                $detalle->save();
+                $cultivo = $request->get('cultivoT');
+                if($cultivo){
+                    $dosis = $request->get('dosisT');
+                    $cont = 0;
 
-                $cont = $cont + 1;
+                    while ($cont < count($cultivo)) {
+                        $detalle = new DetalleAbono();
+                        $detalle->cultivo = $cultivo[$cont];
+                        $detalle->dosis = $dosis[$cont];
+                        $detalle->insumo_id = $insumo->id;
+                        $detalle->save();
+
+                        $cont = $cont + 1;
+                    }
+                }
             }
 
             DB::commit();

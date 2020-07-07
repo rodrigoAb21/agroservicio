@@ -35,7 +35,15 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <label>Contenido Total</label>
+                                    <input type="number" class="form-control" value="{{$insumo->contenido_total}}" name="contenido_total">
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <label>Tipo de Insumo</label>
                                     <select class="form-control" name="tipoFitosanitario_id">
@@ -49,7 +57,8 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <label>Unidad de Medida</label>
                                     <select class="form-control" name="unidad_medida_id">

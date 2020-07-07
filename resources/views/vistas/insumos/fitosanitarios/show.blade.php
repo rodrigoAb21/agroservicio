@@ -31,12 +31,14 @@
                                 <p>{{$insumo->tipoFitosanitario->nombre}}</p>
                             </div>
                         </div>
+
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <div class="form-group">
-                                <h5><b>Unidad de Medida</b></h5>
-                                <p>{{$insumo->unidad->nombre}}</p>
+                                <h5><b>Contenido Total</b></h5>
+                                <p>{{$insumo->contenido_total}} {{$insumo->unidad->nombre}}</p>
                             </div>
                         </div>
+
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <h5><b>Info</b></h5>
