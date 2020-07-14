@@ -5,13 +5,18 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h2 class="pb-2"><i class="fa fa-leaf"></i> Semillas
+                    <h2 class="pb-2">
+                        <a href="{{url('insumos/semillas')}}"><i class="fa fa-leaf"></i> Semillas</a>
+
                         <div class="float-right">
                             <a class="btn btn-success" href="{{url('insumos/semillas/create')}}">
                                 <i class="fa fa-plus"></i> Nueva
                             </a>
                         </div>
                     </h2>
+                    <form method="GET" action="{{url('insumos/semillas')}}" autocomplete="off">
+                        <input type="text" class="form-control mb-2 mr-sm-2"  value="{{$busqueda}}" id="busqueda" name="busqueda" placeholder="Buscar">
+                    </form>
                     <div class="table-responsive">
                         <table class="table table-hover table-bordered color-table info-table">
                             <thead>

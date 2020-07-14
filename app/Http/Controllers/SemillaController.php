@@ -9,11 +9,17 @@ use Illuminate\Http\Request;
 
 class SemillaController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $busqueda = trim($request['busqueda']);
+        $semillas = Insumo::where('tipo','=', 'Semilla')
+            ->where('nombre', 'like', '%'.$busqueda.'%')
+            ->orderBy('nombre')
+            ->paginate(10);
         return view('vistas.insumos.semillas.index',
             [
-                'insumos' => Insumo::where('tipo','=', 'Semilla')->orderBy('nombre')->paginate(10),
+                'insumos' => $semillas,
+                'busqueda' => $busqueda,
             ]);
     }
 
