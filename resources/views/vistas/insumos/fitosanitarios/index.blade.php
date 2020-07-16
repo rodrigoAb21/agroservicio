@@ -5,13 +5,19 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h2 class="pb-2"><i class="fa fa-biohazard"></i> Fitosanitario
+                    <h2 class="pb-2">
+                        <a href="{{url('insumos/fitosanitarios')}}">
+                            <i class="fa fa-biohazard"></i> Fitosanitario
+                        </a>
                         <div class="float-right">
                             <a class="btn btn-success" href="{{url('insumos/fitosanitarios/create')}}">
                                 <i class="fa fa-plus"></i> Nuevo
                             </a>
                         </div>
                     </h2>
+                    <form method="GET" action="{{url('insumos/fitosanitarios')}}" autocomplete="off">
+                        <input type="text" class="form-control mb-2 mr-sm-2"  value="{{$busqueda}}" id="busqueda" name="busqueda" placeholder="Buscar">
+                    </form>
                     <div class="table-responsive">
                         <table class="table table-hover table-bordered color-table info-table">
                             <thead>

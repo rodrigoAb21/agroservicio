@@ -10,15 +10,26 @@ use Illuminate\Support\Facades\DB;
 
 class AbonoController extends Controller
 {
-    public function index()
+
+    public function index(Request $request)
     {
+        $busqueda = trim($request['busqueda']);
+        $abonos = Insumo::where('tipo','=', 'Abono')
+            ->where(function ($query) use ($busqueda) {
+                $query->where('nombre', 'like', '%'.$busqueda.'%')
+                    ->orWhere('ingrediente_activo', 'like', '%'.$busqueda.'%')
+                    ->orWhere('contenido_total', 'like', '%'.$busqueda.'%')
+                ;}
+            )
+            ->orderBy('nombre')
+            ->paginate(10);
         return view('vistas.insumos.abonos.index',
             [
-                'insumos' => Insumo::where('tipo', '=', 'Abono')
-                    ->orderBy('nombre')
-                    ->paginate(10),
+                'insumos' => $abonos,
+                'busqueda' => $busqueda,
             ]);
     }
+
 
     public function create()
     {

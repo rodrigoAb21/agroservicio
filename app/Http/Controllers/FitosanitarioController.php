@@ -11,13 +11,22 @@ use Illuminate\Support\Facades\DB;
 
 class FitosanitarioController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $busqueda = trim($request['busqueda']);
+        $fitosanitarios = Insumo::where('tipo','=', 'Fitosanitario')
+            ->where(function ($query) use ($busqueda) {
+                $query->where('nombre', 'like', '%'.$busqueda.'%')
+                    ->orWhere('ingrediente_activo', 'like', '%'.$busqueda.'%')
+                    ->orWhere('contenido_total', 'like', '%'.$busqueda.'%')
+                ;}
+            )
+            ->orderBy('nombre')
+            ->paginate(10);
         return view('vistas.insumos.fitosanitarios.index',
             [
-                'insumos' => Insumo::where('tipo', '=', 'Fitosanitario')
-                    ->orderBy('nombre')
-                    ->paginate(10),
+                'insumos' => $fitosanitarios,
+                'busqueda' => $busqueda,
             ]);
     }
 
