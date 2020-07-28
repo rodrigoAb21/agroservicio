@@ -21,8 +21,7 @@
                                 <th>CONTACTO</th>
                                 <th>CELULAR</th>
                                 <th>EMPRESA</th>
-                                <th>TEL. EMPRESA</th>
-                                <th>DIR. EMPRESA</th>
+
                                 <th class="text-center">OPC</th>
                             </tr>
                             </thead>
@@ -33,9 +32,13 @@
                                     <td>{{$proveedor->contacto}}</td>
                                     <td>{{$proveedor->celular}}</td>
                                     <td>{{$proveedor->empresa}}</td>
-                                    <td>{{$proveedor->tel_empresa}}</td>
-                                    <td>{{$proveedor->dir_empresa}}</td>
+
                                     <td class="text-center">
+                                        <a href="{{url('proveedores/'.$proveedor->id)}}">
+                                            <button class="btn btn-outline-info">
+                                                <i class="fa fa-eye"></i>
+                                            </button>
+                                        </a>
                                         <a href="{{url('proveedores/'.$proveedor->id.'/edit')}}">
                                             <button class="btn btn-warning">
                                                 <i class="fa fa-pen"></i>

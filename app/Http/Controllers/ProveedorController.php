@@ -42,6 +42,14 @@ class ProveedorController extends Controller
             ]);
     }
 
+    public function show($id)
+    {
+        return view('vistas.proveedores.show',
+            [
+                'proveedor' => Proveedor::findOrFail($id),
+            ]);
+    }
+
 
     public function update(Request $request, $id)
     {
