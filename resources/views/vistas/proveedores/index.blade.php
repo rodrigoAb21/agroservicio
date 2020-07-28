@@ -21,9 +21,9 @@
                                 <th>CONTACTO</th>
                                 <th>CELULAR</th>
                                 <th>EMPRESA</th>
-                                <th>TEL_EMPRESA</th>
-                                <th>DIR_EMPRESA</th>
-                                <th>OPCIONES</th>
+                                <th>TEL. EMPRESA</th>
+                                <th>DIR. EMPRESA</th>
+                                <th class="text-center">OPC</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -35,7 +35,7 @@
                                     <td>{{$proveedor->empresa}}</td>
                                     <td>{{$proveedor->tel_empresa}}</td>
                                     <td>{{$proveedor->dir_empresa}}</td>
-                                    <td class="text-right ">
+                                    <td class="text-center">
                                         <a href="{{url('proveedores/'.$proveedor->id.'/edit')}}">
                                             <button class="btn btn-warning">
                                                 <i class="fa fa-pen"></i>

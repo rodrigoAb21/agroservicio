@@ -14,14 +14,18 @@ class FitosanitarioController extends Controller
     public function index(Request $request)
     {
         $busqueda = trim($request['busqueda']);
-        $fitosanitarios = Insumo::where('tipo','=', 'Fitosanitario')
+        $fitosanitarios = Insumo::where('insumo.tipo','=', 'Fitosanitario')
+            ->join('tipoFitosanitario', 'insumo.tipoFitosanitario_id', '=', 'tipoFitosanitario.id')
+            ->join('unidad_medida', 'insumo.unidad_medida_id', '=', 'unidad_medida.id')
             ->where(function ($query) use ($busqueda) {
-                $query->where('nombre', 'like', '%'.$busqueda.'%')
-                    ->orWhere('ingrediente_activo', 'like', '%'.$busqueda.'%')
-                    ->orWhere('contenido_total', 'like', '%'.$busqueda.'%')
+                $query->where('insumo.nombre', 'like', '%'.$busqueda.'%')
+                    ->orWhere('tipoFitosanitario.nombre', 'like', '%'.$busqueda.'%')
+                    ->orWhere('insumo.ingrediente_activo', 'like', '%'.$busqueda.'%')
                 ;}
             )
-            ->orderBy('nombre')
+            ->orderBy('insumo.nombre')
+            ->select('insumo.nombre', 'insumo.contenido_total', 'insumo.ingrediente_activo',
+                'insumo.existencias','tipoFitosanitario.nombre as tipo','unidad_medida.nombre as unidad')
             ->paginate(10);
         return view('vistas.insumos.fitosanitarios.index',
             [

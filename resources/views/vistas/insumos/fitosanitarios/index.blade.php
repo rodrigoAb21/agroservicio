@@ -34,9 +34,9 @@
                             @foreach($insumos as $insumo)
                                 <tr class="text-center">
                                     <td>{{$insumo -> nombre}}</td>
-                                    <td>{{$insumo -> contenido_total}} {{$insumo -> unidad->nombre}}</td>
+                                    <td>{{$insumo -> contenido_total}} {{$insumo -> unidad}}</td>
                                     <td>{{$insumo -> ingrediente_activo}}</td>
-                                    <td>{{$insumo -> tipoFitosanitario->nombre}}</td>
+                                    <td>{{$insumo -> tipo}}</td>
                                     <td>{{$insumo -> existencias}}</td>
                                     <td class="text-center ">
                                         <a href="{{url('insumos/fitosanitarios/'.$insumo->id)}}">

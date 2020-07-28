@@ -18,7 +18,6 @@ class AbonoController extends Controller
             ->where(function ($query) use ($busqueda) {
                 $query->where('nombre', 'like', '%'.$busqueda.'%')
                     ->orWhere('ingrediente_activo', 'like', '%'.$busqueda.'%')
-                    ->orWhere('contenido_total', 'like', '%'.$busqueda.'%')
                 ;}
             )
             ->orderBy('nombre')
