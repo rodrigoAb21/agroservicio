@@ -12,13 +12,7 @@ class Ingreso extends Model
     protected $fillable = [
         'fecha',
         'total',
-        'proveedor_id',
     ];
-
-    public function proveedor()
-    {
-        return $this->belongsTo('App\Proveedor', 'proveedor_id', 'id');
-    }
 
     public function detalles(){
         return $this->hasMany(DetalleIngreso::class);

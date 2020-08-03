@@ -18,8 +18,10 @@ class CreateDetalleIngresoTable extends Migration
             $table->integer('cantidad');
             $table->float('precio_unitario');
             $table->unsignedInteger('insumo_id');
+            $table->unsignedInteger('proveedor_id');
             $table->unsignedInteger('ingreso_id');
             $table->foreign('insumo_id')->references('id')->on('insumo')->onDelete('cascade');
+            $table->foreign('proveedor_id')->references('id')->on('proveedor')->onDelete('cascade');
             $table->foreign('ingreso_id')->references('id')->on('ingreso')->onDelete('cascade');
         });
     }

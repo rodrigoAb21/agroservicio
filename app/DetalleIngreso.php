@@ -13,10 +13,14 @@ class DetalleIngreso extends Model
         'cantidad',
         'precio_unitario',
         'insumo_id',
+        'proveedor_id',
         'ingreso_id',
     ];
 
     public function insumo(){
         return $this->belongsTo('App\Insumo', 'insumo_id', 'id');
+    }
+    public function proveedor(){
+        return $this->belongsTo('App\Proveedor', 'proveedor_id', 'id');
     }
 }

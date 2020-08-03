@@ -46,11 +46,11 @@ class IngresoController extends Controller
             $ingreso = new Ingreso();
             $ingreso->fecha = $request['fecha'];
             $ingreso->total = $request['total'];
-            $ingreso->proveedor_id = $request['proveedor_id'];
             $ingreso->save();
 
             $insumo = $request->get('idInsumoT');
             $cant = $request->get('cantidadT');
+            $proveedor = $request->get('idProveedorT');
             $precio_unitario = $request->get('precioT');
             $cont = 0;
 
@@ -60,6 +60,7 @@ class IngresoController extends Controller
                 $detalle->precio_unitario = $precio_unitario[$cont];
                 $detalle->insumo_id = $insumo[$cont];
                 $detalle->ingreso_id = $ingreso->id;
+                $detalle->proveedor_id = $proveedor[$cont];
                 $detalle->save();
 
                 $insumoAct = Insumo::findOrfail($detalle->insumo_id);

@@ -18,7 +18,6 @@
                             <tr>
                                 <th class="text-center">ID</th>
                                 <th class="text-center">FECHA</th>
-                                <th class="text-center">PROVEEDOR</th>
                                 <th class="text-center">TOTAL</th>
                                 <th class="text-right">OPCIONES</th>
                             </tr>
@@ -28,7 +27,6 @@
                                 <tr class="text-center">
                                     <td>{{$ingreso -> id}}</td>
                                     <td>{{$ingreso -> fecha}}</td>
-                                    <td>{{$ingreso -> proveedor->nombre}}</td>
                                     <td>{{$ingreso -> total}}</td>
                                     <td class="text-right ">
                                         <a href="{{url('ingresos/'.$ingreso->id)}}">

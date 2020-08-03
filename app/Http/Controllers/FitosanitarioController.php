@@ -24,7 +24,7 @@ class FitosanitarioController extends Controller
                 ;}
             )
             ->orderBy('insumo.nombre')
-            ->select('insumo.nombre', 'insumo.contenido_total', 'insumo.ingrediente_activo',
+            ->select('insumo.nombre','insumo.id', 'insumo.contenido_total', 'insumo.ingrediente_activo',
                 'insumo.existencias','tipoFitosanitario.nombre as tipo','unidad_medida.nombre as unidad')
             ->paginate(10);
         return view('vistas.insumos.fitosanitarios.index',
