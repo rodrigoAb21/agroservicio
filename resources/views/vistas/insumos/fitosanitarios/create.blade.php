@@ -35,7 +35,7 @@
 
                         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                             <div class="form-group">
-                                <label>Tipo de Fitosanitario</label>
+                                <label>Tipo</label>
                                 <select class="form-control" name="subtipo_id">
                                     @foreach($tipos as $tipo)
                                     <option value="{{$tipo->id}}">{{$tipo->nombre}}</option>
