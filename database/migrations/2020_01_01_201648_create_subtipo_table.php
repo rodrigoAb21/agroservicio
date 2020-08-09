@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTipoFitosanitarioTable extends Migration
+class CreateSubtipoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateTipoFitosanitarioTable extends Migration
      */
     public function up()
     {
-        Schema::create('tipoFitosanitario', function (Blueprint $table) {
+        Schema::create('subtipo', function (Blueprint $table) {
             $table->increments('id');
             $table->text('nombre');
+            $table->text('tipo');
         });
     }
 
@@ -26,6 +27,6 @@ class CreateTipoFitosanitarioTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tipoFitosanitario');
+        Schema::dropIfExists('subtipo');
     }
 }

@@ -174,6 +174,12 @@
                                         <span class="hide-menu"> Tipos Fitosanitario</span>
                                     </a>
                                 </li>
+                                <li class="{{ Request::is('config/tipoSemillas*') ? 'nav-item active' : 'nav-item' }}">
+                                    <a href="{{url('config/tipoSemillas')}}" >
+                                        <i class="fa fa-atlas"></i>
+                                        <span class="hide-menu"> Tipos de Semilla</span>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                     </ul>

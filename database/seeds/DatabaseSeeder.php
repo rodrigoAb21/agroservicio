@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         // Unidad de Medida
         DB::table('unidad_medida')->insert([
-            'nombre' => 'Kg',
+            'nombre' => 'kg',
         ]);
         DB::table('unidad_medida')->insert([
             'nombre' => 'g',
@@ -30,21 +30,61 @@ class DatabaseSeeder extends Seeder
 
 
         // Tipo Fitosanitario
-        DB::table('tipoFitosanitario')->insert([
+        DB::table('subtipo')->insert([
             'nombre' => 'Herbicida',
+            'tipo' => 'TipoFitosanitario',
         ]);
-        DB::table('tipoFitosanitario')->insert([
+        DB::table('subtipo')->insert([
             'nombre' => 'Insecticida',
+            'tipo' => 'TipoFitosanitario',
         ]);
-        DB::table('tipoFitosanitario')->insert([
+        DB::table('subtipo')->insert([
             'nombre' => 'Acaricida',
+            'tipo' => 'TipoFitosanitario',
         ]);
-        DB::table('tipoFitosanitario')->insert([
+        DB::table('subtipo')->insert([
             'nombre' => 'Bactericida',
+            'tipo' => 'TipoFitosanitario',
         ]);
-        DB::table('tipoFitosanitario')->insert([
+        DB::table('subtipo')->insert([
             'nombre' => 'Fungicida',
+            'tipo' => 'TipoFitosanitario',
         ]);
+
+
+
+        // Tipo Fitosanitario
+        DB::table('subtipo')->insert([
+            'nombre' => 'Maíz',
+            'tipo' => 'TipoSemilla',
+        ]);
+        DB::table('subtipo')->insert([
+            'nombre' => 'Soya',
+            'tipo' => 'TipoSemilla',
+        ]);
+        DB::table('subtipo')->insert([
+            'nombre' => 'Girasol',
+            'tipo' => 'TipoSemilla',
+        ]);
+        DB::table('subtipo')->insert([
+            'nombre' => 'Chía',
+            'tipo' => 'TipoSemilla',
+        ]);
+        DB::table('subtipo')->insert([
+            'nombre' => 'Sésamo',
+            'tipo' => 'TipoSemilla',
+        ]);
+
+        DB::table('subtipo')->insert([
+            'nombre' => 'Sorgo',
+            'tipo' => 'TipoSemilla',
+        ]);
+
+        DB::table('subtipo')->insert([
+            'nombre' => 'Arroz',
+            'tipo' => 'TipoSemilla',
+        ]);
+
 
 
         // Proveedor

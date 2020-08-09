@@ -4,12 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class TipoFitosanitario extends Model
+class Subtipo extends Model
 {
-    protected $table = 'tipoFitosanitario';
+    protected $table = 'subtipo';
     protected $primaryKey = 'id';
     public $timestamps = false;
     protected $fillable = [
-        'nombre'
+        'nombre',
+        'tipo',
     ];
 }

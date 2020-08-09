@@ -16,13 +16,13 @@ class Insumo extends Model
         'info',
         'existencias',
         'tipo',
-        'tipoFitosanitario_id',
+        'subtipo_id',
         'unidad_medida_id',
     ];
 
-    public function tipoFitosanitario()
+    public function subtipo()
     {
-        return $this->belongsTo('App\TipoFitosanitario', 'tipoFitosanitario_id', 'id');
+        return $this->belongsTo('App\Subtipo', 'subtipo_id', 'id');
     }
 
     public function unidad()

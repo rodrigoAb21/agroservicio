@@ -21,10 +21,10 @@ class CreateInsumoTable extends Migration
             $table->text('tipo');
             $table->text('info')->nullable();
             $table->integer('existencias');
-            $table->unsignedInteger('tipoFitosanitario_id')->nullable();
+            $table->unsignedInteger('subtipo_id')->nullable();
             $table->unsignedInteger('unidad_medida_id');
-            $table->foreign('tipoFitosanitario_id')->references('id')
-                ->on('tipoFitosanitario')->onDelete('cascade');
+            $table->foreign('subtipo_id')->references('id')
+                ->on('subtipo')->onDelete('cascade');
             $table->foreign('unidad_medida_id')->references('id')
                 ->on('unidad_medida')->onDelete('cascade');
         });

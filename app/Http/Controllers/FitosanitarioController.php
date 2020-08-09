@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\DetalleFitosanitario;
 use App\Insumo;
-use App\TipoFitosanitario;
+use App\Subtipo;
 use App\UnidadMedida;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -15,17 +15,17 @@ class FitosanitarioController extends Controller
     {
         $busqueda = trim($request['busqueda']);
         $fitosanitarios = Insumo::where('insumo.tipo','=', 'Fitosanitario')
-            ->join('tipoFitosanitario', 'insumo.tipoFitosanitario_id', '=', 'tipoFitosanitario.id')
+            ->join('subtipo', 'insumo.subtipo_id', '=', 'subtipo.id')
             ->join('unidad_medida', 'insumo.unidad_medida_id', '=', 'unidad_medida.id')
             ->where(function ($query) use ($busqueda) {
                 $query->where('insumo.nombre', 'like', '%'.$busqueda.'%')
-                    ->orWhere('tipoFitosanitario.nombre', 'like', '%'.$busqueda.'%')
+                    ->orWhere('subtipo.nombre', 'like', '%'.$busqueda.'%')
                     ->orWhere('insumo.ingrediente_activo', 'like', '%'.$busqueda.'%')
                 ;}
             )
             ->orderBy('insumo.nombre')
             ->select('insumo.nombre','insumo.id', 'insumo.contenido_total', 'insumo.ingrediente_activo',
-                'insumo.existencias','tipoFitosanitario.nombre as tipo','unidad_medida.nombre as unidad')
+                'insumo.existencias','subtipo.nombre as tipo','unidad_medida.nombre as unidad')
             ->paginate(10);
         return view('vistas.insumos.fitosanitarios.index',
             [
@@ -39,7 +39,7 @@ class FitosanitarioController extends Controller
         return view('vistas.insumos.fitosanitarios.create',
             [
                 'unidades' => UnidadMedida::all(),
-                'tipos' => TipoFitosanitario::all(),
+                'tipos' => Subtipo::where('tipo', '=', 'TipoFitosanitario')->get(),
             ]);
     }
 
@@ -57,7 +57,7 @@ class FitosanitarioController extends Controller
             $insumo->info = $request['info'];
             $insumo->existencias = 0;
             $insumo->tipo = 'Fitosanitario';
-            $insumo->tipoFitosanitario_id = $request['tipoFitosanitario_id'];
+            $insumo->subtipo_id = $request['subtipo_id'];
             $insumo->unidad_medida_id = $request['unidad_medida_id'];
             $insumo->save();
 
@@ -100,7 +100,7 @@ class FitosanitarioController extends Controller
             [
                 'insumo' => Insumo::findOrFail($id),
                 'unidades' => UnidadMedida::all(),
-                'tipos' => TipoFitosanitario::all(),
+                'tipos' => Subtipo::where('tipo', '=', 'TipoFitosanitario')->get(),
                 'detalles' => DetalleFitosanitario::where('insumo_id','=', $id)->get(),
             ]);
     }
@@ -124,7 +124,7 @@ class FitosanitarioController extends Controller
             $insumo->ingrediente_activo = $request['ingrediente_activo'];
             $insumo->contenido_total = $request['contenido_total'];
             $insumo->info = $request['info'];
-            $insumo->tipoFitosanitario_id = $request['tipoFitosanitario_id'];
+            $insumo->subtipo_id = $request['subtipo_id'];
             $insumo->unidad_medida_id = $request['unidad_medida_id'];
 
             if ($insumo->update()){

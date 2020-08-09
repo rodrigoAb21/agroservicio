@@ -7,9 +7,9 @@
 
 
                     <h2 class="pb-2">
-                        <i class="fa fa-book-dead"></i> Tipos de Fitosanitario
+                        <i class="fa fa-atlas"></i> Tipos de Semilla
                         <div class="float-right">
-                            <a class="btn btn-success" href="{{url('config/tipoFitosanitarios/create')}}">
+                            <a class="btn btn-success" href="{{url('config/tipoSemillas/create')}}">
                                 <i class="fa fa-plus"></i>  Nuevo
                             </a>
                         </div>
@@ -19,7 +19,6 @@
                         <table class="table table-hover table-bordered color-table info-table">
                             <thead>
                             <tr>
-                                <th>ID</th>
                                 <th class="w-75">NOMBRE</th>
                                 <th>OPCIONES</th>
                             </tr>
@@ -29,12 +28,12 @@
                                 <tr>
                                     <td>{{$tipo->nombre}}</td>
                                     <td class="text-right ">
-                                        <a href="{{url('config/tipoFitosanitarios/'.$tipo->id.'/edit')}}">
+                                        <a href="{{url('config/tipoSemillas/'.$tipo->id.'/edit')}}">
                                             <button class="btn btn-warning">
                                                 <i class="fa fa-pen"></i>
                                             </button>
                                         </a>
-                                        <button type="button" class="btn btn-danger" onclick="modalEliminar('{{$tipo -> nombre}}', '{{url('config/tipoFitosanitarios/'.$tipo -> id)}}')">
+                                        <button type="button" class="btn btn-danger" onclick="modalEliminar('{{$tipo -> nombre}}', '{{url('config/tipoSemillas/'.$tipo -> id)}}')">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>

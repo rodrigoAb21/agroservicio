@@ -5,19 +5,19 @@ namespace App\Http\Controllers;
 use App\Subtipo;
 use Illuminate\Http\Request;
 
-class TipoFitosanitarioController extends Controller
+class TipoSemillaController extends Controller
 {
     public function index()
     {
-        return view('vistas.config.tipoFitosanitarios.index',
+        return view('vistas.config.tipoSemillas.index',
             [
-                'tipos' => Subtipo::where('tipo', '=', 'TipoFitosanitario')->paginate(10),
+                'tipos' => Subtipo::where('tipo', '=', 'TipoSemilla')->paginate(10),
             ]);
     }
 
     public function create()
     {
-        return view('vistas.config.tipoFitosanitarios.create');
+        return view('vistas.config.tipoSemillas.create');
     }
 
 
@@ -25,15 +25,15 @@ class TipoFitosanitarioController extends Controller
     {
         $tipo = new Subtipo();
         $tipo->nombre = $request['nombre'];
-        $tipo->tipo = 'TipoFitosanitario';
+        $tipo->tipo = 'TipoSemilla';
         $tipo->save();
 
-        return redirect('config/tipoFitosanitarios');
+        return redirect('config/tipoSemillas');
     }
 
     public function edit($id)
     {
-        return view('vistas.config.tipoFitosanitarios.edit',
+        return view('vistas.config.tipoSemillas.edit',
             [
                 'tipo' => Subtipo::findOrFail($id),
             ]);
@@ -46,7 +46,7 @@ class TipoFitosanitarioController extends Controller
         $tipo->nombre = $request['nombre'];
         $tipo->update();
 
-        return redirect('config/tipoFitosanitarios');
+        return redirect('config/tipoSemillas');
     }
 
 
@@ -55,6 +55,6 @@ class TipoFitosanitarioController extends Controller
         $tipo = Subtipo::findOrFail($id);
         $tipo->delete();
 
-        return redirect('config/tipoFitosanitarios');
+        return redirect('config/tipoSemillas');
     }
 }

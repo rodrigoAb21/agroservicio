@@ -28,7 +28,7 @@
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <h5><b>Tipo de Insumo</b></h5>
-                                <p>{{$insumo->tipoFitosanitario->nombre}}</p>
+                                <p>{{$insumo->subtipo->nombre}}</p>
                             </div>
                         </div>
 
