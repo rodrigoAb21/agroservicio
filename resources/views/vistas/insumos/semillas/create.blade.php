@@ -12,12 +12,23 @@
                 <form method="POST" action="{{url('insumos/semillas')}}" autocomplete="off">
                     {{csrf_field()}}
                     <div class="row">
-                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label>Nombre</label>
                                 <input required type="text" class="form-control" value="{{old('nombre')}}" name="nombre">
                             </div>
                         </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label>Tipo de Fitosanitario</label>
+                                <select class="form-control" name="subtipo_id">
+                                    @foreach($tipos as $tipo)
+                                        <option value="{{$tipo->id}}">{{$tipo->nombre}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
                         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label>Contenido Total</label>

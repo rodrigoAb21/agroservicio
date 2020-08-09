@@ -13,7 +13,7 @@
                         {{csrf_field()}}
                         {{method_field('PATCH')}}
                         <div class="row">
-                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <label>Nombre</label>
                                     <input required
@@ -23,6 +23,22 @@
                                            name="nombre">
                                 </div>
                             </div>
+
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <label>Tipo de Insumo</label>
+                                    <select class="form-control" name="subtipo_id">
+                                        @foreach($tipos as $tipo)
+                                            @if($insumo->subtipo_id == $tipo->id)
+                                                <option selected value="{{$tipo->id}}">{{$tipo->nombre}}</option>
+                                            @else
+                                                <option value="{{$tipo->id}}">{{$tipo->nombre}}</option>
+                                            @endif
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+
 
                             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                 <div class="form-group">
