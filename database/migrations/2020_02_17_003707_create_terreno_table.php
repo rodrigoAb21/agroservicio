@@ -16,7 +16,6 @@ class CreateTerrenoTable extends Migration
         Schema::create('terreno', function (Blueprint $table) {
             $table->increments('id');
             $table->text('nombre');
-            $table->text('ubicacion');
             $table->double('superficie');
         });
     }
