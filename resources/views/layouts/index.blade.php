@@ -175,6 +175,12 @@
                                         <span class="hide-menu"> Unidades de Medida</span>
                                     </a>
                                 </li>
+                                <li class="{{ Request::is('config/tipoMaquinarias*') ? 'nav-item active' : 'nav-item' }}">
+                                    <a href="{{url('config/tipoMaquinarias')}}" >
+                                        <i class="fa fa-tools"></i>
+                                        <span class="hide-menu"> Tipos de Maquinaria</span>
+                                    </a>
+                                </li>
                                 <li class="{{ Request::is('config/tipoFitosanitarios*') ? 'nav-item active' : 'nav-item' }}">
                                     <a href="{{url('config/tipoFitosanitarios')}}" >
                                         <i class="fa fa-book-dead"></i>

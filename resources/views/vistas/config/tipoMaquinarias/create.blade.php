@@ -6,10 +6,10 @@
             <div class="card">
                 <div class="card-body">
                     <h3 class="pb-2">
-                        Nuevo tipo de insumo
+                        Nuevo tipo de maquinaria
                     </h3>
 
-                    <form method="POST" action="{{url('tipos')}}" autocomplete="off">
+                    <form method="POST" action="{{url('config/tipoMaquinarias')}}" autocomplete="off">
                         {{csrf_field()}}
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -23,7 +23,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="{{url('tipos')}}" class="btn btn-warning">Atras</a>
+                        <a href="{{url('config/tipoMaquinarias')}}" class="btn btn-warning">Atras</a>
                         <button type="submit" class="btn btn-info">Guardar</button>
                     </form>
                 </div>

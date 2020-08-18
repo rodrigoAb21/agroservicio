@@ -21,6 +21,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('config/unidades','UnidadMedidaController');
     Route::resource('config/tipoFitosanitarios','TipoFitosanitarioController');
     Route::resource('config/tipoSemillas','TipoSemillaController');
+    Route::resource('config/tipoMaquinarias','TipoMaquinariaController');
     Route::resource('insumos/semillas','SemillaController');
     Route::resource('insumos/fitosanitarios','FitosanitarioController');
     Route::resource('insumos/abonos','AbonoController');

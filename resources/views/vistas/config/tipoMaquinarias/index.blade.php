@@ -7,9 +7,9 @@
 
 
                     <h2 class="pb-2">
-                        <i class="fa fa-object-group"></i> Tipos de Insumo
+                        <i class="fa fa-tools"></i> Tipos de Maquinaria
                         <div class="float-right">
-                            <a class="btn btn-success" href="{{url('tipos/create')}}">
+                            <a class="btn btn-success" href="{{url('config/tipoMaquinarias/create')}}">
                                 <i class="fa fa-plus"></i>  Nuevo
                             </a>
                         </div>
@@ -30,12 +30,12 @@
                                     <td>{{$tipo->id}}</td>
                                     <td>{{$tipo->nombre}}</td>
                                     <td class="text-right ">
-                                        <a href="{{url('tipos/'.$tipo->id.'/edit')}}">
+                                        <a href="{{url('config/tipoMaquinarias/'.$tipo->id.'/edit')}}">
                                             <button class="btn btn-warning">
                                                 <i class="fa fa-pen"></i>
                                             </button>
                                         </a>
-                                        <button type="button" class="btn btn-danger" onclick="modalEliminar('{{$tipo -> nombre}}', '{{url('tipos/'.$tipo -> id)}}')">
+                                        <button type="button" class="btn btn-danger" onclick="modalEliminar('{{$tipo -> nombre}}', '{{url('config/tipoMaquinarias/'.$tipo -> id)}}')">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>

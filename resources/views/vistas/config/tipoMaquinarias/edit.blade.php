@@ -6,10 +6,10 @@
             <div class="card">
                 <div class="card-body">
                     <h3 class="pb-2">
-                        Editar tipo: {{$tipo->id}}
+                        Editar tipo de maquinaria
                     </h3>
 
-                    <form method="POST" action="{{url('tipos/'.$tipo->id)}}" autocomplete="off">
+                    <form method="POST" action="{{url('config/tipoMaquinarias/'.$tipo->id)}}" autocomplete="off">
                         {{csrf_field()}}
                         {{method_field('PATCH')}}
                         <div class="row">
@@ -24,7 +24,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="{{url('tipos')}}" class="btn btn-warning">Atras</a>
+                        <a href="{{url('config/tipoMaquinarias')}}" class="btn btn-warning">Atras</a>
                         <button type="submit" class="btn btn-info">Guardar</button>
                     </form>
                 </div>
