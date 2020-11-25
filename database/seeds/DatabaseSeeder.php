@@ -53,7 +53,7 @@ class DatabaseSeeder extends Seeder
 
 
 
-        // Tipo Fitosanitario
+        // Tipo Semilla
         DB::table('subtipo')->insert([
             'nombre' => 'Maíz',
             'tipo' => 'TipoSemilla',
