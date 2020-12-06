@@ -35,26 +35,11 @@
                                 </div>
                             </div>
 
+
                             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <label>Contenido Total</label>
                                     <input type="number" class="form-control" value="{{$insumo->contenido_total}}" name="contenido_total">
-                                </div>
-                            </div>
-
-
-                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                <div class="form-group">
-                                    <label>Tipo</label>
-                                    <select class="form-control" name="subtipo_id">
-                                        @foreach($tipos as $tipo)
-                                            @if($insumo->subtipo_id == $tipo->id)
-                                                <option selected value="{{$tipo->id}}">{{$tipo->nombre}}</option>
-                                            @else
-                                                <option value="{{$tipo->id}}">{{$tipo->nombre}}</option>
-                                            @endif
-                                        @endforeach
-                                    </select>
                                 </div>
                             </div>
 
@@ -67,6 +52,21 @@
                                                 <option selected value="{{$unidad->id}}">{{$unidad->nombre}}</option>
                                             @else
                                                 <option value="{{$unidad->id}}">{{$unidad->nombre}}</option>
+                                            @endif
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <label>Tipo</label>
+                                    <select class="form-control" name="subtipo_id">
+                                        @foreach($tipos as $tipo)
+                                            @if($insumo->subtipo_id == $tipo->id)
+                                                <option selected value="{{$tipo->id}}">{{$tipo->nombre}}</option>
+                                            @else
+                                                <option value="{{$tipo->id}}">{{$tipo->nombre}}</option>
                                             @endif
                                         @endforeach
                                     </select>

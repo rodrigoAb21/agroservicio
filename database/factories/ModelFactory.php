@@ -12,12 +12,13 @@
 */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
+/*
 $factory->define(\App\Proveedor::class, function (Faker\Generator $faker){
     return [
         'contacto' => $faker->name,
         'celular' => $faker -> numberBetween(73194476,79999999),
         'empresa' => $faker -> company,
         'tel_empresa' => $faker -> numberBetween(33500000,33999999),
-        'dir_empresa' => $faker->streetAddress,
     ];
 });
+*/

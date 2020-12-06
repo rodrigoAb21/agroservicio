@@ -50,16 +50,6 @@
                                             name="tel_empresa">
                                 </div>
                             </div>
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div class="form-group">
-                                    <label>Direccion empresa</label>
-                                    <input disabled
-                                            type="text"
-                                            class="form-control"
-                                            value="{{$proveedor->dir_empresa}}"
-                                            name="dir_empresa">
-                                </div>
-                            </div>
                         </div>
                         <a href="{{url('proveedores')}}" class="btn btn-warning">Atras</a>
 

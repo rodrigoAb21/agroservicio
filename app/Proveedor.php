@@ -14,6 +14,5 @@ class Proveedor extends Model
         'celular',
         'empresa',
         'tel_empresa',
-        'dir_empresa',
     ];
 }

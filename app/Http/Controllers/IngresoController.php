@@ -64,7 +64,7 @@ class IngresoController extends Controller
                 $detalle->save();
 
                 $insumoAct = Insumo::findOrfail($detalle->insumo_id);
-                $insumoAct->existencias = $insumoAct->existencias + $detalle->cantidad;
+                $insumoAct->existencias = $insumoAct->existencias + ($detalle->cantidad*$insumoAct->contenido_total);
                 $insumoAct->update();
 
                 $cont = $cont + 1;
@@ -87,7 +87,7 @@ class IngresoController extends Controller
         $detalles = DetalleIngreso::where('ingreso_id', '=', $id)->get();
         foreach ($detalles as $detalle){
             $insumoAct = Insumo::findOrfail($detalle->insumo_id);
-            $insumoAct->existencias = $insumoAct->existencias - $detalle->cantidad;
+            $insumoAct->existencias = $insumoAct->existencias - ($detalle->cantidad*$insumoAct->contenido_total);
             $insumoAct->update();
         }
         $ingreso = Ingreso::findOrFail($id);

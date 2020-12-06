@@ -17,9 +17,9 @@
                         <table class="table table-hover table-bordered color-table info-table">
                             <thead>
                             <tr>
-                                <th>ID</th>
                                 <th>CONTACTO</th>
-                                <th>CELULAR</th>
+                                <th>TELF 1</th>
+                                <th>TELF 2</th>
                                 <th>EMPRESA</th>
 
                                 <th class="text-center">OPC</th>
@@ -28,9 +28,9 @@
                             <tbody>
                             @foreach($proveedores as $proveedor)
                                 <tr>
-                                    <td>{{$proveedor->id}}</td>
                                     <td>{{$proveedor->contacto}}</td>
                                     <td>{{$proveedor->celular}}</td>
+                                    <td>{{$proveedor->tel_empresa}}</td>
                                     <td>{{$proveedor->empresa}}</td>
 
                                     <td class="text-center">

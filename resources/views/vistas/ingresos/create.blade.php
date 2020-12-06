@@ -41,7 +41,7 @@
                                     <label>Insumo</label>
                                     <select class="form-control selectpicker" data-live-search="true" id="selectorInsumo">
                                         @foreach($insumos as $insumo)
-                                            <option value="{{$insumo->id}}">{{$insumo->nombre}}</option>
+                                            <option value="{{$insumo->id}}">{{$insumo->nombre}} ({{$insumo->contenido_total}}{{$insumo->unidad->nombre}})</option>
                                         @endforeach
                                     </select>
                                 </div>

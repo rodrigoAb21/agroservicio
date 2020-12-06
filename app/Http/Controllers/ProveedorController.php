@@ -28,7 +28,6 @@ class ProveedorController extends Controller
         $proveedor->celular = $request['celular'];
         $proveedor->empresa = $request['empresa'];
         $proveedor->tel_empresa = $request['tel_empresa'];
-        $proveedor->dir_empresa = $request['dir_empresa'];
         $proveedor->save();
 
         return redirect('proveedores');
@@ -58,7 +57,6 @@ class ProveedorController extends Controller
         $proveedor->celular = $request['celular'];
         $proveedor->empresa = $request['empresa'];
         $proveedor->tel_empresa = $request['tel_empresa'];
-        $proveedor->dir_empresa = $request['dir_empresa'];
         $proveedor->update();
 
         return redirect('proveedores');

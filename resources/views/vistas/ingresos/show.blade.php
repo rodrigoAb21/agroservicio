@@ -44,7 +44,7 @@
                                 <tbody>
                                 @foreach($ingreso->detalles as $detalle)
                                     <tr class="text-center">
-                                        <td>{{$detalle->insumo->nombre}}</td>
+                                        <td>{{$detalle->insumo->nombre}} ({{$detalle->insumo->contenido_total}}{{$detalle->insumo->unidad->nombre}}) </td>
                                         <td>{{$detalle->proveedor->contacto}}</td>
                                         <td>{{$detalle->cantidad}}</td>
                                         <td>{{$detalle->precio_unitario}}</td>

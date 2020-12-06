@@ -35,21 +35,20 @@
 
                         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                             <div class="form-group">
-                                <label>Tipo</label>
-                                <select class="form-control" name="subtipo_id">
-                                    @foreach($tipos as $tipo)
-                                    <option value="{{$tipo->id}}">{{$tipo->nombre}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                            <div class="form-group">
                                 <label>Unidad Medida</label>
                                 <select class="form-control" name="unidad_medida_id">
                                     @foreach($unidades as $unidad)
                                     <option value="{{$unidad->id}}">{{$unidad->nombre}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label>Tipo</label>
+                                <select class="form-control" name="subtipo_id">
+                                    @foreach($tipos as $tipo)
+                                        <option value="{{$tipo->id}}">{{$tipo->nombre}}</option>
                                     @endforeach
                                 </select>
                             </div>
