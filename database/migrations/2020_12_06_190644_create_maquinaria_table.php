@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateIngresoTable extends Migration
+class CreateMaquinariaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateIngresoTable extends Migration
      */
     public function up()
     {
-        Schema::create('ingreso', function (Blueprint $table) {
+        Schema::create('maquinaria', function (Blueprint $table) {
             $table->increments('id');
-            $table->date('fecha');
-            $table->float('total');
+            $table->string('nombre');
+            $table->string('color')->nullable();
+            $table->string('tipo'); //Va estar por selector "Vehiculo/Implemento"
+            $table->softDeletes();
         });
     }
 
@@ -27,6 +29,6 @@ class CreateIngresoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ingreso');
+        Schema::dropIfExists('maquinaria');
     }
 }

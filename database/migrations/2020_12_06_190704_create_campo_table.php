@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSubtipoTable extends Migration
+class CreateCampoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateSubtipoTable extends Migration
      */
     public function up()
     {
-        Schema::create('subtipo', function (Blueprint $table) {
+        Schema::create('campo', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('nombre');
-            $table->text('tipo');
+            $table->string('nombre');
+            $table->string('superficie')->nullable();
+            $table->softDeletes();
         });
     }
 
@@ -27,6 +28,6 @@ class CreateSubtipoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('subtipo');
+        Schema::dropIfExists('campo');
     }
 }

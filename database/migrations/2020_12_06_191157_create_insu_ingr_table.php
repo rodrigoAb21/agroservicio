@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCampanaTable extends Migration
+class CreateInsuIngrTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,14 @@ class CreateCampanaTable extends Migration
      */
     public function up()
     {
-        Schema::create('campana', function (Blueprint $table) {
+        Schema::create('insu_ingr', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('nombre');
-            $table->date('fecha_ini');
-            $table->date('fecha_fin');
+            $table->float('cantidad');
+            $table->float('precio_unitario')->nullable();
 
 
-            $table->unsignedInteger('terreno_id');
-            $table->foreign('terreno_id')->references('id')->on('terreno')->onDelete('cascade');
+            $table->unsignedInteger('ingreso_id');
+            $table->foreign('ingreso_id')->references('id')->on('ingreso');
         });
     }
 
@@ -32,6 +31,6 @@ class CreateCampanaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('campana');
+        Schema::dropIfExists('insu_ingr');
     }
 }

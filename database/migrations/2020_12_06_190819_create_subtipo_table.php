@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTerrenoTable extends Migration
+class CreateSubtipoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateTerrenoTable extends Migration
      */
     public function up()
     {
-        Schema::create('terreno', function (Blueprint $table) {
+        Schema::create('subtipo', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('nombre');
-            $table->double('superficie');
+            $table->string('nombre');
+            $table->softDeletes();
         });
     }
 
@@ -27,6 +27,6 @@ class CreateTerrenoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('terreno');
+        Schema::dropIfExists('subtipo');
     }
 }

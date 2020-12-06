@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTrabajoTable extends Migration
+class CreateIngresoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,13 @@ class CreateTrabajoTable extends Migration
      */
     public function up()
     {
-        Schema::create('trabajo', function (Blueprint $table) {
+        Schema::create('ingreso', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('nombre');
+            $table->string('nro_nota')->nullable();
+            $table->string('tipo');  // Contado/credito
             $table->date('fecha');
-            $table->float('costo_total');
-
-            $table->unsignedInteger('terreno_id');
-            $table->foreign('terreno_id')->references('id')->on('terreno')->onDelete('cascade');
+            $table->float('total')->nullable();
+            $table->softDeletes();
         });
     }
 
@@ -31,6 +30,6 @@ class CreateTrabajoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('trabajo');
+        Schema::dropIfExists('ingreso');
     }
 }

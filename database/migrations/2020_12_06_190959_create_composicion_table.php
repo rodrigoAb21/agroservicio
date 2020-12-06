@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDetalleAbonoTable extends Migration
+class CreateComposicionTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreateDetalleAbonoTable extends Migration
      */
     public function up()
     {
-        Schema::create('detalle_abono', function (Blueprint $table) {
+        Schema::create('composicion', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('cultivo');
-            $table->text('dosis');
+            $table->string('nombre');
+            $table->string('concentracion');
+
             $table->unsignedInteger('insumo_id');
-            $table->foreign('insumo_id')->references('id')
-                ->on('insumo')->onDelete('cascade');
+            $table->foreign('insumo_id')->references('id')->on('insumo')->onDelete('cascade');
+
         });
     }
 
@@ -30,6 +31,6 @@ class CreateDetalleAbonoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('detalle_abono');
+        Schema::dropIfExists('composicion');
     }
 }

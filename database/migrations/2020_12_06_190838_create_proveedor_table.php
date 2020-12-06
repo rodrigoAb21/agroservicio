@@ -15,11 +15,11 @@ class CreateProveedorTable extends Migration
     {
         Schema::create('proveedor', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('contacto');
-            $table->text('celular')->nullable();
-            $table->text('empresa');
-            $table->text('tel_empresa')->nullable();
-            $table->text('dir_empresa')->nullable();
+            $table->string('tecnico')->nullable();
+            $table->string('empresa')->nullable();
+            $table->string('telf1')->nullable();
+            $table->string('telf2')->nullable();
+            $table->softDeletes();
         });
     }
 

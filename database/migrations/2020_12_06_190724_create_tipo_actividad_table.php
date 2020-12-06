@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTipomTable extends Migration
+class CreateTipoActividadTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateTipomTable extends Migration
      */
     public function up()
     {
-        Schema::create('tipom', function (Blueprint $table) {
+        Schema::create('tipo_actividad', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('nombre');
+            $table->string('nombre');
+            $table->float('precio_base')->nullable();
+            $table->softDeletes();
         });
     }
 
@@ -26,6 +28,6 @@ class CreateTipomTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tipom');
+        Schema::dropIfExists('tipo_actividad');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUnidadMedidaTable extends Migration
+class CreateUnidadTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateUnidadMedidaTable extends Migration
      */
     public function up()
     {
-        Schema::create('unidad_medida', function (Blueprint $table) {
+        Schema::create('unidad', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('nombre');
+            $table->string('nombre');
+            $table->softDeletes();
         });
     }
 
@@ -26,6 +27,6 @@ class CreateUnidadMedidaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('unidad_medida');
+        Schema::dropIfExists('unidad');
     }
 }
