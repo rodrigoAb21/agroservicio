@@ -143,6 +143,14 @@
                             </a>
                         </li>
 
+
+                        <li class="{{ Request::is('maquinarias*') ? 'nav-item active' : 'nav-item' }}">
+                            <a href="{{url('maquinarias')}}" >
+                                <i class="fa fa-tractor"></i>
+                                <span class="hide-menu"> Maquinarias</span>
+                            </a>
+                        </li>
+
                         <li class="{{ Request::is('proveedores*') ? 'nav-item active' : 'nav-item' }}">
                             <a href="{{url('proveedores')}}" >
                                 <i class="fa fa-industry"></i>

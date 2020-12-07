@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Maquinaria;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
 
 class MaquinariaController extends Controller
 {
@@ -18,7 +17,8 @@ class MaquinariaController extends Controller
 
     public function create()
     {
-        return view('vistas.maquinarias.create');
+        $tipos=['Vehiculo', 'Implemento'];
+        return view('vistas.maquinarias.create', ['tipos' => $tipos]);
     }
 
 
@@ -26,17 +26,8 @@ class MaquinariaController extends Controller
     {
         $maquinaria = new Maquinaria();
         $maquinaria->nombre = $request['nombre'];
-        if (Input::hasFile('foto')) {
-            $file = Input::file('foto');
-            $file->move(public_path().'/img/maquinarias/', $file->getClientOriginalName());
-            $maquinaria->foto = $file->getClientOriginalName();
-        }
-        $maquinaria->descripcion = $request['descripcion'];
-        $maquinaria->propiedad = $request['propiedad'];
-        $maquinaria->marca = $request['marca'];
-        $maquinaria->modelo = $request['modelo'];
         $maquinaria->color = $request['color'];
-        $maquinaria->tipom_id = $request['tipom_id'];
+        $maquinaria->tipo = $request['tipo'];
         $maquinaria->save();
 
         return redirect('maquinarias');
@@ -44,9 +35,11 @@ class MaquinariaController extends Controller
 
     public function edit($id)
     {
+        $tipos=['Vehiculo', 'Implemento'];
         return view('vistas.maquinarias.edit',
             [
                 'maquinaria' => Maquinaria::findOrFail($id),
+                'tipos' => $tipos,
             ]);
     }
 
@@ -55,17 +48,8 @@ class MaquinariaController extends Controller
     {
         $maquinaria = Maquinaria::findOrFail($id);
         $maquinaria->nombre = $request['nombre'];
-        if (Input::hasFile('foto')) {
-            $file = Input::file('foto');
-            $file->move(public_path().'/img/maquinarias/', $file->getClientOriginalName());
-            $maquinaria->foto = $file->getClientOriginalName();
-        }
-        $maquinaria->descripcion = $request['descripcion'];
-        $maquinaria->propiedad = $request['propiedad'];
-        $maquinaria->marca = $request['marca'];
-        $maquinaria->modelo = $request['modelo'];
         $maquinaria->color = $request['color'];
-        $maquinaria->tipom_id = $request['tipom_id'];
+        $maquinaria->tipo = $request['tipo'];
         $maquinaria->update();
 
         return redirect('maquinarias');

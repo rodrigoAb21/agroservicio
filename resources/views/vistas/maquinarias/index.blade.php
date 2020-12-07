@@ -15,29 +15,25 @@
                             </a>
                         </div>
                     </h2>
-                    <form method="GET" action="{{url('maquinarias')}}" autocomplete="off">
-                        <input type="text" class="form-control mb-2 mr-sm-2"  value="{{$busqueda}}" id="busqueda" name="busqueda" placeholder="Buscar">
-                    </form>
                     <div class="table-responsive">
                         <table class="table table-hover table-bordered color-table info-table">
                             <thead>
                             <tr>
+                                <th class="text-center">ID</th>
                                 <th class="text-center">NOMBRE</th>
                                 <th class="text-center">TIPO</th>
+                                <th class="text-center">COLOR</th>
                                 <th class="text-center">OPCIONES</th>
                             </tr>
                             </thead>
                             <tbody>
                             @foreach($maquinarias as $maquinaria)
                                 <tr class="text-center">
+                                    <td>{{$maquinaria->id}}</td>
                                     <td>{{$maquinaria->nombre}}</td>
-                                    <td>{{$maquinaria->tipo->nombre}}</td>
+                                    <td>{{$maquinaria->tipo}}</td>
+                                    <td>{{$maquinaria->color}}</td>
                                     <td class="text-center ">
-                                        <a href="{{url('maquinarias/'.$maquinaria->id)}}">
-                                            <button class="btn btn-outline-info">
-                                                <i class="fa fa-eye"></i>
-                                            </button>
-                                        </a>
                                         <a href="{{url('maquinarias/'.$maquinaria->id.'/edit')}}">
                                             <button class="btn btn-warning">
                                                 <i class="fa fa-pen"></i>

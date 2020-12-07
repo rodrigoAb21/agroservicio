@@ -3,25 +3,18 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Maquinaria extends Model
 {
     protected $table = 'maquinaria';
     protected $primaryKey = 'id';
     public $timestamps = false;
+    use SoftDeletes;
+    protected $dates = ['deleted_at'];
     protected $fillable = [
         'nombre',
-        'foto',
-        'descripcion',
-        'propiedad',
-        'marca',
-        'modelo',
         'color',
-        'tipom_id',
+        'tipo'
     ];
-
-    public function tipo()
-    {
-        return $this->belongsTo('App\TipoMaquinaria', 'tipom_id', 'id');
-    }
 }
