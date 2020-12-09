@@ -26,7 +26,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('insumos/fitosanitarios','FitosanitarioController');
     Route::resource('insumos/abonos','AbonoController');
     Route::resource('proveedores','ProveedorController');
-    Route::resource('terrenos','TerrenoController');
+    Route::resource('campos','CampoController');
     Route::resource('maquinarias','MaquinariaController');
     Route::resource('ingresos','IngresoController');
     Route::get('reporteInventario', 'ReporteController@inventario');

@@ -136,10 +136,10 @@
                         </li>
 
 
-                        <li class="{{ Request::is('terrenos*') ? 'nav-item active' : 'nav-item' }}">
-                            <a href="{{url('terrenos')}}" >
-                                <i class="fa fa-vector-square"></i>
-                                <span class="hide-menu"> Terrenos</span>
+                        <li class="{{ Request::is('campos*') ? 'nav-item active' : 'nav-item' }}">
+                            <a href="{{url('campos')}}" >
+                                <i class="fa fa-map-marked-alt"></i>
+                                <span class="hide-menu"> Campos</span>
                             </a>
                         </li>
 
