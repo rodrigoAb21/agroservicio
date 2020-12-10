@@ -189,6 +189,13 @@
                                         <span class="hide-menu"> Tipos de Maquinaria</span>
                                     </a>
                                 </li>
+                                <li class="{{ Request::is('config/tiposactividad*') ? 'nav-item active' :
+                                'nav-item' }}">
+                                    <a href="{{url('config/tiposactividad')}}" >
+                                        <i class="fa fa-toolbox"></i>
+                                        <span class="hide-menu"> Tipos de actividad</span>
+                                    </a>
+                                </li>
                                 <li class="{{ Request::is('config/tipoFitosanitarios*') ? 'nav-item active' : 'nav-item' }}">
                                     <a href="{{url('config/tipoFitosanitarios')}}" >
                                         <i class="fa fa-book-dead"></i>
