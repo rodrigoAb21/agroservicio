@@ -157,6 +157,12 @@
                                 <span class="hide-menu"> Proveedores</span>
                             </a>
                         </li>
+                        <li class="{{ Request::is('trabajadores*') ? 'nav-item active' : 'nav-item' }}">
+                            <a href="{{url('trabajadores')}}" >
+                                <i class="fa fa-user-tie"></i>
+                                <span class="hide-menu"> Trabajadores</span>
+                            </a>
+                        </li>
 
                         <li class="{{ Request::is('ingresos*') ? 'nav-item active' : 'nav-item' }}">
                             <a href="{{url('ingresos')}}" >
