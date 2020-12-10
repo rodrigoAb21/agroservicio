@@ -202,10 +202,11 @@
                                         <span class="hide-menu"> Tipos de actividad</span>
                                     </a>
                                 </li>
-                                <li class="{{ Request::is('config/tipoFitosanitarios*') ? 'nav-item active' : 'nav-item' }}">
-                                    <a href="{{url('config/tipoFitosanitarios')}}" >
+                                <li class="{{ Request::is('config/tipoAgroquimicos*') ? 'nav-item active' : 'nav-item'
+                                }}">
+                                    <a href="{{url('config/tipoAgroquimicos')}}" >
                                         <i class="fa fa-book-dead"></i>
-                                        <span class="hide-menu"> Tipos Fitosanitario</span>
+                                        <span class="hide-menu"> Tipos Agroquimicos</span>
                                     </a>
                                 </li>
                                 <li class="{{ Request::is('config/tipoSemillas*') ? 'nav-item active' : 'nav-item' }}">

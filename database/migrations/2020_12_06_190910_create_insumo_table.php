@@ -24,8 +24,8 @@ class CreateInsumoTable extends Migration
             $table->string('info')->nullable();
             $table->float('envase');
 
-            $table->unsignedInteger('unidad_id');
-            $table->foreign('unidad_id')->references('id')->on('unidad');
+            $table->unsignedInteger('unidad_medida_id');
+            $table->foreign('unidad_medida_id')->references('id')->on('unidad_medida');
             $table->unsignedInteger('subtipo_id');
             $table->foreign('subtipo_id')->references('id')->on('subtipo');
 

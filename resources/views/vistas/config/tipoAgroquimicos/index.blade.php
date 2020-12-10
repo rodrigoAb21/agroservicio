@@ -7,9 +7,9 @@
 
 
                     <h2 class="pb-2">
-                        <i class="fa fa-book-dead"></i> Tipos de Fitosanitario
+                        <i class="fa fa-book-dead"></i> Tipos de Agroquimico
                         <div class="float-right">
-                            <a class="btn btn-success" href="{{url('config/tipoFitosanitarios/create')}}">
+                            <a class="btn btn-success" href="{{url('config/tipoAgroquimicos/create')}}">
                                 <i class="fa fa-plus"></i>  Nuevo
                             </a>
                         </div>
@@ -29,12 +29,12 @@
                                 <tr>
                                     <td>{{$tipo->nombre}}</td>
                                     <td class="text-right ">
-                                        <a href="{{url('config/tipoFitosanitarios/'.$tipo->id.'/edit')}}">
+                                        <a href="{{url('config/tipoAgroquimicos/'.$tipo->id.'/edit')}}">
                                             <button class="btn btn-warning">
                                                 <i class="fa fa-pen"></i>
                                             </button>
                                         </a>
-                                        <button type="button" class="btn btn-danger" onclick="modalEliminar('{{$tipo -> nombre}}', '{{url('config/tipoFitosanitarios/'.$tipo -> id)}}')">
+                                        <button type="button" class="btn btn-danger" onclick="modalEliminar('{{$tipo -> nombre}}', '{{url('config/tipoAgroquimicos/'.$tipo -> id)}}')">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>

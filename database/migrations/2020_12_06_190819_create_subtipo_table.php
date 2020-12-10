@@ -16,6 +16,7 @@ class CreateSubtipoTable extends Migration
         Schema::create('subtipo', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
+            $table->string('tipo');
             $table->softDeletes();
         });
     }
