@@ -24,10 +24,10 @@ class ProveedorController extends Controller
     public function store(Request $request)
     {
         $proveedor = new Proveedor();
-        $proveedor->contacto = $request['contacto'];
-        $proveedor->celular = $request['celular'];
+        $proveedor->tecnico = $request['tecnico'];
+        $proveedor->telf1 = $request['telf1'];
+        $proveedor->telf2 = $request['telf2'];
         $proveedor->empresa = $request['empresa'];
-        $proveedor->tel_empresa = $request['tel_empresa'];
         $proveedor->save();
 
         return redirect('proveedores');
@@ -53,10 +53,10 @@ class ProveedorController extends Controller
     public function update(Request $request, $id)
     {
         $proveedor = Proveedor::findOrFail($id);
-        $proveedor->contacto = $request['contacto'];
-        $proveedor->celular = $request['celular'];
+        $proveedor->tecnico = $request['tecnico'];
         $proveedor->empresa = $request['empresa'];
-        $proveedor->tel_empresa = $request['tel_empresa'];
+        $proveedor->telf1 = $request['telf1'];
+        $proveedor->telf2 = $request['telf2'];
         $proveedor->update();
 
         return redirect('proveedores');

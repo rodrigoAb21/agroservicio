@@ -12,27 +12,39 @@
                     <form method="POST" action="{{url('proveedores')}}" autocomplete="off">
                         {{csrf_field()}}
                         <div class="row">
-                            <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                 <div class="form-group">
-                                    <label>Contacto</label>
+                                    <label>Tecnico</label>
                                     <input required
                                            type="text"
                                            class="form-control"
-                                           value="{{old('contacto')}}"
-                                           name="contacto">
+                                           value="{{old('tecnico')}}"
+                                           name="tecnico">
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                                 <div class="form-group">
-                                    <label>Celular</label>
+                                    <label>Telefono 1</label>
                                     <input
-                                           type="number"
+                                           type="text"
                                            class="form-control"
-                                           value="{{old('celular')}}"
-                                           name="celular">
+                                           value="{{old('telf1')}}"
+                                           name="telf1">
                                 </div>
                             </div>
-                            <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <label>Telefono 2</label>
+                                    <input
+                                           type="text"
+                                           class="form-control"
+                                           value="{{old('telf2')}}"
+                                           name="telf2">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <label>Empresa</label>
                                     <input required
@@ -40,16 +52,6 @@
                                            class="form-control"
                                            value="{{old('empresa')}}"
                                            name="empresa">
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                                <div class="form-group">
-                                    <label>Telefono empresa</label>
-                                    <input
-                                           type="text"
-                                           class="form-control"
-                                           value="{{old('tel_empresa')}}"
-                                           name="tel_empresa">
                                 </div>
                             </div>
                         </div>

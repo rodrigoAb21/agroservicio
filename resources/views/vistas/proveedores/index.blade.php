@@ -17,7 +17,7 @@
                         <table class="table table-hover table-bordered color-table info-table">
                             <thead>
                             <tr>
-                                <th>CONTACTO</th>
+                                <th>TECNICO</th>
                                 <th>TELF 1</th>
                                 <th>TELF 2</th>
                                 <th>EMPRESA</th>
@@ -28,23 +28,18 @@
                             <tbody>
                             @foreach($proveedores as $proveedor)
                                 <tr>
-                                    <td>{{$proveedor->contacto}}</td>
-                                    <td>{{$proveedor->celular}}</td>
-                                    <td>{{$proveedor->tel_empresa}}</td>
+                                    <td>{{$proveedor->tecnico}}</td>
+                                    <td>{{$proveedor->telf1}}</td>
+                                    <td>{{$proveedor->telf2}}</td>
                                     <td>{{$proveedor->empresa}}</td>
 
                                     <td class="text-center">
-                                        <a href="{{url('proveedores/'.$proveedor->id)}}">
-                                            <button class="btn btn-outline-info">
-                                                <i class="fa fa-eye"></i>
-                                            </button>
-                                        </a>
                                         <a href="{{url('proveedores/'.$proveedor->id.'/edit')}}">
                                             <button class="btn btn-warning">
                                                 <i class="fa fa-pen"></i>
                                             </button>
                                         </a>
-                                        <button type="button" class="btn btn-danger" onclick="modalEliminar('{{$proveedor -> contacto}}', '{{url('proveedores/'.$proveedor -> id)}}')">
+                                        <button type="button" class="btn btn-danger" onclick="modalEliminar('{{$proveedor -> tecnico}}', '{{url('proveedores/'.$proveedor -> id)}}')">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>

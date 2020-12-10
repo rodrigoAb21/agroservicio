@@ -13,44 +13,45 @@
                         {{csrf_field()}}
                         {{method_field('PATCH')}}
                         <div class="row">
-                            <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                 <div class="form-group">
-                                    <label>Contacto</label>
+                                    <label>Tecnico</label>
                                     <input required
                                            type="text"
                                            class="form-control"
-                                           value="{{$proveedor->contacto}}"
-                                           name="contacto">
+                                           value="{{$proveedor->tecnico}}"
+                                           name="tecnico">
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                                 <div class="form-group">
-                                    <label>Celular</label>
+                                    <label>Telefono 1</label>
                                     <input
-                                           type="number"
+                                           type="text"
                                            class="form-control"
-                                           value="{{$proveedor->celular}}"
-                                           name="celular">
+                                           value="{{$proveedor->telf1}}"
+                                           name="telf1">
                                 </div>
                             </div>
-                            <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+
+                                <div class="form-group">
+                                    <label>Telefono 2</label>
+                                    <input required
+                                           type="text"
+                                           class="form-control"
+                                           value="{{$proveedor->telf2}}"
+                                           name="telf2">
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <label>Empresa</label>
-                                    <input required
+                                    <input
                                            type="text"
                                            class="form-control"
                                            value="{{$proveedor->empresa}}"
                                            name="empresa">
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                                <div class="form-group">
-                                    <label>Telefono empresa</label>
-                                    <input
-                                           type="text"
-                                           class="form-control"
-                                           value="{{$proveedor->tel_empresa}}"
-                                           name="tel_empresa">
                                 </div>
                             </div>
                         </div>
