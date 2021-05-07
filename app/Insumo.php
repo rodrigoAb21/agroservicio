@@ -11,11 +11,13 @@ class Insumo extends Model
     public $timestamps = false;
     protected $fillable = [
         'nombre',
-        'ingrediente_activo',
-        'contenido_total',
-        'info',
-        'existencias',
         'tipo',
+        'precio',
+        'f_venc',
+        'distribuidor',
+        'existencias',
+        'info',
+        'contenido',
         'subtipo_id',
         'unidad_medida_id',
     ];

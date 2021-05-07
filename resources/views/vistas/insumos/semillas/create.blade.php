@@ -35,8 +35,8 @@
                                 <input
                                         type="number"
                                         class="form-control"
-                                        value="{{old('contenido_total')}}"
-                                        name="contenido_total">
+                                        value="{{old('contenido')}}"
+                                        name="contenido">
                             </div>
                         </div>
 

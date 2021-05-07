@@ -21,7 +21,7 @@ class SemillaController extends Controller
                     ->orWhere('subtipo.nombre', 'like', '%'.$busqueda.'%')
                 ;}
             )
-            ->select('insumo.nombre','insumo.id', 'insumo.contenido_total','unidad_medida.nombre as unidad',
+            ->select('insumo.nombre','insumo.id', 'insumo.contenido','unidad_medida.nombre as unidad',
                 'insumo.existencias','subtipo.nombre as tipo')
             ->orderBy('insumo.nombre')
             ->paginate(10);
@@ -37,7 +37,7 @@ class SemillaController extends Controller
         return view('vistas.insumos.semillas.create',
             [
                 'unidades' => UnidadMedida::all(),
-                'tipos' => Subtipo::where('tipo', '=', 'TipoSemilla')->get(),
+                'tipos' => Subtipo::where('tipo', '=', 'Semilla')->get(),
             ]);
     }
 
@@ -47,7 +47,7 @@ class SemillaController extends Controller
         
         $insumo = new Insumo();
         $insumo->nombre = $request['nombre'];
-        $insumo->contenido_total = $request['contenido_total'];
+        $insumo->contenido = $request['contenido'];
         $insumo->info = $request['info'];
         $insumo->existencias = 0;
         $insumo->tipo = 'Semilla';
@@ -64,7 +64,7 @@ class SemillaController extends Controller
             [
                 'insumo' => Insumo::findOrFail($id),
                 'unidades' => UnidadMedida::all(),
-                'tipos' => Subtipo::where('tipo', '=', 'TipoSemilla')->get(),
+                'tipos' => Subtipo::where('tipo', '=', 'Semilla')->get(),
             ]);
     }
 
@@ -74,7 +74,7 @@ class SemillaController extends Controller
     
         $insumo = Insumo::findOrFail($id);
         $insumo->nombre = $request['nombre'];
-        $insumo->contenido_total = $request['contenido_total'];
+        $insumo->contenido = $request['contenido'];
         $insumo->info = $request['info'];
         $insumo->unidad_medida_id = $request['unidad_medida_id'];
         $insumo->subtipo_id = $request['subtipo_id'];

@@ -23,7 +23,7 @@
                             <tr>
                                 <th class="text-center">NOMBRE</th>
                                 <th class="text-center">TIPO</th>
-                                <th class="text-center">CONT TOTAL</th>
+                                <th class="text-center">PRESENTACION</th>
                                 <th class="text-center">EXISTENCIAS</th>
                                 <th class="text-right">OPCIONES</th>
                             </tr>
@@ -33,7 +33,7 @@
                                 <tr class="text-center">
                                     <td>{{$insumo -> nombre}}</td>
                                     <td>{{$insumo -> tipo}}</td>
-                                    <td>{{$insumo -> contenido_total}} {{$insumo -> unidad}}</td>
+                                    <td>{{$insumo -> contenido}} {{$insumo -> unidad}}</td>
                                     <td>{{$insumo -> existencias}}</td>
                                     <td class="text-right ">
                                         <a href="{{url('insumos/semillas/'.$insumo->id.'/edit')}}">

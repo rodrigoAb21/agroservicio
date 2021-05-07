@@ -22,7 +22,7 @@ class CreateInsumoTable extends Migration
             $table->string('distribuidor')->nullable();
             $table->float('existencias');
             $table->string('info')->nullable();
-            $table->float('envase');
+            $table->float('contenido');
 
             $table->unsignedInteger('unidad_medida_id');
             $table->foreign('unidad_medida_id')->references('id')->on('unidad_medida');

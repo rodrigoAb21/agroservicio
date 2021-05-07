@@ -43,8 +43,8 @@
                             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <label>Contenido Total</label>
-                                    <input type="number" class="form-control" value="{{$insumo->contenido_total}}"
-                                           name="contenido_total">
+                                    <input type="number" class="form-control" value="{{$insumo->contenido}}"
+                                           name="contenido">
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
