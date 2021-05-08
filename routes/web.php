@@ -23,7 +23,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('config/tipoSemillas','TipoSemillaController');
     Route::resource('config/tipoMaquinarias','TipoMaquinariaController');
     Route::resource('insumos/semillas','SemillaController');
-    Route::resource('insumos/fitosanitarios','FitosanitarioController');
+    Route::resource('insumos/agroquimicos','AgroquimicoController');
     Route::resource('insumos/abonos','AbonoController');
     Route::resource('proveedores','ProveedorController');
     Route::resource('trabajadores','TrabajadorController');

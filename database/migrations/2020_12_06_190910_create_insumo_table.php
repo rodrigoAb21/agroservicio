@@ -17,8 +17,6 @@ class CreateInsumoTable extends Migration
             $table->increments('id');
             $table->string('nombre')->nullable();
             $table->string('tipo');
-            $table->float('precio')->nullable();
-            $table->date('f_venc')->nullable();
             $table->string('distribuidor')->nullable();
             $table->float('existencias');
             $table->string('info')->nullable();

@@ -6,16 +6,16 @@
             <div class="card">
                 <div class="card-body">
                     <h2 class="pb-2">
-                        <a href="{{url('insumos/fitosanitarios')}}">
-                            <i class="fa fa-biohazard"></i> Fitosanitario
+                        <a href="{{url('insumos/agroquimicos')}}">
+                            <i class="fa fa-biohazard"></i> Agroquimico
                         </a>
                         <div class="float-right">
-                            <a class="btn btn-success" href="{{url('insumos/fitosanitarios/create')}}">
+                            <a class="btn btn-success" href="{{url('insumos/agroquimicos/create')}}">
                                 <i class="fa fa-plus"></i> Nuevo
                             </a>
                         </div>
                     </h2>
-                    <form method="GET" action="{{url('insumos/fitosanitarios')}}" autocomplete="off">
+                    <form method="GET" action="{{url('insumos/agroquimicos')}}" autocomplete="off">
                         <input type="text" class="form-control mb-2 mr-sm-2"  value="{{$busqueda}}" id="busqueda" name="busqueda" placeholder="Buscar">
                     </form>
                     <div class="table-responsive">
@@ -23,8 +23,7 @@
                             <thead>
                             <tr>
                                 <th class="text-center">NOMBRE</th>
-                                <th class="text-center">CONT TOTAL</th>
-                                <th class="text-center">INGREDIENTE ACTIVO</th>
+                                <th class="text-center">PRESENTACION</th>
                                 <th class="text-center">TIPO</th>
                                 <th class="text-center">EXISTENCIAS</th>
                                 <th class="text-center">OPCIONES</th>
@@ -34,22 +33,21 @@
                             @foreach($insumos as $insumo)
                                 <tr class="text-center">
                                     <td>{{$insumo -> nombre}}</td>
-                                    <td>{{$insumo -> contenido_total}} {{$insumo -> unidad}}</td>
-                                    <td>{{$insumo -> ingrediente_activo}}</td>
+                                    <td>{{$insumo -> contenido}} {{$insumo -> unidad}}</td>
                                     <td>{{$insumo -> tipo}}</td>
                                     <td>{{$insumo -> existencias}}</td>
                                     <td class="text-center ">
-                                        <a href="{{url('insumos/fitosanitarios/'.$insumo->id)}}">
+                                        <a href="{{url('insumos/agroquimicos/'.$insumo->id)}}">
                                             <button class="btn btn-outline-info">
                                                 <i class="fa fa-eye"></i>
                                             </button>
                                         </a>
-                                        <a href="{{url('insumos/fitosanitarios/'.$insumo->id.'/edit')}}">
+                                        <a href="{{url('insumos/agroquimicos/'.$insumo->id.'/edit')}}">
                                             <button class="btn btn-warning">
                                                 <i class="fa fa-pen"></i>
                                             </button>
                                         </a>
-                                        <button type="button" class="btn btn-danger" onclick="modalEliminar('{{$insumo -> nombre}}', '{{url('insumos/fitosanitarios/'.$insumo -> id)}}');">
+                                        <button type="button" class="btn btn-danger" onclick="modalEliminar('{{$insumo -> nombre}}', '{{url('insumos/agroquimicos/'.$insumo -> id)}}');">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>
@@ -70,7 +68,7 @@
             function modalEliminar(nombre, url) {
                 $('#modalEliminarForm').attr("action", url);
                 $('#metodo').val("delete");
-                $('#modalEliminarTitulo').html("Eliminar Fitosanitario");
+                $('#modalEliminarTitulo').html("Eliminar Agroquimico");
                 $('#modalEliminarEnunciado').html("Realmente desea eliminar el fitosanitario: " + nombre + "?");
                 $('#modalEliminar').modal('show');
             }

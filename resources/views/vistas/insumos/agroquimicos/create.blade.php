@@ -6,36 +6,35 @@
         <div class="card">
             <div class="card-body">
                 <h3 class="pb-2">
-                    Nuevo Fitosanitario
+                    Nuevo Agroquimico
                 </h3>
 
-                <form method="POST" action="{{url('insumos/fitosanitarios')}}" autocomplete="off">
+                <form method="POST" action="{{url('insumos/agroquimicos')}}" autocomplete="off">
                     {{csrf_field()}}
                     <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label>Nombre</label>
                                 <input required type="text" class="form-control" value="{{old('nombre')}}" name="nombre">
                             </div>
                         </div>
-
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <div class="form-group">
-                                <label>Ingrediente Activo</label>
-                                <input type="text" class="form-control" value="{{old('ingrediente_activo')}}" name="ingrediente_activo">
+                                <label>Distribuidor</label>
+                                <input type="text" class="form-control" value="{{old('distribuidor')}}" name="distribuidor">
                             </div>
                         </div>
 
                         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                             <div class="form-group">
-                                <label>Contenido Total</label>
-                                <input type="number" class="form-control" value="{{old('contenido_total')}}" name="contenido_total">
+                                <label>Contenido</label>
+                                <input type="number" class="form-control" value="{{old('contenido')}}" name="contenido">
                             </div>
                         </div>
 
                         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                             <div class="form-group">
-                                <label>Unidad Medida</label>
+                                <label>Unidad de Medida</label>
                                 <select class="form-control" name="unidad_medida_id">
                                     @foreach($unidades as $unidad)
                                     <option value="{{$unidad->id}}">{{$unidad->nombre}}</option>
@@ -72,9 +71,8 @@
                                     <thead>
                                         <tr>
                                             <th class="text-center">OPC</th>
-                                            <th class="text-center">CULTIVO</th>
-                                            <th class="text-center">PLAGA</th>
-                                            <th class="text-center">DOSIS</th>
+                                            <th class="text-center">NOMBRE</th>
+                                            <th class="text-center">CONCENTRACION</th>
                                         </tr>
                                     </thead>
                                     <tbody id="detalle">
@@ -83,23 +81,11 @@
                             </div>
                         </div>
 
-
-
-
-
-
-
                     </div>
 
 
 
-
-
-
-
-
-
-                    <a href="{{url('insumos/fitosanitarios')}}" class="btn btn-warning">Atras</a>
+                    <a href="{{url('insumos/agroquimicos')}}" class="btn btn-warning">Atras</a>
                     <button type="submit" class="btn btn-info">Guardar</button>
                 </form>
             </div>
@@ -120,11 +106,9 @@
             '</button>' +
             '</td>' +
             '<td class="text-center">' +
-            '<input class="form-control"  name="cultivoT[]" required></td>' +
+            '<input class="form-control"  name="nombreT[]" required></td>' +
             '<td class="text-center">' +
-            '<input class="form-control"  name="plagaT[]" required></td>' +
-            '<td class="text-center">' +
-            '<input class="form-control"  name="dosisT[]" required></td>' +
+            '<input class="form-control"  name="concentracionT[]" required></td>' +
             '</tr>';
 
 

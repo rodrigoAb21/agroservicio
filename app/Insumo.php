@@ -12,8 +12,6 @@ class Insumo extends Model
     protected $fillable = [
         'nombre',
         'tipo',
-        'precio',
-        'f_venc',
         'distribuidor',
         'existencias',
         'info',

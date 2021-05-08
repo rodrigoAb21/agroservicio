@@ -6,7 +6,7 @@
             <div class="card">
                 <div class="card-body">
                     <h3 class="pb-2">
-                        Ver Fitosanitario: {{$insumo->nombre}}
+                        Ver Agroquimico: {{$insumo->nombre}}
                     </h3>
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -20,8 +20,8 @@
 
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <div class="form-group">
-                                <h5><b>Ingrediente Activo</b></h5>
-                                <p>{{$insumo->ingrediente_activo}}</p>
+                                <h5><b>Distribuidor</b></h5>
+                                <p>{{$insumo->distribuidor}}</p>
                             </div>
                         </div>
 
@@ -35,7 +35,7 @@
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <h5><b>Contenido Total</b></h5>
-                                <p>{{$insumo->contenido_total}} {{$insumo->unidad->nombre}}</p>
+                                <p>{{$insumo->contenido}} {{$insumo->unidad->nombre}}</p>
                             </div>
                         </div>
 
@@ -51,18 +51,15 @@
                                 <table class="table table-hover table-bordered color-table info-table">
                                     <thead>
                                     <tr>
-                                        <th class="text-center">CULTIVO</th>
-                                        <th class="text-center">PLAGA</th>
-                                        <th class="text-center">DOSIS</th>
+                                        <th class="text-center">NOMBRE</th>
+                                        <th class="text-center">CONCENTRACION</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     @foreach($detalles as $detalle)
                                         <tr class="text-center">
-
-                                            <td>{{$detalle -> cultivo}}</td>
-                                            <td>{{$detalle -> plaga}}</td>
-                                            <td>{{$detalle -> dosis}}</td>
+                                            <td>{{$detalle->nombre}}</td>
+                                            <td>{{$detalle->concentracion}}</td>
                                         </tr>
                                     @endforeach
                                     </tbody>
@@ -72,7 +69,7 @@
 
 
                     </div>
-                    <a href="{{url('insumos/fitosanitarios')}}" class="btn btn-warning">Atras</a>
+                    <a href="{{url('insumos/agroquimicos')}}" class="btn btn-warning">Atras</a>
 
 
                 </div>

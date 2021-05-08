@@ -3,15 +3,15 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Campo extends Model
+class Composicion extends Model
 {
-    protected $table = 'campo';
+    protected $table = 'composicion';
     protected $primaryKey = 'id';
     public $timestamps = false;
     protected $fillable = [
         'nombre',
-        'superficie',
+        'concentracion',
+        'insumo_id',
     ];
 }

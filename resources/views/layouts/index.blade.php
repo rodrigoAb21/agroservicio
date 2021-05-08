@@ -119,16 +119,10 @@
                                         <span>  Semillas</span>
                                     </a>
                                 </li>
-                                <li class="{{ Request::is('insumos/fitosanitarios*') ? 'nav-item active' : 'nav-item' }}">
-                                    <a href="{{url('insumos/fitosanitarios')}}" >
+                                <li class="{{ Request::is('insumos/agroquimicos*') ? 'nav-item active' : 'nav-item' }}">
+                                    <a href="{{url('insumos/agroquimicos')}}" >
                                         <i class="fa fa-biohazard"></i>
-                                        <span>  Fitosanitarios</span>
-                                    </a>
-                                </li>
-                                <li class="{{ Request::is('insumos/abonos*') ? 'nav-item active' : 'nav-item' }}">
-                                    <a href="{{url('insumos/abonos')}}" >
-                                        <i class="fa fa-bolt"></i>
-                                        <span>  Abonos</span>
+                                        <span>  Agroquimicos</span>
                                     </a>
                                 </li>
 
