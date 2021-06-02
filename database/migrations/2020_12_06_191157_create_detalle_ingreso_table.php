@@ -20,10 +20,10 @@ class CreateDetalleIngresoTable extends Migration
 
 
             $table->unsignedInteger('ingreso_id');
-            $table->foreign('ingreso_id')->references('id')->on('ingreso');
+            $table->foreign('ingreso_id')->references('id')->on('ingreso')->onDelete('cascade');
 
             $table->unsignedInteger('insumo_id');
-            $table->foreign('insumo_id')->references('id')->on('insumo');
+            $table->foreign('insumo_id')->references('id')->on('insumo')->onDelete('cascade');
         });
     }
 

@@ -11,7 +11,7 @@ class TipoSemillaController extends Controller
     {
         return view('vistas.config.tipoSemillas.index',
             [
-                'tipos' => Subtipo::where('tipo', '=', 'TipoSemilla')->paginate(10),
+                'tipos' => Subtipo::where('tipo', '=', 'Semilla')->paginate(10),
             ]);
     }
 

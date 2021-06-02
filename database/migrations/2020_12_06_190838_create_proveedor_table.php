@@ -19,7 +19,6 @@ class CreateProveedorTable extends Migration
             $table->string('empresa')->nullable();
             $table->string('telf1')->nullable();
             $table->string('telf2')->nullable();
-            $table->softDeletes();
         });
     }
 

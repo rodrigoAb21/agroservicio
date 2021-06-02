@@ -19,7 +19,6 @@
                         <table class="table table-hover table-bordered color-table info-table">
                             <thead>
                             <tr>
-                                <th>ID</th>
                                 <th class="w-75">NOMBRE</th>
                                 <th>OPCIONES</th>
                             </tr>
@@ -27,7 +26,7 @@
                             <tbody>
                             @foreach($unidades as $unidad)
                                 <tr>
-                                    <td>{{$unidad->id}}</td>
+
                                     <td>{{$unidad->nombre}}</td>
                                     <td class="text-right ">
                                         <a href="{{url('config/unidades/'.$unidad->id.'/edit')}}">

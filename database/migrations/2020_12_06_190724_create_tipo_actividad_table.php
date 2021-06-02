@@ -17,7 +17,6 @@ class CreateTipoActividadTable extends Migration
             $table->increments('id');
             $table->string('nombre');
             $table->float('precio_base')->nullable();
-            $table->softDeletes();
         });
     }
 

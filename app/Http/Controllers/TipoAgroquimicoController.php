@@ -11,7 +11,7 @@ class TipoAgroquimicoController extends Controller
     {
         return view('vistas.config.tipoAgroquimicos.index',
             [
-                'tipos' => Subtipo::where('tipo', '=', 'TipoAgroquimico')->paginate(10),
+                'tipos' => Subtipo::where('tipo', '=', 'Agroquimico')->paginate(10),
             ]);
     }
 

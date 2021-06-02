@@ -23,11 +23,9 @@ class CreateInsumoTable extends Migration
             $table->string('info')->nullable();
 
             $table->unsignedInteger('unidad_medida_id');
-            $table->foreign('unidad_medida_id')->references('id')->on('unidad_medida');
+            $table->foreign('unidad_medida_id')->references('id')->on('unidad_medida')->onDelete('cascade');
             $table->unsignedInteger('subtipo_id');
-            $table->foreign('subtipo_id')->references('id')->on('subtipo');
-
-            $table->softDeletes();
+            $table->foreign('subtipo_id')->references('id')->on('subtipo')->onDelete('cascade');
         });
     }
 

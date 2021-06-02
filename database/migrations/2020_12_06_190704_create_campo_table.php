@@ -17,7 +17,6 @@ class CreateCampoTable extends Migration
             $table->increments('id');
             $table->string('nombre');
             $table->float('superficie')->nullable();
-            $table->softDeletes();
         });
     }
 

@@ -19,11 +19,10 @@ class CreateIngresoTable extends Migration
             $table->string('tipo');  // Contado/credito
             $table->date('fecha');
             $table->float('total')->nullable();
-            $table->softDeletes();
 
 
             $table->unsignedInteger('proveedor_id');
-            $table->foreign('proveedor_id')->references('id')->on('proveedor');
+            $table->foreign('proveedor_id')->references('id')->on('proveedor')->onDelete('cascade');
         });
     }
 

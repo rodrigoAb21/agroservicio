@@ -10,8 +10,6 @@ class Maquinaria extends Model
     protected $table = 'maquinaria';
     protected $primaryKey = 'id';
     public $timestamps = false;
-    use SoftDeletes;
-    protected $dates = ['deleted_at'];
     protected $fillable = [
         'nombre',
         'color',

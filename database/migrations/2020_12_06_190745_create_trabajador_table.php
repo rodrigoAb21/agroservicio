@@ -17,7 +17,6 @@ class CreateTrabajadorTable extends Migration
             $table->increments('id');
             $table->string('nombre');
             $table->string('telefono')->nullable();
-            $table->softDeletes();
         });
     }
 

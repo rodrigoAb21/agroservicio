@@ -19,10 +19,9 @@ class CreateCampanaTable extends Migration
             $table->date('fecha_siembra')->nullable();
             $table->date('fecha_cosecha')->nullable();
             $table->string('cultivo');
-            $table->softDeletes();
 
             $table->unsignedInteger('campo_id');
-            $table->foreign('campo_id')->references('id')->on('campo');
+            $table->foreign('campo_id')->references('id')->on('campo')->onDelete('cascade');
         });
     }
 

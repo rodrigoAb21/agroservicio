@@ -25,8 +25,8 @@
                                 <th class="text-center">NOMBRE</th>
                                 <th class="text-center">U. MEDIDA</th>
                                 <th class="text-center">TIPO</th>
-                                <th class="text-center">EXISTENCIAS</th>
                                 <th class="text-center">COMPOSICION</th>
+                                <th class="text-center">EXISTENCIAS</th>
                                 <th class="text-center">OPCIONES</th>
                             </tr>
                             </thead>

@@ -18,7 +18,6 @@ class CreateMaquinariaTable extends Migration
             $table->string('nombre');
             $table->string('color')->nullable();
             $table->string('tipo'); //Va estar por selector "Vehiculo/Implemento"
-            $table->softDeletes();
         });
     }
 
