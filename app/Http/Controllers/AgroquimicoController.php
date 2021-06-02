@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Composicion;
-use App\DetalleFitosanitario;
 use App\Insumo;
 use App\Subtipo;
 use App\UnidadMedida;
@@ -21,14 +20,15 @@ class AgroquimicoController extends Controller
             ->where(function ($query) use ($busqueda) {
                 $query->where('insumo.nombre', 'like', '%'.$busqueda.'%')
                     ->orWhere('subtipo.nombre', 'like', '%'.$busqueda.'%')
+                    ->orWhere('insumo.composicion', 'like', '%'.$busqueda.'%')
                 ;}
             )
             ->orderBy('insumo.nombre')
             ->select(
                 'insumo.nombre',
                 'insumo.id',
-                'insumo.contenido',
                 'insumo.existencias',
+                'insumo.composicion',
                 'subtipo.nombre as tipo',
                 'unidad_medida.nombre as unidad')
             ->paginate(10);
@@ -37,6 +37,12 @@ class AgroquimicoController extends Controller
                 'insumos' => $agroquimicos,
                 'busqueda' => $busqueda,
             ]);
+    }
+
+    public function getComposicion($nombres){
+        $composicion = '';
+
+
     }
 
     public function create()
@@ -57,23 +63,25 @@ class AgroquimicoController extends Controller
 
             $insumo = new Insumo();
             $insumo->nombre = $request['nombre'];
-            $insumo->contenido = $request['contenido'];
-            $insumo->distribuidor = $request['distribuidor'];
-            $insumo->info = $request['info'];
-            $insumo->existencias = 0;
             $insumo->tipo = 'Agroquimico';
+            $insumo->existencias = 0;
+            $insumo->precio = $request['precio'];
+            $insumo->info = $request['info'];
             $insumo->subtipo_id = $request['subtipo_id'];
             $insumo->unidad_medida_id = $request['unidad_medida_id'];
             $insumo->save();
 
             $nombre = $request->get('nombreT');
-            
+
+
+            $composicionNombres = '';
             if($nombre){
                 $concentracion = $request->get('concentracionT');
                 $cont = 0;
 
                 while ($cont < count($nombre)) {
                     $composicion = new Composicion();
+                    $composicionNombres = $composicionNombres . $nombre[$cont] . ", ";
                     $composicion->nombre = $nombre[$cont];
                     $composicion->concentracion = $concentracion[$cont];
                     $composicion->insumo_id = $insumo->id;
@@ -81,7 +89,10 @@ class AgroquimicoController extends Controller
 
                     $cont = $cont + 1;
                 }
+                $composicionNombres= trim($composicionNombres, ', ') . '.';
             }
+            $insumo->composicion = $composicionNombres;
+            $insumo->update();
 
             DB::commit();
 
@@ -123,30 +134,33 @@ class AgroquimicoController extends Controller
             DB::beginTransaction();
             $insumo = Insumo::findOrFail($id);
             $insumo->nombre = $request['nombre'];
-            $insumo->ingrediente_activo = $request['ingrediente_activo'];
-            $insumo->contenido = $request['contenido'];
+            $insumo->precio = $request['precio'];
             $insumo->info = $request['info'];
             $insumo->subtipo_id = $request['subtipo_id'];
             $insumo->unidad_medida_id = $request['unidad_medida_id'];
 
             if ($insumo->update()){
                 DB::table('composicion')->where('insumo_id', '=', $id)->delete();
-                $nombre = $request->get('cultivoT');
-                if ($nombre){
-                    $plaga = $request->get('plagaT');
-                    $dosis = $request->get('dosisT');
+                $nombre = $request->get('nombreT');
+                $composicionNombres = '';
+                if($nombre){
+                    $concentracion = $request->get('concentracionT');
                     $cont = 0;
+
                     while ($cont < count($nombre)) {
-                        $composicion = new DetalleFitosanitario();
-                        $composicion->cultivo = $nombre[$cont];
-                        $composicion->plaga = $plaga[$cont];
-                        $composicion->dosis = $dosis[$cont];
+                        $composicion = new Composicion();
+                        $composicionNombres = $composicionNombres . $nombre[$cont] . ", ";
+                        $composicion->nombre = $nombre[$cont];
+                        $composicion->concentracion = $concentracion[$cont];
                         $composicion->insumo_id = $insumo->id;
                         $composicion->save();
 
                         $cont = $cont + 1;
                     }
+                    $composicionNombres= trim($composicionNombres, ', ') . '.';
                 }
+                $insumo->composicion = $composicionNombres;
+                $insumo->update();
             }
 
 

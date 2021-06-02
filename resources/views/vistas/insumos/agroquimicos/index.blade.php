@@ -7,7 +7,7 @@
                 <div class="card-body">
                     <h2 class="pb-2">
                         <a href="{{url('insumos/agroquimicos')}}">
-                            <i class="fa fa-biohazard"></i> Agroquimico
+                            <i class="fa fa-biohazard"></i> Agroquímico
                         </a>
                         <div class="float-right">
                             <a class="btn btn-success" href="{{url('insumos/agroquimicos/create')}}">
@@ -23,9 +23,10 @@
                             <thead>
                             <tr>
                                 <th class="text-center">NOMBRE</th>
-                                <th class="text-center">PRESENTACION</th>
+                                <th class="text-center">U. MEDIDA</th>
                                 <th class="text-center">TIPO</th>
                                 <th class="text-center">EXISTENCIAS</th>
+                                <th class="text-center">COMPOSICION</th>
                                 <th class="text-center">OPCIONES</th>
                             </tr>
                             </thead>
@@ -33,10 +34,11 @@
                             @foreach($insumos as $insumo)
                                 <tr class="text-center">
                                     <td>{{$insumo -> nombre}}</td>
-                                    <td>{{$insumo -> contenido}} {{$insumo -> unidad}}</td>
+                                    <td>{{$insumo -> unidad}}</td>
                                     <td>{{$insumo -> tipo}}</td>
+                                    <td>{{$insumo -> composicion}}</td>
                                     <td>{{$insumo -> existencias}}</td>
-                                    <td class="text-center ">
+                                    <td class="text-center " style="white-space: nowrap">
                                         <a href="{{url('insumos/agroquimicos/'.$insumo->id)}}">
                                             <button class="btn btn-outline-info">
                                                 <i class="fa fa-eye"></i>

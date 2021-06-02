@@ -16,7 +16,7 @@ class CreateComposicionTable extends Migration
         Schema::create('composicion', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
-            $table->string('concentracion');
+            $table->string('concentracion')->nullable();
 
             $table->unsignedInteger('insumo_id');
             $table->foreign('insumo_id')->references('id')->on('insumo')->onDelete('cascade');

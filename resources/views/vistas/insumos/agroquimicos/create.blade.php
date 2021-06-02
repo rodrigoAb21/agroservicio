@@ -12,23 +12,16 @@
                 <form method="POST" action="{{url('insumos/agroquimicos')}}" autocomplete="off">
                     {{csrf_field()}}
                     <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label>Nombre</label>
                                 <input required type="text" class="form-control" value="{{old('nombre')}}" name="nombre">
                             </div>
                         </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                            <div class="form-group">
-                                <label>Distribuidor</label>
-                                <input type="text" class="form-control" value="{{old('distribuidor')}}" name="distribuidor">
-                            </div>
-                        </div>
-
                         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                             <div class="form-group">
-                                <label>Contenido</label>
-                                <input type="number" class="form-control" value="{{old('contenido')}}" name="contenido">
+                                <label>Precio $us</label>
+                                <input type="number" step="0.01" class="form-control" value="{{old('precio')}}" name="precio">
                             </div>
                         </div>
 
@@ -60,7 +53,10 @@
                             </div>
                         </div>
 
+                        <br>
+
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <h3>Composición</h3>
                             <div class="form-group">
                                 <button id="btn_agregar" type="button" onclick="agregar()" class="btn btn-success btn-block">
                                     <i class="fa fa-plus"></i> Agregar

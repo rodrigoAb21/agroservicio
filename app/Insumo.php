@@ -12,10 +12,10 @@ class Insumo extends Model
     protected $fillable = [
         'nombre',
         'tipo',
-        'distribuidor',
         'existencias',
+        'composicion',
+        'precio',
         'info',
-        'contenido',
         'subtipo_id',
         'unidad_medida_id',
     ];

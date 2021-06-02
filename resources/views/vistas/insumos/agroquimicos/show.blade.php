@@ -9,40 +9,56 @@
                         Ver Agroquimico: {{$insumo->nombre}}
                     </h3>
                     <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <h5><b>Nombre</b></h5>
-                                <p>
-                                    {{$insumo->nombre}}
-                                </p>
+                                    <input readonly
+                                           type="text"
+                                           class="form-control"
+                                           value=" {{$insumo->nombre}}"
+                                           name="nombre">
+
+
                             </div>
                         </div>
 
-                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                             <div class="form-group">
-                                <h5><b>Distribuidor</b></h5>
-                                <p>{{$insumo->distribuidor}}</p>
+                                <h5><b>Precio</b></h5>
+                                <input readonly
+                                       type="text"
+                                       class="form-control"
+                                       value="{{$insumo->precio}}"
+                                       name="nombre">
                             </div>
                         </div>
 
-                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <h5><b>Tipo de Insumo</b></h5>
-                                <p>{{$insumo->subtipo->nombre}}</p>
+                                <input readonly
+                                       type="text"
+                                       class="form-control"
+                                       value="{{$insumo->subtipo->nombre}}"
+                                       name="nombre">
                             </div>
                         </div>
 
-                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                             <div class="form-group">
-                                <h5><b>Contenido Total</b></h5>
-                                <p>{{$insumo->contenido}} {{$insumo->unidad->nombre}}</p>
+                                <h5><b>Existencias</b></h5>
+                                <input readonly
+                                       type="text"
+                                       class="form-control"
+                                       value="{{$insumo->existencias}} {{$insumo->unidad->nombre}}"
+                                       name="nombre">
                             </div>
                         </div>
 
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <h5><b>Info</b></h5>
-                                <p>{{$insumo->info}}</p>
+                                <textarea readonly class="form-control" rows="3">{{$insumo->info}}</textarea>
                             </div>
                         </div>
 
