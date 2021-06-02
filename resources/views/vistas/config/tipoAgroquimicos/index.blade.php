@@ -19,7 +19,6 @@
                         <table class="table table-hover table-bordered color-table info-table">
                             <thead>
                             <tr>
-                                <th>ID</th>
                                 <th class="w-75">NOMBRE</th>
                                 <th>OPCIONES</th>
                             </tr>
