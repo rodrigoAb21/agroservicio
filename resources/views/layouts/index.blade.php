@@ -135,7 +135,7 @@
                         </li>
 
 
-                        <li class="{{ Request::is('campos*') ? 'nav-item active' : 'nav-item' }}">
+                        <li hidden class="{{ Request::is('campos*') ? 'nav-item active' : 'nav-item' }}">
                             <a href="{{url('campos')}}" >
                                 <i class="fa fa-map-marked-alt"></i>
                                 <span class="hide-menu"> Campos</span>
@@ -143,7 +143,7 @@
                         </li>
 
 
-                        <li class="{{ Request::is('maquinarias*') ? 'nav-item active' : 'nav-item' }}">
+                        <li hidden  class="{{ Request::is('maquinarias*') ? 'nav-item active' : 'nav-item' }}">
                             <a href="{{url('maquinarias')}}" >
                                 <i class="fa fa-tractor"></i>
                                 <span class="hide-menu"> Maquinarias</span>
@@ -156,7 +156,7 @@
                                 <span class="hide-menu"> Proveedores</span>
                             </a>
                         </li>
-                        <li class="{{ Request::is('trabajadores*') ? 'nav-item active' : 'nav-item' }}">
+                        <li  hidden class="{{ Request::is('trabajadores*') ? 'nav-item active' : 'nav-item' }}">
                             <a href="{{url('trabajadores')}}" >
                                 <i class="fa fa-user-tie"></i>
                                 <span class="hide-menu"> Trabajadores</span>
@@ -170,7 +170,7 @@
                             </a>
                         </li>
 
-                        <li class="{{ Request::is('reportes*') ? 'nav-item active' : 'nav-item' }}">
+                        <li hidden  class="{{ Request::is('reportes*') ? 'nav-item active' : 'nav-item' }}">
                             <a href="{{url('reporteInventario')}}" >
                                 <i class="fa fa-file"></i>
                                 <span class="hide-menu"> Reportes</span>
@@ -188,13 +188,13 @@
                                         <span class="hide-menu"> Unidades de Medida</span>
                                     </a>
                                 </li>
-                                <li class="{{ Request::is('config/tipoMaquinarias*') ? 'nav-item active' : 'nav-item' }}">
+                                <li  hidden class="{{ Request::is('config/tipoMaquinarias*') ? 'nav-item active' : 'nav-item' }}">
                                     <a href="{{url('config/tipoMaquinarias')}}" >
                                         <i class="fa fa-tools"></i>
                                         <span class="hide-menu"> Tipos de Maquinaria</span>
                                     </a>
                                 </li>
-                                <li class="{{ Request::is('config/tiposactividad*') ? 'nav-item active' :
+                                <li hidden  class="{{ Request::is('config/tiposactividad*') ? 'nav-item active' :
                                 'nav-item' }}">
                                     <a href="{{url('config/tiposactividad')}}" >
                                         <i class="fa fa-toolbox"></i>
