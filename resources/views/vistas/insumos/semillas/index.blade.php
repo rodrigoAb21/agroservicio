@@ -36,6 +36,11 @@
                                     <td>{{$insumo -> contenido}} {{$insumo -> unidad}}</td>
                                     <td>{{$insumo -> existencias}}</td>
                                     <td class="text-right ">
+                                        <a href="{{url('insumos/semillas/'.$insumo->id)}}">
+                                            <button class="btn btn-outline-info">
+                                                <i class="fa fa-eye"></i>
+                                            </button>
+                                        </a>
                                         <a href="{{url('insumos/semillas/'.$insumo->id.'/edit')}}">
                                             <button class="btn btn-warning">
                                                 <i class="fa fa-pen"></i>

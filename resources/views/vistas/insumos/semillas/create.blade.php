@@ -18,6 +18,19 @@
                                 <input required type="text" class="form-control" value="{{old('nombre')}}" name="nombre">
                             </div>
                         </div>
+
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label>Precio</label>
+                                <input
+                                        type="number"
+                                        step="0.01"
+                                        class="form-control"
+                                        value="{{old('precio')}}"
+                                        name="precio">
+                            </div>
+                        </div>
+
                         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label>Tipo</label>
@@ -26,17 +39,6 @@
                                         <option value="{{$tipo->id}}">{{$tipo->nombre}}</option>
                                     @endforeach
                                 </select>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                            <div class="form-group">
-                                <label>Contenido Total</label>
-                                <input
-                                        type="number"
-                                        class="form-control"
-                                        value="{{old('contenido')}}"
-                                        name="contenido">
                             </div>
                         </div>
 

@@ -50,6 +50,10 @@ class DatabaseSeeder extends Seeder
             'nombre' => 'FUNGICIDA',
             'tipo' => 'Agroquimico',
         ]);
+        DB::table('subtipo')->insert([
+            'nombre' => 'ABONO',
+            'tipo' => 'Agroquimico',
+        ]);
 
 
 

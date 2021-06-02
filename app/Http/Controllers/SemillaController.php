@@ -21,7 +21,7 @@ class SemillaController extends Controller
                     ->orWhere('subtipo.nombre', 'like', '%'.$busqueda.'%')
                 ;}
             )
-            ->select('insumo.nombre','insumo.id', 'insumo.contenido','unidad_medida.nombre as unidad',
+            ->select('insumo.nombre','insumo.id', 'unidad_medida.nombre as unidad',
                 'insumo.existencias','subtipo.nombre as tipo')
             ->orderBy('insumo.nombre')
             ->paginate(10);
@@ -42,13 +42,14 @@ class SemillaController extends Controller
     }
 
 
+
     public function store(Request $request)
     {
         
         $insumo = new Insumo();
         $insumo->nombre = $request['nombre'];
-        $insumo->contenido = $request['contenido'];
         $insumo->info = $request['info'];
+        $insumo->precio = $request['precio'];
         $insumo->existencias = 0;
         $insumo->tipo = 'Semilla';
         $insumo->subtipo_id = $request['subtipo_id'];
@@ -68,14 +69,22 @@ class SemillaController extends Controller
             ]);
     }
 
+    public function show($id)
+    {
+        return view('vistas.insumos.semillas.show',
+            [
+                'insumo' => Insumo::findOrFail($id),
+            ]);
+    }
+
 
     public function update(Request $request, $id)
     {
     
         $insumo = Insumo::findOrFail($id);
         $insumo->nombre = $request['nombre'];
-        $insumo->contenido = $request['contenido'];
         $insumo->info = $request['info'];
+        $insumo->precio = $request['precio'];
         $insumo->unidad_medida_id = $request['unidad_medida_id'];
         $insumo->subtipo_id = $request['subtipo_id'];
         $insumo->save();
