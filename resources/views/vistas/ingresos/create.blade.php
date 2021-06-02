@@ -12,7 +12,7 @@
                     <form method="POST" action="{{url('ingresos')}}" autocomplete="off">
                         {{csrf_field()}}
                         <div class="row">
-                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <label>Fecha</label>
                                     <input required
@@ -24,7 +24,38 @@
                             </div>
 
 
-                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <label>Nro Nota</label>
+                                    <input name="nro_nota" class="form-control" type="text">
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <label>Tipo</label>
+                                    <select class="form-control" name="tipo">
+                                        @foreach($tipos as $tipo)
+                                            <option value="{{$tipo}}">{{$tipo}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <label>Proveedor</label>
+                                    <select class="form-control selectpicker" data-live-search="true" name="proveedor_id">
+                                        @foreach($proveedores as $proveedor)
+                                            <option value="{{$proveedor->id}}">{{$proveedor->tecnico}} - {{$proveedor->empresa}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <label>Costo Total</label>
                                     <input id="totalIngreso1" class="form-control" type="text" readonly value="0">
@@ -32,44 +63,34 @@
                                 </div>
                             </div>
 
+
                         </div>
+
                         <hr>
 
+                        <h3>Insumos</h3>
                         <div class="row">
                             <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                                 <div class="form-group">
-                                    <label>Insumo</label>
                                     <select class="form-control selectpicker" data-live-search="true" id="selectorInsumo">
                                         @foreach($insumos as $insumo)
-                                            <option value="{{$insumo->id}}">{{$insumo->nombre}} ({{$insumo->contenido_total}}{{$insumo->unidad->nombre}})</option>
+                                            <option value="{{$insumo->id}}">{{$insumo->nombre}}</option>
                                         @endforeach
                                     </select>
                                 </div>
                             </div>
 
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                <div class="form-group">
-                                    <label>Proveedor</label>
-                                    <select class="form-control selectpicker" data-live-search="true" id="selectorProveedor">
-                                        @foreach($proveedores as $proveedor)
-                                            <option value="{{$proveedor->id}}">{{$proveedor->contacto}} - {{$proveedor->empresa}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-
-
-                            <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12">
                                 <div class="form-group">
 
                                     <input type="number" class="form-control" id="cantidad" min="1"  placeholder="Cantidad">
                                 </div>
                             </div>
 
-                            <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12">
                                 <div class="form-group">
 
-                                    <input type="number" class="form-control" id="precio" min="1" placeholder="P. Unitario">
+                                    <input type="number" class="form-control" id="precio" min="1" placeholder="P. Unitario  $us">
                                 </div>
                             </div>
 
@@ -90,10 +111,9 @@
                                 <tr>
                                     <th class="text-right">OPC</th>
                                     <th class="text-center">INSUMO</th>
-                                    <th class="text-center">PROVEEDOR</th>
                                     <th class="text-center">CANT</th>
-                                    <th class="text-center">P. UNITARIO</th>
-                                    <th class="text-center">SUBTOTAL</th>
+                                    <th class="text-center">P. UNITARIO $us</th>
+                                    <th class="text-center">SUBTOTAL $us</th>
                                 </tr>
                                 </thead>
                                 <tbody id="detalle">
@@ -130,8 +150,6 @@
 
                 idInsumo = $('#selectorInsumo').val();
                 nombreInsumo = $('#selectorInsumo option:selected').text();
-                idProveedor = $('#selectorProveedor').val();
-                nombreProveedor = $('#selectorProveedor option:selected').text();
                 cantidad[cont] = $('#cantidad').val();
                 precio[cont] = $('#precio').val();
 
@@ -152,10 +170,6 @@
                         '<td>' +
                         '   <input type="hidden" class"form-control "  name="idInsumoT[]" value="'+idInsumo+'">'
                         +nombreInsumo+
-                        '</td>' +
-                        '<td>' +
-                        '   <input type="hidden" class"form-control "  name="idProveedorT[]" value="'+idProveedor+'">'
-                        +nombreProveedor+
                         '</td>' +
                         '<td>' +
                         '<input type="hidden" class"form-control "  name="cantidadT[]" value="'+cantidad[cont]+'">'

@@ -8,25 +8,46 @@
                     <h3 class="pb-2">
                         INGRESO DE SUMINISTROS: {{$ingreso->id}}
                     </h3>
-
-                        {{csrf_field()}}
-                        <div class="row">
-                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                                <div class="form-group">
-                                    <h5>Fecha</h5>
-                                    <p>{{$ingreso->fecha}}</p>
-                                </div>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label><b>Fecha</b></label>
+                                <input id="totalIngreso1" class="form-control" type="date" readonly value="{{$ingreso->fecha}}">
                             </div>
-
-
-                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                                <div class="form-group">
-                                    <h5>Total</h5>
-                                    <p>{{$ingreso->total}}</p>
-                                </div>
-                            </div>
-
                         </div>
+
+
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label><b>Nro Nota</b></label>
+                                <input name="nro_nota" class="form-control" type="text" value="{{$ingreso->nro_nota}}">
+                            </div>
+                        </div>
+
+
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label><b>Tipo</b></label>
+                                <input id="totalIngreso1" class="form-control" type="text" readonly value="{{$ingreso->tipo}}">
+                            </div>
+                        </div>
+
+
+                        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label><b>Proveedor</b></label>
+                                <input id="totalIngreso1" class="form-control" type="text" readonly value="{{$ingreso->proveedor->tecnico}} - {{$ingreso->proveedor->empresa}}">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label><b>Costo Total $us</b></label>
+                                <input id="totalIngreso1" class="form-control" type="text" readonly value="{{$ingreso->total}}">
+                            </div>
+                        </div>
+                    </div>
+
                         <hr>
                     <h4>Detalle</h4>
 
@@ -35,17 +56,15 @@
                                 <thead>
                                 <tr>
                                     <th class="text-center ">INSUMO</th>
-                                    <th class="text-center ">PROVEEDOR</th>
                                     <th class="text-center">CANT</th>
-                                    <th class="text-center">P. UNITARIO</th>
-                                    <th class="text-center ">SUB-TOTAL</th>
+                                    <th class="text-center">P. UNITARIO $us</th>
+                                    <th class="text-center ">SUB-TOTAL $us</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($ingreso->detalles as $detalle)
                                     <tr class="text-center">
-                                        <td>{{$detalle->insumo->nombre}} ({{$detalle->insumo->contenido_total}}{{$detalle->insumo->unidad->nombre}}) </td>
-                                        <td>{{$detalle->proveedor->contacto}}</td>
+                                        <td>{{$detalle->insumo->nombre}}</td>
                                         <td>{{$detalle->cantidad}}</td>
                                         <td>{{$detalle->precio_unitario}}</td>
                                         <td>{{$detalle->precio_unitario * $detalle->cantidad}}</td>

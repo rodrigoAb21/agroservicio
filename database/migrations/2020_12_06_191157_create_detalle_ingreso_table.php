@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateInsuIngrTable extends Migration
+class CreateDetalleIngresoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateInsuIngrTable extends Migration
      */
     public function up()
     {
-        Schema::create('insu_ingr', function (Blueprint $table) {
+        Schema::create('detalle_ingreso', function (Blueprint $table) {
             $table->increments('id');
             $table->float('cantidad');
             $table->float('precio_unitario')->nullable();
@@ -21,6 +21,9 @@ class CreateInsuIngrTable extends Migration
 
             $table->unsignedInteger('ingreso_id');
             $table->foreign('ingreso_id')->references('id')->on('ingreso');
+
+            $table->unsignedInteger('insumo_id');
+            $table->foreign('insumo_id')->references('id')->on('insumo');
         });
     }
 
@@ -31,6 +34,6 @@ class CreateInsuIngrTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('insu_ingr');
+        Schema::dropIfExists('detalle_ingreso');
     }
 }

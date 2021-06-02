@@ -24,6 +24,7 @@ class IngresoController extends Controller
         return view('vistas.ingresos.create',
             [
                 'insumos' => Insumo::all(),
+                'tipos' => ['Contado', 'Credito'],
                 'proveedores' => Proveedor::all(),
             ]);
     }
@@ -45,12 +46,14 @@ class IngresoController extends Controller
 
             $ingreso = new Ingreso();
             $ingreso->fecha = $request['fecha'];
+            $ingreso->nro_nota = $request['nro_nota'];
             $ingreso->total = $request['total'];
+            $ingreso->tipo = $request['tipo'];
+            $ingreso->proveedor_id = $request['proveedor_id'];
             $ingreso->save();
 
             $insumo = $request->get('idInsumoT');
             $cant = $request->get('cantidadT');
-            $proveedor = $request->get('idProveedorT');
             $precio_unitario = $request->get('precioT');
             $cont = 0;
 
@@ -60,11 +63,10 @@ class IngresoController extends Controller
                 $detalle->precio_unitario = $precio_unitario[$cont];
                 $detalle->insumo_id = $insumo[$cont];
                 $detalle->ingreso_id = $ingreso->id;
-                $detalle->proveedor_id = $proveedor[$cont];
                 $detalle->save();
 
                 $insumoAct = Insumo::findOrfail($detalle->insumo_id);
-                $insumoAct->existencias = $insumoAct->existencias + ($detalle->cantidad*$insumoAct->contenido_total);
+                $insumoAct->existencias = $insumoAct->existencias + $detalle->cantidad;
                 $insumoAct->update();
 
                 $cont = $cont + 1;
@@ -87,7 +89,7 @@ class IngresoController extends Controller
         $detalles = DetalleIngreso::where('ingreso_id', '=', $id)->get();
         foreach ($detalles as $detalle){
             $insumoAct = Insumo::findOrfail($detalle->insumo_id);
-            $insumoAct->existencias = $insumoAct->existencias - ($detalle->cantidad*$insumoAct->contenido_total);
+            $insumoAct->existencias = $insumoAct->existencias - $detalle->cantidad;
             $insumoAct->update();
         }
         $ingreso = Ingreso::findOrFail($id);

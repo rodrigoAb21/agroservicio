@@ -20,6 +20,10 @@ class CreateIngresoTable extends Migration
             $table->date('fecha');
             $table->float('total')->nullable();
             $table->softDeletes();
+
+
+            $table->unsignedInteger('proveedor_id');
+            $table->foreign('proveedor_id')->references('id')->on('proveedor');
         });
     }
 
