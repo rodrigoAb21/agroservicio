@@ -27,7 +27,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('insumos/abonos','AbonoController');
     Route::resource('proveedores','ProveedorController');
     Route::resource('trabajadores','TrabajadorController');
-    Route::resource('campos','CampoController');
+    Route::resource('destinatarios','DestinatarioController');
     Route::resource('config/tiposactividad','TipoActividadController');
     Route::resource('maquinarias','MaquinariaController');
     Route::resource('ingresos','IngresoController');

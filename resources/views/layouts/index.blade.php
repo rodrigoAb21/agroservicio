@@ -135,10 +135,10 @@
                         </li>
 
 
-                        <li hidden class="{{ Request::is('campos*') ? 'nav-item active' : 'nav-item' }}">
-                            <a href="{{url('campos')}}" >
-                                <i class="fa fa-map-marked-alt"></i>
-                                <span class="hide-menu"> Campos</span>
+                        <li class="{{ Request::is('destinatarios*') ? 'nav-item active' : 'nav-item' }}">
+                            <a href="{{url('destinatarios')}}" >
+                                <i class="fa fa-map-signs"></i>
+                                <span class="hide-menu"> Destinatarios</span>
                             </a>
                         </li>
 
