@@ -10,7 +10,7 @@ class Composicion extends Model
     protected $primaryKey = 'id';
     public $timestamps = false;
     protected $fillable = [
-        'nombre',
+        'ingrediente_activo',
         'concentracion',
         'insumo_id',
     ];

@@ -49,7 +49,7 @@ class SemillaController extends Controller
         $insumo = new Insumo();
         $insumo->nombre = $request['nombre'];
         $insumo->info = $request['info'];
-        $insumo->precio = $request['precio'];
+        $insumo->envase = $request['envase'];
         $insumo->existencias = 0;
         $insumo->tipo = 'Semilla';
         $insumo->subtipo_id = $request['subtipo_id'];
@@ -84,7 +84,7 @@ class SemillaController extends Controller
         $insumo = Insumo::findOrFail($id);
         $insumo->nombre = $request['nombre'];
         $insumo->info = $request['info'];
-        $insumo->precio = $request['precio'];
+        $insumo->envase = $request['envase'];
         $insumo->unidad_medida_id = $request['unidad_medida_id'];
         $insumo->subtipo_id = $request['subtipo_id'];
         $insumo->save();

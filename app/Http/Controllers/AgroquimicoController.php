@@ -39,7 +39,7 @@ class AgroquimicoController extends Controller
             ]);
     }
 
-    public function getComposicion($nombres){
+    public function getComposicion($ingrediente_activos){
         $composicion = '';
 
 
@@ -65,24 +65,24 @@ class AgroquimicoController extends Controller
             $insumo->nombre = $request['nombre'];
             $insumo->tipo = 'Agroquimico';
             $insumo->existencias = 0;
-            $insumo->precio = $request['precio'];
+            $insumo->envase = $request['envase'];
             $insumo->info = $request['info'];
             $insumo->subtipo_id = $request['subtipo_id'];
             $insumo->unidad_medida_id = $request['unidad_medida_id'];
             $insumo->save();
 
-            $nombre = $request->get('nombreT');
+            $ingrediente_activo = $request->get('ingrediente_activoT');
 
 
             $composicionNombres = '';
-            if($nombre){
+            if($ingrediente_activo){
                 $concentracion = $request->get('concentracionT');
                 $cont = 0;
 
-                while ($cont < count($nombre)) {
+                while ($cont < count($ingrediente_activo)) {
                     $composicion = new Composicion();
-                    $composicionNombres = $composicionNombres . $nombre[$cont] . ", ";
-                    $composicion->nombre = $nombre[$cont];
+                    $composicionNombres = $composicionNombres . $ingrediente_activo[$cont] . ", ";
+                    $composicion->ingrediente_activo = $ingrediente_activo[$cont];
                     $composicion->concentracion = $concentracion[$cont];
                     $composicion->insumo_id = $insumo->id;
                     $composicion->save();
@@ -134,23 +134,23 @@ class AgroquimicoController extends Controller
             DB::beginTransaction();
             $insumo = Insumo::findOrFail($id);
             $insumo->nombre = $request['nombre'];
-            $insumo->precio = $request['precio'];
+            $insumo->envase = $request['envase'];
             $insumo->info = $request['info'];
             $insumo->subtipo_id = $request['subtipo_id'];
             $insumo->unidad_medida_id = $request['unidad_medida_id'];
 
             if ($insumo->update()){
                 DB::table('composicion')->where('insumo_id', '=', $id)->delete();
-                $nombre = $request->get('nombreT');
+                $ingrediente_activo = $request->get('ingrediente_activoT');
                 $composicionNombres = '';
-                if($nombre){
+                if($ingrediente_activo){
                     $concentracion = $request->get('concentracionT');
                     $cont = 0;
 
-                    while ($cont < count($nombre)) {
+                    while ($cont < count($ingrediente_activo)) {
                         $composicion = new Composicion();
-                        $composicionNombres = $composicionNombres . $nombre[$cont] . ", ";
-                        $composicion->nombre = $nombre[$cont];
+                        $composicionNombres = $composicionNombres . $ingrediente_activo[$cont] . ", ";
+                        $composicion->ingrediente_activo = $ingrediente_activo[$cont];
                         $composicion->concentracion = $concentracion[$cont];
                         $composicion->insumo_id = $insumo->id;
                         $composicion->save();

@@ -18,7 +18,7 @@ class CreateInsumoTable extends Migration
             $table->string('nombre')->nullable();
             $table->string('tipo');
             $table->text('composicion')->nullable();
-            $table->float('precio')->nullable();
+            $table->string('envase')->nullable();
             $table->float('existencias');
             $table->string('info')->nullable();
 

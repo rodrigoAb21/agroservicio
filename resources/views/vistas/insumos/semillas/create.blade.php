@@ -21,13 +21,12 @@
 
                         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                             <div class="form-group">
-                                <label>Precio</label>
+                                <label>Envase</label>
                                 <input
-                                        type="number"
-                                        step="0.01"
+                                        type="text"
                                         class="form-control"
-                                        value="{{old('precio')}}"
-                                        name="precio">
+                                        value="{{old('envase')}}"
+                                        name="envase">
                             </div>
                         </div>
 

@@ -24,11 +24,11 @@
 
                         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                             <div class="form-group">
-                                <h5><b>Precio</b></h5>
+                                <h5><b>Envase</b></h5>
                                 <input readonly
                                        type="text"
                                        class="form-control"
-                                       value="{{$insumo->precio}}"
+                                       value="{{$insumo->envase}}"
                                        name="nombre">
                             </div>
                         </div>
@@ -67,14 +67,14 @@
                                 <table class="table table-hover table-bordered color-table info-table">
                                     <thead>
                                     <tr>
-                                        <th class="text-center">NOMBRE</th>
+                                        <th class="text-center">INGREDIENTE ACTIVO</th>
                                         <th class="text-center">CONCENTRACION</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     @foreach($detalles as $detalle)
                                         <tr class="text-center">
-                                            <td>{{$detalle->nombre}}</td>
+                                            <td>{{$detalle->ingrediente_activo}}</td>
                                             <td>{{$detalle->concentracion}}</td>
                                         </tr>
                                     @endforeach

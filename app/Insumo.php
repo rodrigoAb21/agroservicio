@@ -14,7 +14,7 @@ class Insumo extends Model
         'tipo',
         'existencias',
         'composicion',
-        'precio',
+        'envase',
         'info',
         'subtipo_id',
         'unidad_medida_id',
