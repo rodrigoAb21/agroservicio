@@ -6,9 +6,7 @@
             <div class="card">
                 <div class="card-body">
                     <h2 class="pb-2">
-                        <a href="{{url('insumos/agroquimicos')}}">
                             <i class="fa fa-biohazard"></i> Agroquímico
-                        </a>
                         <div class="float-right">
                             <a class="btn btn-success" href="{{url('insumos/agroquimicos/create')}}">
                                 <i class="fa fa-plus"></i> Nuevo

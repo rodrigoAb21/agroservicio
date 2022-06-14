@@ -38,20 +38,13 @@ class DatabaseSeeder extends Seeder
             'nombre' => 'INSECTICIDA',
             'tipo' => 'Agroquimico',
         ]);
-        DB::table('subtipo')->insert([
-            'nombre' => 'ACARICIDA',
-            'tipo' => 'Agroquimico',
-        ]);
-        DB::table('subtipo')->insert([
-            'nombre' => 'BACTERICIDA',
-            'tipo' => 'Agroquimico',
-        ]);
+
         DB::table('subtipo')->insert([
             'nombre' => 'FUNGICIDA',
             'tipo' => 'Agroquimico',
         ]);
         DB::table('subtipo')->insert([
-            'nombre' => 'ABONO',
+            'nombre' => 'FERTILIZANTE',
             'tipo' => 'Agroquimico',
         ]);
 
@@ -70,14 +63,6 @@ class DatabaseSeeder extends Seeder
             'nombre' => 'GIRASOL',
             'tipo' => 'Semilla',
         ]);
-        DB::table('subtipo')->insert([
-            'nombre' => 'CHIA',
-            'tipo' => 'Semilla',
-        ]);
-        DB::table('subtipo')->insert([
-            'nombre' => 'SESAMO',
-            'tipo' => 'Semilla',
-        ]);
 
         DB::table('subtipo')->insert([
             'nombre' => 'SORGO',
@@ -87,6 +72,63 @@ class DatabaseSeeder extends Seeder
         DB::table('subtipo')->insert([
             'nombre' => 'ARROZ',
             'tipo' => 'Semilla',
+        ]);
+
+        // Proveedores
+
+        DB::table('proveedor')->insert([
+            'tecnico' => 'Wilfredo',
+            'telf1' => '71092756',
+            'telf2' => null,
+            'empresa' => 'Total Agro',
+        ]);
+        DB::table('proveedor')->insert([
+            'tecnico' => 'Guido',
+            'telf1' => '62128098',
+            'telf2' => null,
+            'empresa' => 'Del Campo',
+        ]);
+        DB::table('proveedor')->insert([
+            'tecnico' => 'Carlos Alfredo',
+            'telf1' => '77053848',
+            'telf2' => null,
+            'empresa' => 'Agroiguazu',
+        ]);
+        DB::table('proveedor')->insert([
+            'tecnico' => 'Gabriel Barea',
+            'telf1' => '72144433',
+            'telf2' => null,
+            'empresa' => 'Nordfield',
+        ]);
+        DB::table('proveedor')->insert([
+            'tecnico' => 'Fidel Copa',
+            'telf1' => '72600672',
+            'telf2' => null,
+            'empresa' => 'Agrocop',
+        ]);
+        DB::table('proveedor')->insert([
+            'tecnico' => 'Reinaldo',
+            'telf1' => '67973007',
+            'telf2' => null,
+            'empresa' => 'Aigroup',
+        ]);
+        DB::table('proveedor')->insert([
+            'tecnico' => 'Ignacio',
+            'telf1' => '76349311',
+            'telf2' => null,
+            'empresa' => 'Mainter',
+        ]);
+        DB::table('proveedor')->insert([
+            'tecnico' => 'Deposito',
+            'telf1' => '71336420',
+            'telf2' => null,
+            'empresa' => 'Deposito',
+        ]);
+        DB::table('proveedor')->insert([
+            'tecnico' => 'Wilfredo',
+            'telf1' => '73150863',
+            'telf2' => null,
+            'empresa' => 'Clean Field',
         ]);
 
 

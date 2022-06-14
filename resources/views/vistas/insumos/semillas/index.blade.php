@@ -6,7 +6,7 @@
             <div class="card">
                 <div class="card-body">
                     <h2 class="pb-2">
-                        <a href="{{url('insumos/semillas')}}"><i class="fa fa-leaf"></i> Semillas</a>
+                        <i class="fa fa-leaf"></i> Semillas
 
                         <div class="float-right">
                             <a class="btn btn-success" href="{{url('insumos/semillas/create')}}">

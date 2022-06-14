@@ -12,8 +12,8 @@ class Proveedor extends Model
     public $timestamps = false;
     protected $fillable = [
         'tecnico',
-        'celular',
+        'telf1',
+        'telf2',
         'empresa',
-        'tel_empresa',
     ];
 }

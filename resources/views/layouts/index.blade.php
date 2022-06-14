@@ -14,7 +14,7 @@
     <!-- Custom CSS -->
     <link href="{{asset('plantilla/material/css/style.css')}}" rel="stylesheet">
     <!-- You can change the theme colors from here -->
-    <link href="{{asset('plantilla/material/css/colors/blue-dark.css')}}" id="theme" rel="stylesheet">
+    <link href="{{asset('plantilla/material/css/colors/blue.css')}}" id="theme" rel="stylesheet">
     <style rel="stylesheet">
         th{
             white-space: nowrap;
@@ -185,33 +185,33 @@
                                 <li class="{{ Request::is('config/unidades*') ? 'nav-item active' : 'nav-item' }}">
                                     <a href="{{url('config/unidades')}}" >
                                         <i class="fa fa-ruler"></i>
-                                        <span class="hide-menu"> Unidades de Medida</span>
+                                        <span> Unidades de Medida</span>
                                     </a>
                                 </li>
                                 <li  hidden class="{{ Request::is('config/tipoMaquinarias*') ? 'nav-item active' : 'nav-item' }}">
                                     <a href="{{url('config/tipoMaquinarias')}}" >
                                         <i class="fa fa-tools"></i>
-                                        <span class="hide-menu"> Tipos de Maquinaria</span>
+                                        <span> Tipos de Maquinaria</span>
                                     </a>
                                 </li>
                                 <li hidden  class="{{ Request::is('config/tiposactividad*') ? 'nav-item active' :
                                 'nav-item' }}">
                                     <a href="{{url('config/tiposactividad')}}" >
                                         <i class="fa fa-toolbox"></i>
-                                        <span class="hide-menu"> Tipos de actividad</span>
+                                        <span> Tipos de actividad</span>
                                     </a>
                                 </li>
                                 <li class="{{ Request::is('config/tipoAgroquimicos*') ? 'nav-item active' : 'nav-item'
                                 }}">
                                     <a href="{{url('config/tipoAgroquimicos')}}" >
                                         <i class="fa fa-book-dead"></i>
-                                        <span class="hide-menu"> Tipos Agroquimicos</span>
+                                        <span> Tipos Agroquimicos</span>
                                     </a>
                                 </li>
                                 <li class="{{ Request::is('config/tipoSemillas*') ? 'nav-item active' : 'nav-item' }}">
                                     <a href="{{url('config/tipoSemillas')}}" >
                                         <i class="fa fa-atlas"></i>
-                                        <span class="hide-menu"> Tipos de Semilla</span>
+                                        <span> Tipos de Semilla</span>
                                     </a>
                                 </li>
                             </ul>
