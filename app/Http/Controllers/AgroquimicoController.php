@@ -20,12 +20,14 @@ class AgroquimicoController extends Controller
             ->where(function ($query) use ($busqueda) {
                 $query->where('insumo.nombre', 'like', '%'.$busqueda.'%')
                     ->orWhere('subtipo.nombre', 'like', '%'.$busqueda.'%')
+                    ->orWhere('insumo.envase', 'like', '%'.$busqueda.'%')
                     ->orWhere('insumo.composicion', 'like', '%'.$busqueda.'%')
                 ;}
             )
             ->orderBy('insumo.nombre')
             ->select(
                 'insumo.nombre',
+                'insumo.envase',
                 'insumo.id',
                 'insumo.existencias',
                 'insumo.composicion',

@@ -19,9 +19,10 @@ class SemillaController extends Controller
             ->where(function ($query) use ($busqueda) {
                 $query->where('insumo.nombre', 'like', '%'.$busqueda.'%')
                     ->orWhere('subtipo.nombre', 'like', '%'.$busqueda.'%')
+                    ->orWhere('insumo.envase', 'like', '%'.$busqueda.'%')
                 ;}
             )
-            ->select('insumo.nombre','insumo.id', 'unidad_medida.nombre as unidad',
+            ->select('insumo.nombre', 'insumo.envase','insumo.id', 'unidad_medida.nombre as unidad',
                 'insumo.existencias','subtipo.nombre as tipo')
             ->orderBy('insumo.nombre')
             ->paginate(10);

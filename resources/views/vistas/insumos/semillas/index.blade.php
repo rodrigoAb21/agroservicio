@@ -31,7 +31,7 @@
                             <tbody>
                             @foreach($insumos as $insumo)
                                 <tr class="text-center">
-                                    <td>{{$insumo -> nombre}}</td>
+                                    <td>{{$insumo -> nombre}} - {{$insumo -> envase}}</td>
                                     <td>{{$insumo -> tipo}}</td>
                                     <td>{{$insumo -> contenido}} {{$insumo -> unidad}}</td>
                                     <td>{{$insumo -> existencias}}</td>

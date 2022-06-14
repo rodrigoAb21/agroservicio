@@ -21,7 +21,7 @@
                         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label>Envase</label>
-                                <input required type="text" class="form-control" value="{{old('envase')}}" name="nombre">
+                                <input required type="text" class="form-control" value="{{old('envase')}}" name="envase">
                             </div>
                         </div>
 
