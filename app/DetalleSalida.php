@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class DetalleIngreso extends Model
+class DetalleSalida extends Model
 {
-    protected $table = 'detalle_ingreso';
+    protected $table = 'detalle_salida';
     protected $primaryKey = 'id';
     public $timestamps = false;
     protected $fillable = [
@@ -19,7 +19,7 @@ class DetalleIngreso extends Model
     public function insumo(){
         return $this->belongsTo('App\Insumo', 'insumo_id', 'id');
     }
-    public function ingreso(){
-        return $this->belongsTo('App\Ingreso', 'ingreso_id', 'id');
+    public function salida(){
+        return $this->belongsTo('App\Salida', 'salida_id', 'id');
     }
 }
