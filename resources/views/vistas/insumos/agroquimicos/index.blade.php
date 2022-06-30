@@ -21,7 +21,7 @@
                             <thead>
                             <tr>
                                 <th class="text-center">NOMBRE</th>
-                                <th class="text-center">U. MEDIDA</th>
+                                <th class="text-center">PRESENTACION</th>
                                 <th class="text-center">TIPO</th>
                                 <th class="text-center">INGREDIENTE ACTIVO</th>
                                 <th class="text-center">EXISTENCIAS</th>
@@ -31,8 +31,8 @@
                             <tbody>
                             @foreach($insumos as $insumo)
                                 <tr class="text-center">
-                                    <td>{{$insumo -> nombre}} - {{$insumo -> envase}}</td>
-                                    <td>{{$insumo -> unidad}}</td>
+                                    <td>{{$insumo -> nombre}}</td>
+                                    <td>{{$insumo -> envase}} {{$insumo -> unidad}}</td>
                                     <td>{{$insumo -> tipo}}</td>
                                     <td>{{$insumo -> composicion}}</td>
                                     <td>{{$insumo -> existencias}}</td>

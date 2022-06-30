@@ -4,8 +4,6 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-
-
                     <h2 class="pb-2">
                         <i class="fa fa-atlas"></i> Tipos de Semilla
                         <div class="float-right">

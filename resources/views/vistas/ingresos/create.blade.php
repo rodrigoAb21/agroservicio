@@ -74,7 +74,7 @@
                                 <div class="form-group">
                                     <select class="form-control selectpicker" data-live-search="true" id="selectorInsumo">
                                         @foreach($insumos as $insumo)
-                                            <option value="{{$insumo->id}}">{{$insumo->nombre}} - {{$insumo->envase}}</option>
+                                            <option value="{{$insumo->id}}">{{$insumo->nombre}} de {{$insumo->envase}}{{ $insumo->unidad->nombre }} </option>
                                         @endforeach
                                     </select>
                                 </div>
