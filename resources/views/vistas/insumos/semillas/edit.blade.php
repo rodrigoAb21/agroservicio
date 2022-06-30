@@ -26,17 +26,6 @@
 
                             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                 <div class="form-group">
-                                    <label>Envase</label>
-                                    <input
-                                            type="text"
-                                            class="form-control"
-                                            value="{{$insumo->envase}}"
-                                            name="envase">
-                                </div>
-                            </div>
-
-                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                <div class="form-group">
                                     <label>Tipo</label>
                                     <select class="form-control" name="subtipo_id">
                                         @foreach($tipos as $tipo)
@@ -47,6 +36,17 @@
                                             @endif
                                         @endforeach
                                     </select>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <label>Envase</label>
+                                    <input
+                                            type="text"
+                                            class="form-control"
+                                            value="{{$insumo->envase}}"
+                                            name="envase">
                                 </div>
                             </div>
 

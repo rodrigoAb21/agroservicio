@@ -10,7 +10,7 @@
                         <i class="fa fa-map-signs"></i> Destinatarios
                         <div class="float-right">
                             <a class="btn btn-success" href="{{url('destinatarios/create')}}">
-                                <i class="fa fa-plus"></i>  Nueva
+                                <i class="fa fa-plus"></i>  Nuevo
                             </a>
                         </div>
                     </h2>

@@ -132,6 +132,46 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
+        // Semillas
+        DB::table('insumo')->insert([
+            'nombre' => 'DEKALB',
+            'tipo' => 'Semilla',
+            'existencias' => 0,
+            'unidad_medida_id' => 1,
+            'subtipo_id' => 7,
+        ]);
+        DB::table('insumo')->insert([
+            'nombre' => 'MORGAN',
+            'tipo' => 'Semilla',
+            'existencias' => 0,
+            'unidad_medida_id' => 1,
+            'subtipo_id' => 7,
+        ]);
+        DB::table('insumo')->insert([
+            'nombre' => 'NEGRITA M',
+            'tipo' => 'Semilla',
+            'existencias' => 0,
+            'unidad_medida_id' => 1,
+            'subtipo_id' => 6,
+        ]);
+        DB::table('insumo')->insert([
+            'nombre' => 'NEGRITA P',
+            'tipo' => 'Semilla',
+            'existencias' => 0,
+            'unidad_medida_id' => 1,
+            'subtipo_id' => 6,
+        ]);
+        DB::table('insumo')->insert([
+            'nombre' => 'SW IMOX',
+            'tipo' => 'Semilla',
+            'existencias' => 0,
+            'unidad_medida_id' => 1,
+            'subtipo_id' => 6,
+        ]);
+
+
+
+
 
     }
 }
