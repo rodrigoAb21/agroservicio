@@ -6,7 +6,7 @@
             <div class="card">
                 <div class="card-body">
                     <h3 class="pb-2">
-                        INGRESO DE SUMINISTROS: {{$ingreso->id}}
+                        INGRESO DE INSUMOS: {{$ingreso->id}}
                     </h3>
                     <div class="row">
                         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
@@ -36,7 +36,7 @@
                         <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label><b>Proveedor</b></label>
-                                <input id="totalIngreso1" class="form-control" type="text" readonly value="{{$ingreso->proveedor->tecnico}} - {{$ingreso->proveedor->empresa}}">
+                                <input id="totalIngreso1" class="form-control" type="text" readonly value="{{$ingreso->proveedor->empresa.': '.$ingreso->proveedor->tecnico}}">
                             </div>
                         </div>
 
@@ -64,7 +64,7 @@
                                 <tbody>
                                 @foreach($ingreso->detalles as $detalle)
                                     <tr class="text-center">
-                                        <td>{{$detalle->insumo->nombre}} - {{$detalle->insumo->envase}}</td>
+                                        <td>{{$detalle->insumo->nombre.' de '.$detalle->insumo->envase.$detalle->insumo->unidad->nombre}}</td>
                                         <td>{{$detalle->cantidad}}</td>
                                         <td>{{$detalle->precio_unitario}}</td>
                                         <td>{{$detalle->precio_unitario * $detalle->cantidad}}</td>

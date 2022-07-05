@@ -165,8 +165,16 @@
 
                         <li class="{{ Request::is('ingresos*') ? 'nav-item active' : 'nav-item' }}">
                             <a href="{{url('ingresos')}}" >
-                                <i class="fa fa-dolly"></i>
+                                <i class="fa fas fa-dolly"></i>
                                 <span class="hide-menu"> Ingresos</span>
+                            </a>
+                        </li>
+                        </li>
+
+                        <li class="{{ Request::is('salidas*') ? 'nav-item active' : 'nav-item' }}">
+                            <a href="{{url('salidas')}}" >
+                                <i class="fas fa-cash-register"></i>
+                                <span class="hide-menu"> Salidas</span>
                             </a>
                         </li>
 

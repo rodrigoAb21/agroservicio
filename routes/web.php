@@ -31,5 +31,6 @@ Route::middleware('auth')->group(function () {
     Route::resource('config/tiposactividad','TipoActividadController');
     Route::resource('maquinarias','MaquinariaController');
     Route::resource('ingresos','IngresoController');
+    Route::resource('salidas','SalidaController');
     Route::get('reporteInventario', 'ReporteController@inventario');
 });

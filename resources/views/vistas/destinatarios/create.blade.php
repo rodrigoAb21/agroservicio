@@ -24,7 +24,7 @@
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                 <div class="form-group">
-                                    <label>Nucleo</label>
+                                    <label>Núcleo</label>
                                     <input
                                            type="text"
                                            class="form-control"

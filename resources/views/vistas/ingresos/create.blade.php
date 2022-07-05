@@ -74,7 +74,7 @@
                                 <div class="form-group">
                                     <select class="form-control selectpicker" data-live-search="true" id="selectorInsumo">
                                         @foreach($insumos as $insumo)
-                                            <option value="{{$insumo->id}}">{{$insumo->nombre}} de {{$insumo->envase}}{{ $insumo->unidad->nombre }} </option>
+                                            <option value="{{$insumo->id}}_{{$insumo->nombre.' - '.$insumo->envase.$insumo->unidad->nombre}}">{{$insumo->nombre.' - '.$insumo->envase.$insumo->unidad->nombre}} </option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -145,25 +145,30 @@
             var precio = [];
             var subTotal = [];
             var total = 0;
+            var agregados = [];
+
+            function capturar(){
+                
+            }
 
             function agregar() {
-
-                idInsumo = $('#selectorInsumo').val();
-                nombreInsumo = $('#selectorInsumo option:selected').text();
+                datosInsumo = document.getElementById('selectorInsumo').value.split('_');
+                idInsumo = datosInsumo[0];
+                nombreInsumo = datosInsumo[1];
                 cantidad[cont] = $('#cantidad').val();
                 precio[cont] = $('#precio').val();
 
-                if (idInsumo != "" && idInsumo > 0 && cantidad[cont] != ""
+
+                if (!agregados.includes(idInsumo) && idInsumo != "" && idInsumo > 0 && cantidad[cont] != ""
                     && cantidad[cont] > 0 && precio[cont] != "" && precio[cont] > 0){
-
+                        
+                    agregados.push(idInsumo);
                     subTotal[cont] = cantidad[cont] * precio[cont];
-
-
 
                     var fila=
                         '<tr id="fila'+cont+'">' +
                         '<td>' +
-                        '<button type="button" class="btn btn-danger btn-sm" onclick="quitar('+cont+');">' +
+                        '<button type="button" class="btn btn-danger btn-sm" onclick="quitar('+cont+','+idInsumo+');">' +
                         '<i class="fa fa-times" aria-hidden="true"></i>' +
                         '</button>' +
                         '</td>' +
@@ -192,13 +197,18 @@
                     limpiar();
 
                     $("#detalle").append(fila); // sirve para anhadir una fila a los detalles
+                    
                     evaluar();
 
                 }
 
             }
 
-            function quitar(index){
+            function quitar(index, id){
+                let i = agregados.indexOf(String(id));
+                if (i > -1) {
+                    agregados.splice(i, 1);
+                }
                 total = total - subTotal[index];
                 cont--;
 
