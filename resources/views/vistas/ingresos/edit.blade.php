@@ -6,11 +6,12 @@
             <div class="card">
                 <div class="card-body">
                     <h3 class="pb-2">
-                        NUEVO INGRESO
+                        EDITAR INGRESO
                     </h3>
 
-                    <form method="POST" action="{{url('ingresos')}}" autocomplete="off">
+                    <form method="POST" action="{{url('ingresos/'.$ingreso->id}}" autocomplete="off">
                         {{csrf_field()}}
+                        {{method_field('PATCH')}}
                         <div class="row">
                             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                 <div class="form-group">
@@ -74,8 +75,8 @@
                                 <div class="form-group">
                                     <select class="form-control selectpicker" data-live-search="true" id="selectorInsumo">
                                         @foreach($insumos as $insumo)
-                                            <option value="{{$insumo->id}}_{{$insumo->nombre.' - '.$insumo->envase.$insumo->unidad->nombre}}">{{$insumo->nombre.' - '.$insumo->envase.$insumo->unidad->nombre}} </option>
-                                        @endforeach
+                                        <option value="{{$insumo->id}}_{{$insumo->nombre.' - '.$insumo->envase.$insumo->unidad->nombre}}">{{$insumo->nombre.' - '.$insumo->envase.$insumo->unidad->nombre}} </option>
+                                    @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -136,6 +137,27 @@
         <script>
             $(document).ready(
                 function () {
+                    @foreach($detalles as $detalle)
+                        cargar(
+                        '{{$detalle->insumo_id}}',
+                        '{{$detalle->insumo}}',
+                        '{{$detalle->envase}}',
+                        '{{$detalle->unidad}}',
+                        '{{$detalle->cantidad}}',
+                        '{{$detalle->precio_unitario}}',
+                        )
+                @endforeach
+                
+                /*
+                        '{{$detalle->id}}',
+                        '{{$detalle->insumo_id}}',
+                        '{{$detalle->insumo}}',
+                        '{{$detalle->envase}}',
+                        '{{$detalle->unidad}}',
+                        '{{$detalle->cantidad}}',
+                        '{{$detalle->precio_unitario}}',
+                */
+
                     evaluar();
                 }
             );
@@ -146,16 +168,74 @@
             var subTotal = [];
             var total = 0;
             var agregados = [];
+            var datosInsumo;
+
+            function cargar(insumo_id, insumo, envase, unidad, cant, precio_unitario ) {
+                            
+                idInsumo = insumo_id;
+                nombreInsumo = insumo + ' - ' + envase + unidad;
+                cantidad[cont] = cant;
+                precio[cont] = precio_unitario;
+
+
+if (!agregados.includes(idInsumo) && idInsumo != "" && idInsumo > 0 && cantidad[cont] != ""
+    && cantidad[cont] > 0 && precio[cont] != "" && precio[cont] > 0){
+        
+    agregados.push(idInsumo);
+    subTotal[cont] = cantidad[cont] * precio[cont];
+
+    var fila2=
+        '<tr id="fila'+cont+'">' +
+        '<td>' +
+        '<button type="button" class="btn btn-danger btn-sm" onclick="quitar('+cont+','+idInsumo+');">' +
+        '<i class="fa fa-times" aria-hidden="true"></i>' +
+        '</button>' +
+        '</td>' +
+        '<td>' +
+        '   <input type="hidden" class"form-control "  name="idInsumoT[]" value="'+idInsumo+'">'
+        +nombreInsumo+
+        '</td>' +
+        '<td>' +
+        '<input type="hidden" class"form-control "  name="cantidadT[]" value="'+cantidad[cont]+'">'
+        +cantidad[cont]+
+        '</td>' +
+        '<td>' +
+        '<input type="hidden" class"form-control "  name="precioT[]" value="'+precio[cont]+'">'
+        +precio[cont]+
+        '</td>' +
+        '<td>'
+        +subTotal[cont].toFixed(1)+
+        '</td> ' +
+        '</tr>';
+
+    total = total + subTotal[cont];
+    $('#totalIngreso1').val(total);
+    $('#totalIngreso2').val(total);
+
+    cont++;
+    limpiar();
+
+    $("#detalle").append(fila2); // sirve para anhadir una fila a los detalles
+    
+    evaluar();
+
+}
+
+}
+            
 
             function agregar() {
                 datosInsumo = document.getElementById('selectorInsumo').value.split('_');
+                          
                 idInsumo = datosInsumo[0];
                 nombreInsumo = datosInsumo[1];
                 cantidad[cont] = $('#cantidad').val();
                 precio[cont] = $('#precio').val();
 
+                console.log(datosInsumo);
+                console.log(agregados);
 
-                if (!agregados.includes(idInsumo) && idInsumo != "" && idInsumo > 0 && cantidad[cont] != ""
+                if (!agregados.includes(idInsumo) && idInsumo != "" && parseInt(idInsumo) > 0 && cantidad[cont] != ""
                     && cantidad[cont] > 0 && precio[cont] != "" && precio[cont] > 0){
                         
                     agregados.push(idInsumo);

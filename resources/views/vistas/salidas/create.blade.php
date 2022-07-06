@@ -6,10 +6,10 @@
             <div class="card">
                 <div class="card-body">
                     <h3 class="pb-2">
-                        NUEVO INGRESO
+                        NUEVA SALIDA
                     </h3>
 
-                    <form method="POST" action="{{url('ingresos')}}" autocomplete="off">
+                    <form method="POST" action="{{url('salidas')}}" autocomplete="off">
                         {{csrf_field()}}
                         <div class="row">
                             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
@@ -46,10 +46,10 @@
 
                             <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                                 <div class="form-group">
-                                    <label>Proveedor</label>
-                                    <select class="form-control selectpicker" data-live-search="true" name="proveedor_id">
-                                        @foreach($proveedores as $proveedor)
-                                            <option value="{{$proveedor->id}}">{{$proveedor->tecnico}} - {{$proveedor->empresa}}</option>
+                                    <label>Destinatario</label>
+                                    <select class="form-control selectpicker" data-live-search="true" name="destinatario_id">
+                                        @foreach($destinatarios as $destinatario)
+                                            <option value="{{$destinatario->id}}">{{$destinatario->nombre.'- Núcleo'.$destinatario->nucleo}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -74,7 +74,7 @@
                                 <div class="form-group">
                                     <select class="form-control selectpicker" data-live-search="true" id="selectorInsumo">
                                         @foreach($insumos as $insumo)
-                                            <option value="{{$insumo->id}}_{{$insumo->nombre.' - '.$insumo->envase.$insumo->unidad->nombre}}">{{$insumo->nombre.' - '.$insumo->envase.$insumo->unidad->nombre}} </option>
+                                            <option value="{{$insumo->id}}_{{$insumo->nombre.' - '.$insumo->envase.$insumo->unidad->nombre}}">{{$insumo->nombre.' - '.$insumo->envase.$insumo->unidad->nombre.' - Total:'. $insumo->existencias }} </option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -122,7 +122,7 @@
 
                         </div>
 
-                        <a href="{{url('ingresos')}}" class="btn btn-warning">Atras</a>
+                        <a href="{{url('salidas')}}" class="btn btn-warning">Atras</a>
                         <button type="submit" id="guardar" class="btn btn-info">Guardar</button>
                     </form>
                 </div>
@@ -137,6 +137,7 @@
             $(document).ready(
                 function () {
                     evaluar();
+                    var datosInsumo = document.getElementById('selectorInsumo').value.split('_');
                 }
             );
 
@@ -145,26 +146,25 @@
             var precio = [];
             var subTotal = [];
             var total = 0;
-            var agregados = [];
 
             function agregar() {
-                datosInsumo = document.getElementById('selectorInsumo').value.split('_');
+
                 idInsumo = datosInsumo[0];
                 nombreInsumo = datosInsumo[1];
                 cantidad[cont] = $('#cantidad').val();
                 precio[cont] = $('#precio').val();
 
-
-                if (!agregados.includes(idInsumo) && idInsumo != "" && idInsumo > 0 && cantidad[cont] != ""
+                if (idInsumo != "" && idInsumo > 0 && cantidad[cont] != ""
                     && cantidad[cont] > 0 && precio[cont] != "" && precio[cont] > 0){
-                        
-                    agregados.push(idInsumo);
+
                     subTotal[cont] = cantidad[cont] * precio[cont];
+
+
 
                     var fila=
                         '<tr id="fila'+cont+'">' +
                         '<td>' +
-                        '<button type="button" class="btn btn-danger btn-sm" onclick="quitar('+cont+','+idInsumo+');">' +
+                        '<button type="button" class="btn btn-danger btn-sm" onclick="quitar('+cont+');">' +
                         '<i class="fa fa-times" aria-hidden="true"></i>' +
                         '</button>' +
                         '</td>' +
@@ -193,18 +193,13 @@
                     limpiar();
 
                     $("#detalle").append(fila); // sirve para anhadir una fila a los detalles
-                    
                     evaluar();
 
                 }
 
             }
 
-            function quitar(index, id){
-                let i = agregados.indexOf(String(id));
-                if (i > -1) {
-                    agregados.splice(i, 1);
-                }
+            function quitar(index){
                 total = total - subTotal[index];
                 cont--;
 

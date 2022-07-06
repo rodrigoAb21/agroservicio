@@ -5,10 +5,10 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h2 class="pb-2"><i class="fa fa-dolly"></i> Ingresos de Insumos
+                    <h2 class="pb-2"><i class="fa fa-dolly"></i> Salida de Insumos
                         <div class="float-right">
-                            <a class="btn btn-success" href="{{url('ingresos/create')}}">
-                                <i class="fa fa-plus"></i> Nuevo
+                            <a class="btn btn-success" href="{{url('salidas/create')}}">
+                                <i class="fa fa-plus"></i> Nueva
                             </a>
                         </div>
                     </h2>
@@ -18,30 +18,25 @@
                             <tr>
                                 <th class="text-center">ID</th>
                                 <th class="text-center">FECHA</th>
-                                <th class="text-center">PROVEEDOR</th>
+                                <th class="text-center">DESTINATARIO</th>
                                 <th class="text-center">TOTAL $us</th>
                                 <th class="text-right">OPCIONES</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($ingresos as $ingreso)
+                            @foreach($salidas as $salida)
                                 <tr class="text-center">
-                                    <td>{{$ingreso -> id}}</td>
-                                    <td>{{$ingreso -> fecha}}</td>
-                                    <td>{{$ingreso-> proveedor->empresa.': '.$ingreso->proveedor->tecnico}}  </td>
-                                    <td>{{$ingreso -> total}}</td>
+                                    <td>{{$salida->id}}</td>
+                                    <td>{{$salida->fecha}}</td>
+                                    <td>{{$salida->destinatario->nombre.': '.$salida->destinatario->nucleo}}</td>
+                                    <td>{{$salida-> total}}</td>
                                     <td class="text-right ">
-                                        <a href="{{url('ingresos/'.$ingreso->id.'/edit')}}">
-                                            <button class="btn btn-warning">
-                                                <i class="fa fa-pen"></i>
-                                            </button>
-                                        </a>
-                                        <a href="{{url('ingresos/'.$ingreso->id)}}">
+                                        <a href="{{url('salidas/'.$salida->id)}}">
                                             <button class="btn btn-outline-info">
                                                 <i class="fa fa-eye"></i>
                                             </button>
                                         </a>
-                                        <button type="button" class="btn btn-danger" onclick="modalEliminar('{{$ingreso -> id}}', '{{url('ingresos/'.$ingreso -> id)}}')">
+                                        <button type="button" class="btn btn-danger" onclick="modalEliminar('{{$salida -> id}}', '{{url('salidas/'.$salida -> id)}}')">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>
@@ -49,7 +44,7 @@
                             @endforeach
                             </tbody>
                         </table>
-                        {{$ingresos->links('pagination.default')}}
+                        {{$salidas->links('pagination.default')}}
                     </div>
                 </div>
             </div>
@@ -62,8 +57,8 @@
             function modalEliminar(nombre, url) {
                 $('#modalEliminarForm').attr("action", url);
                 $('#metodo').val("delete");
-                $('#modalEliminarTitulo').html("Eliminar Ingreso de Insumos");
-                $('#modalEliminarEnunciado').html("Realmente desea eliminar el ingreso: " + nombre + "?");
+                $('#modalEliminarTitulo').html("Eliminar Salida de Insumos");
+                $('#modalEliminarEnunciado').html("Realmente desea eliminar el salida: " + nombre + "?");
                 $('#modalEliminar').modal('show');
             }
 
