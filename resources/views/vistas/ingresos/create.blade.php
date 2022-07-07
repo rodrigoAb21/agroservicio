@@ -18,7 +18,7 @@
                                     <input required
                                            type="date"
                                            class="form-control"
-                                           value="{{\Carbon\Carbon::now('America/La_Paz')->toDateString()}}"
+                                           value="{{date("Y-m-d")}}"
                                            name="fecha">
                                 </div>
                             </div>
@@ -34,7 +34,7 @@
 
                             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                 <div class="form-group">
-                                    <label>Tipo</label>
+                                    <label>Tipo de pago</label>
                                     <select class="form-control" name="tipo">
                                         @foreach($tipos as $tipo)
                                             <option value="{{$tipo}}">{{$tipo}}</option>
@@ -157,7 +157,7 @@
 
                 if (!agregados.includes(idInsumo) && idInsumo != "" && idInsumo > 0 && cantidad[cont] != ""
                     && cantidad[cont] > 0 && precio[cont] != "" && precio[cont] > 0){
-                        
+
                     agregados.push(idInsumo);
                     subTotal[cont] = cantidad[cont] * precio[cont];
 
@@ -193,7 +193,7 @@
                     limpiar();
 
                     $("#detalle").append(fila); // sirve para anhadir una fila a los detalles
-                    
+
                     evaluar();
 
                 }

@@ -27,7 +27,7 @@
                             @foreach($salidas as $salida)
                                 <tr class="text-center">
                                     <td>{{$salida->id}}</td>
-                                    <td>{{$salida->fecha}}</td>
+                                    <td>{{date_format(date_create($salida->fecha), 'd-M-Y')}}</td>
                                     <td>{{$salida->destinatario->nombre.': '.$salida->destinatario->nucleo}}</td>
                                     <td>{{$salida-> total}}</td>
                                     <td class="text-right ">

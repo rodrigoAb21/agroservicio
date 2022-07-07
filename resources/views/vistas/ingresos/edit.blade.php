@@ -8,8 +8,7 @@
                     <h3 class="pb-2">
                         EDITAR INGRESO
                     </h3>
-
-                    <form method="POST" action="{{url('ingresos/'.$ingreso->id}}" autocomplete="off">
+                    <form method="POST" action="{{url('ingresos/'.$ingreso->id)}}" autocomplete="off">
                         {{csrf_field()}}
                         {{method_field('PATCH')}}
                         <div class="row">
@@ -19,7 +18,7 @@
                                     <input required
                                            type="date"
                                            class="form-control"
-                                           value="{{\Carbon\Carbon::now('America/La_Paz')->toDateString()}}"
+                                           value="{{$ingreso->fecha}}"
                                            name="fecha">
                                 </div>
                             </div>
@@ -28,17 +27,25 @@
                             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <label>Nro Nota</label>
-                                    <input name="nro_nota" class="form-control" type="text">
+                                    <input
+                                            name="nro_nota"
+                                            class="form-control"
+                                            value="{{$ingreso->nro_nota}}"
+                                            type="text">
                                 </div>
                             </div>
 
 
                             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                 <div class="form-group">
-                                    <label>Tipo</label>
+                                    <label>Tipo de pago</label>
                                     <select class="form-control" name="tipo">
                                         @foreach($tipos as $tipo)
-                                            <option value="{{$tipo}}">{{$tipo}}</option>
+                                            @if($ingreso->tipo == $tipo)
+                                                <option selected value="{{$tipo}}">{{$tipo}}</option>
+                                            @else
+                                                <option value="{{$tipo}}">{{$tipo}}</option>
+                                            @endif
                                         @endforeach
                                     </select>
                                 </div>
@@ -50,7 +57,15 @@
                                     <label>Proveedor</label>
                                     <select class="form-control selectpicker" data-live-search="true" name="proveedor_id">
                                         @foreach($proveedores as $proveedor)
-                                            <option value="{{$proveedor->id}}">{{$proveedor->tecnico}} - {{$proveedor->empresa}}</option>
+                                            @if($ingreso->proveedor_id == $proveedor->id)
+                                                <option selected value="{{$proveedor->id}}">
+                                                    {{$proveedor->tecnico}} - {{$proveedor->empresa}}
+                                                </option>
+                                            @else
+                                                <option value="{{$proveedor->id}}">
+                                                    {{$proveedor->tecnico}} - {{$proveedor->empresa}}
+                                                </option>
+                                            @endif
                                         @endforeach
                                     </select>
                                 </div>
@@ -75,8 +90,11 @@
                                 <div class="form-group">
                                     <select class="form-control selectpicker" data-live-search="true" id="selectorInsumo">
                                         @foreach($insumos as $insumo)
-                                        <option value="{{$insumo->id}}_{{$insumo->nombre.' - '.$insumo->envase.$insumo->unidad->nombre}}">{{$insumo->nombre.' - '.$insumo->envase.$insumo->unidad->nombre}} </option>
-                                    @endforeach
+                                            <option
+                                                    value="{{$insumo->id}}_{{$insumo->nombre.' - '.$insumo->envase.$insumo->unidad->nombre}}">
+                                                {{$insumo->nombre.' - '.$insumo->envase.$insumo->unidad->nombre}}
+                                            </option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -138,25 +156,15 @@
             $(document).ready(
                 function () {
                     @foreach($detalles as $detalle)
-                        cargar(
+                    cargar(
                         '{{$detalle->insumo_id}}',
                         '{{$detalle->insumo}}',
                         '{{$detalle->envase}}',
                         '{{$detalle->unidad}}',
                         '{{$detalle->cantidad}}',
                         '{{$detalle->precio_unitario}}',
-                        )
-                @endforeach
-                
-                /*
-                        '{{$detalle->id}}',
-                        '{{$detalle->insumo_id}}',
-                        '{{$detalle->insumo}}',
-                        '{{$detalle->envase}}',
-                        '{{$detalle->unidad}}',
-                        '{{$detalle->cantidad}}',
-                        '{{$detalle->precio_unitario}}',
-                */
+                    )
+                    @endforeach
 
                     evaluar();
                 }
@@ -171,73 +179,70 @@
             var datosInsumo;
 
             function cargar(insumo_id, insumo, envase, unidad, cant, precio_unitario ) {
-                            
+
                 idInsumo = insumo_id;
                 nombreInsumo = insumo + ' - ' + envase + unidad;
                 cantidad[cont] = cant;
                 precio[cont] = precio_unitario;
 
 
-if (!agregados.includes(idInsumo) && idInsumo != "" && idInsumo > 0 && cantidad[cont] != ""
-    && cantidad[cont] > 0 && precio[cont] != "" && precio[cont] > 0){
-        
-    agregados.push(idInsumo);
-    subTotal[cont] = cantidad[cont] * precio[cont];
+                if (!agregados.includes(idInsumo) && idInsumo != "" && idInsumo > 0 && cantidad[cont] != ""
+                    && cantidad[cont] > 0 && precio[cont] != "" && precio[cont] > 0){
 
-    var fila2=
-        '<tr id="fila'+cont+'">' +
-        '<td>' +
-        '<button type="button" class="btn btn-danger btn-sm" onclick="quitar('+cont+','+idInsumo+');">' +
-        '<i class="fa fa-times" aria-hidden="true"></i>' +
-        '</button>' +
-        '</td>' +
-        '<td>' +
-        '   <input type="hidden" class"form-control "  name="idInsumoT[]" value="'+idInsumo+'">'
-        +nombreInsumo+
-        '</td>' +
-        '<td>' +
-        '<input type="hidden" class"form-control "  name="cantidadT[]" value="'+cantidad[cont]+'">'
-        +cantidad[cont]+
-        '</td>' +
-        '<td>' +
-        '<input type="hidden" class"form-control "  name="precioT[]" value="'+precio[cont]+'">'
-        +precio[cont]+
-        '</td>' +
-        '<td>'
-        +subTotal[cont].toFixed(1)+
-        '</td> ' +
-        '</tr>';
+                    agregados.push(idInsumo);
+                    subTotal[cont] = cantidad[cont] * precio[cont];
 
-    total = total + subTotal[cont];
-    $('#totalIngreso1').val(total);
-    $('#totalIngreso2').val(total);
+                    var fila2=
+                        '<tr id="fila'+cont+'">' +
+                        '<td>' +
+                        '<button type="button" class="btn btn-danger btn-sm" onclick="quitar('+cont+','+idInsumo+');">' +
+                        '<i class="fa fa-times" aria-hidden="true"></i>' +
+                        '</button>' +
+                        '</td>' +
+                        '<td>' +
+                        '   <input type="hidden" class"form-control "  name="idInsumoT[]" value="'+idInsumo+'">'
+                        +nombreInsumo+
+                        '</td>' +
+                        '<td>' +
+                        '<input type="hidden" class"form-control "  name="cantidadT[]" value="'+cantidad[cont]+'">'
+                        +cantidad[cont]+
+                        '</td>' +
+                        '<td>' +
+                        '<input type="hidden" class"form-control "  name="precioT[]" value="'+precio[cont]+'">'
+                        +precio[cont]+
+                        '</td>' +
+                        '<td>'
+                        +subTotal[cont].toFixed(1)+
+                        '</td> ' +
+                        '</tr>';
 
-    cont++;
-    limpiar();
+                    total = total + subTotal[cont];
+                    $('#totalIngreso1').val(total);
+                    $('#totalIngreso2').val(total);
 
-    $("#detalle").append(fila2); // sirve para anhadir una fila a los detalles
-    
-    evaluar();
+                    cont++;
+                    limpiar();
 
-}
+                    $("#detalle").append(fila2); // sirve para anhadir una fila a los detalles
 
-}
-            
+                    evaluar();
+
+                }
+
+            }
+
 
             function agregar() {
                 datosInsumo = document.getElementById('selectorInsumo').value.split('_');
-                          
+
                 idInsumo = datosInsumo[0];
                 nombreInsumo = datosInsumo[1];
                 cantidad[cont] = $('#cantidad').val();
                 precio[cont] = $('#precio').val();
 
-                console.log(datosInsumo);
-                console.log(agregados);
-
                 if (!agregados.includes(idInsumo) && idInsumo != "" && parseInt(idInsumo) > 0 && cantidad[cont] != ""
                     && cantidad[cont] > 0 && precio[cont] != "" && precio[cont] > 0){
-                        
+
                     agregados.push(idInsumo);
                     subTotal[cont] = cantidad[cont] * precio[cont];
 
@@ -273,7 +278,7 @@ if (!agregados.includes(idInsumo) && idInsumo != "" && idInsumo > 0 && cantidad[
                     limpiar();
 
                     $("#detalle").append(fila); // sirve para anhadir una fila a los detalles
-                    
+
                     evaluar();
 
                 }

@@ -27,7 +27,7 @@
                             @foreach($ingresos as $ingreso)
                                 <tr class="text-center">
                                     <td>{{$ingreso -> id}}</td>
-                                    <td>{{$ingreso -> fecha}}</td>
+                                    <td>{{date_format(date_create($ingreso->fecha), 'd-M-Y')}}</td>
                                     <td>{{$ingreso-> proveedor->empresa.': '.$ingreso->proveedor->tecnico}}  </td>
                                     <td>{{$ingreso -> total}}</td>
                                     <td class="text-right ">

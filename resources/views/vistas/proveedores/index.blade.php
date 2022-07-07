@@ -17,10 +17,10 @@
                         <table class="table table-hover table-bordered color-table info-table">
                             <thead>
                             <tr>
-                                <th>TECNICO</th>
-                                <th>TELF 1</th>
-                                <th>TELF 2</th>
-                                <th>EMPRESA</th>
+                                <th class="text-center">TECNICO</th>
+                                <th class="text-center">TELF 1</th>
+                                <th class="text-center">TELF 2</th>
+                                <th class="text-center">EMPRESA</th>
 
                                 <th class="text-center">OPC</th>
                             </tr>

@@ -19,10 +19,10 @@
                         <table class="table table-hover table-bordered color-table info-table">
                             <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>NOMBRE</th>
-                                <th>TELEFONO</th>
-                                <th>OPCIONES</th>
+                                <th class="text-center">ID</th>
+                                <th class="text-center">NOMBRE</th>
+                                <th class="text-center">TELEFONO</th>
+                                <th class="text-center">OPCIONES</th>
                             </tr>
                             </thead>
                             <tbody>

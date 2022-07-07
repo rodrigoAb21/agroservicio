@@ -19,10 +19,10 @@
                         <table class="table table-hover table-bordered color-table info-table">
                             <thead>
                             <tr>
-                                <th>ID</th>
-                                <th class="w-75">NOMBRE</th>
-                                <th>NUCLEO</th>
-                                <th>OPCIONES</th>
+                                <th class="text-center">ID</th>
+                                <th class="w-75 text-center">NOMBRE</th>
+                                <th class="text-center">NUCLEO</th>
+                                <th class="text-center">OPCIONES</th>
                             </tr>
                             </thead>
                             <tbody>
