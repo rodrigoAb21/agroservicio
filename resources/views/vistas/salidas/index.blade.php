@@ -19,18 +19,23 @@
                                 <th class="text-center">ID</th>
                                 <th class="text-center">FECHA</th>
                                 <th class="text-center">DESTINATARIO</th>
-                                <th class="text-center">TOTAL $us</th>
+                                <th class="text-center">TOTAL $US</th>
                                 <th class="text-right">OPCIONES</th>
                             </tr>
                             </thead>
                             <tbody>
                             @foreach($salidas as $salida)
                                 <tr class="text-center">
-                                    <td>{{$salida->id}}</td>
+                                    <td>{{$salida -> id}}</td>
                                     <td>{{date_format(date_create($salida->fecha), 'd-M-Y')}}</td>
-                                    <td>{{$salida->destinatario->nombre.': '.$salida->destinatario->nucleo}}</td>
-                                    <td>{{$salida-> total}}</td>
+                                    <td>{{$salida-> destinatario->nombre.' - Núcleo: '.$salida->destinatario->nucleo}}</td>
+                                    <td>{{$salida -> total}}</td>
                                     <td class="text-right ">
+                                        <a href="{{url('salidas/'.$salida->id.'/edit')}}">
+                                            <button class="btn btn-warning">
+                                                <i class="fa fa-pen"></i>
+                                            </button>
+                                        </a>
                                         <a href="{{url('salidas/'.$salida->id)}}">
                                             <button class="btn btn-outline-info">
                                                 <i class="fa fa-eye"></i>
@@ -57,7 +62,7 @@
             function modalEliminar(nombre, url) {
                 $('#modalEliminarForm').attr("action", url);
                 $('#metodo').val("delete");
-                $('#modalEliminarTitulo').html("Eliminar Salida de Insumos");
+                $('#modalEliminarTitulo').html("Eliminar Ingreso de Insumos");
                 $('#modalEliminarEnunciado').html("Realmente desea eliminar el salida: " + nombre + "?");
                 $('#modalEliminar').modal('show');
             }

@@ -6,7 +6,7 @@
             <div class="card">
                 <div class="card-body">
                     <h3 class="pb-2">
-                        NUEVO INGRESO
+                        Nuevo ingreso
                     </h3>
 
                     <form method="POST" action="{{url('ingresos')}}" autocomplete="off">

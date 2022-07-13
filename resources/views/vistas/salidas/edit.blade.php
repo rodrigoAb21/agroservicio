@@ -6,9 +6,9 @@
             <div class="card">
                 <div class="card-body">
                     <h3 class="pb-2">
-                        Editar ingreso
+                        Editar salida
                     </h3>
-                    <form method="POST" action="{{url('ingresos/'.$ingreso->id)}}" autocomplete="off">
+                    <form method="POST" action="{{url('salidas/'.$salida->id)}}" autocomplete="off">
                         {{csrf_field()}}
                         {{method_field('PATCH')}}
                         <div class="row">
@@ -18,7 +18,7 @@
                                     <input required
                                            type="date"
                                            class="form-control"
-                                           value="{{$ingreso->fecha}}"
+                                           value="{{$salida->fecha}}"
                                            name="fecha">
                                 </div>
                             </div>
@@ -30,7 +30,7 @@
                                     <input
                                             name="nro_nota"
                                             class="form-control"
-                                            value="{{$ingreso->nro_nota}}"
+                                            value="{{$salida->nro_nota}}"
                                             type="text">
                                 </div>
                             </div>
@@ -41,7 +41,7 @@
                                     <label>Tipo de pago</label>
                                     <select class="form-control" name="tipo">
                                         @foreach($tipos as $tipo)
-                                            @if($ingreso->tipo == $tipo)
+                                            @if($salida->tipo == $tipo)
                                                 <option selected value="{{$tipo}}">{{$tipo}}</option>
                                             @else
                                                 <option value="{{$tipo}}">{{$tipo}}</option>
@@ -55,15 +55,17 @@
                             <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <label>Proveedor</label>
-                                    <select class="form-control selectpicker" data-live-search="true" name="proveedor_id">
-                                        @foreach($proveedores as $proveedor)
-                                            @if($ingreso->proveedor_id == $proveedor->id)
-                                                <option selected value="{{$proveedor->id}}">
-                                                    {{$proveedor->tecnico}} - {{$proveedor->empresa}}
+                                    <select class="form-control selectpicker"
+                                            data-live-search="true"
+                                            name="destinatario_id">
+                                        @foreach($destinatarios as $destinatario)
+                                            @if($salida->destinatario_id == $destinatario->id)
+                                                <option selected value="{{$destinatario->id}}">
+                                                    {{$destinatario->nombre.' - Núcleo: '.$destinatario->nucleo}}
                                                 </option>
                                             @else
-                                                <option value="{{$proveedor->id}}">
-                                                    {{$proveedor->tecnico}} - {{$proveedor->empresa}}
+                                                <option value="{{$destinatario->id}}">
+                                                    {{$destinatario->nombre.' - Núcleo: '.$destinatario->nucleo}}
                                                 </option>
                                             @endif
                                         @endforeach
@@ -141,7 +143,7 @@
 
                         </div>
 
-                        <a href="{{url('ingresos')}}" class="btn btn-warning">Atras</a>
+                        <a href="{{url('salidas')}}" class="btn btn-warning">Atras</a>
                         <button type="submit" id="guardar" class="btn btn-info">Guardar</button>
                     </form>
                 </div>

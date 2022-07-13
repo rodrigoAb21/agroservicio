@@ -6,7 +6,7 @@
             <div class="card">
                 <div class="card-body">
                     <h3 class="pb-2">
-                        NUEVA SALIDA
+                        Nueva salida
                     </h3>
 
                     <form method="POST" action="{{url('salidas')}}" autocomplete="off">
@@ -18,7 +18,7 @@
                                     <input required
                                            type="date"
                                            class="form-control"
-                                           value="{{\Carbon\Carbon::now('America/La_Paz')->toDateString()}}"
+                                           value="{{date("Y-m-d")}}"
                                            name="fecha">
                                 </div>
                             </div>
@@ -34,7 +34,7 @@
 
                             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                 <div class="form-group">
-                                    <label>Tipo</label>
+                                    <label>Tipo de pago</label>
                                     <select class="form-control" name="tipo">
                                         @foreach($tipos as $tipo)
                                             <option value="{{$tipo}}">{{$tipo}}</option>
@@ -49,7 +49,7 @@
                                     <label>Destinatario</label>
                                     <select class="form-control selectpicker" data-live-search="true" name="destinatario_id">
                                         @foreach($destinatarios as $destinatario)
-                                            <option value="{{$destinatario->id}}">{{$destinatario->nombre.'- Núcleo'.$destinatario->nucleo}}</option>
+                                            <option value="{{$destinatario->id}}">{{$destinatario->nombre.' - Núcleo: '.$destinatario->nucleo}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -57,7 +57,7 @@
 
                             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                 <div class="form-group">
-                                    <label>Costo Total</label>
+                                    <label>Precio Total</label>
                                     <input id="totalIngreso1" class="form-control" type="text" readonly value="0">
                                     <input id="totalIngreso2" type="hidden" required name="total" value="0">
                                 </div>
@@ -74,7 +74,7 @@
                                 <div class="form-group">
                                     <select class="form-control selectpicker" data-live-search="true" id="selectorInsumo">
                                         @foreach($insumos as $insumo)
-                                            <option value="{{$insumo->id}}_{{$insumo->nombre.' - '.$insumo->envase.$insumo->unidad->nombre}}">{{$insumo->nombre.' - '.$insumo->envase.$insumo->unidad->nombre.' - Total:'. $insumo->existencias }} </option>
+                                            <option value="{{$insumo->id}}_{{$insumo->nombre.' - '.$insumo->envase.$insumo->unidad->nombre}}_{{$insumo->existencias}}">{{$insumo->nombre.' - '.$insumo->envase.$insumo->unidad->nombre.' - Stock:'.$insumo->existencias}} </option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -137,7 +137,6 @@
             $(document).ready(
                 function () {
                     evaluar();
-                    var datosInsumo = document.getElementById('selectorInsumo').value.split('_');
                 }
             );
 
@@ -146,25 +145,26 @@
             var precio = [];
             var subTotal = [];
             var total = 0;
+            var agregados = [];
 
             function agregar() {
-
+                datosInsumo = document.getElementById('selectorInsumo').value.split('_');
                 idInsumo = datosInsumo[0];
                 nombreInsumo = datosInsumo[1];
-                cantidad[cont] = $('#cantidad').val();
+                existencias = parseInt(datosInsumo[2]);
+                cantidad[cont] = parseInt($('#cantidad').val());
                 precio[cont] = $('#precio').val();
 
-                if (idInsumo != "" && idInsumo > 0 && cantidad[cont] != ""
+                if (!agregados.includes(idInsumo) && existencias >= cantidad[cont] && idInsumo != "" && idInsumo > 0 && cantidad[cont] != ""
                     && cantidad[cont] > 0 && precio[cont] != "" && precio[cont] > 0){
 
+                    agregados.push(idInsumo);
                     subTotal[cont] = cantidad[cont] * precio[cont];
-
-
 
                     var fila=
                         '<tr id="fila'+cont+'">' +
                         '<td>' +
-                        '<button type="button" class="btn btn-danger btn-sm" onclick="quitar('+cont+');">' +
+                        '<button type="button" class="btn btn-danger btn-sm" onclick="quitar('+cont+','+idInsumo+');">' +
                         '<i class="fa fa-times" aria-hidden="true"></i>' +
                         '</button>' +
                         '</td>' +
@@ -193,13 +193,18 @@
                     limpiar();
 
                     $("#detalle").append(fila); // sirve para anhadir una fila a los detalles
+
                     evaluar();
 
                 }
 
             }
 
-            function quitar(index){
+            function quitar(index, id){
+                let i = agregados.indexOf(String(id));
+                if (i > -1) {
+                    agregados.splice(i, 1);
+                }
                 total = total - subTotal[index];
                 cont--;
 

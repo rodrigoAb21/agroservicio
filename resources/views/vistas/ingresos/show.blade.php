@@ -6,7 +6,7 @@
             <div class="card">
                 <div class="card-body">
                     <h3 class="pb-2">
-                        INGRESO DE INSUMOS: {{$ingreso->id}}
+                        Ingreso de Insumos: {{$ingreso->id}}
                     </h3>
                     <div class="row">
                         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">

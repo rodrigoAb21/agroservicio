@@ -19,7 +19,7 @@
                                 <th class="text-center">ID</th>
                                 <th class="text-center">FECHA</th>
                                 <th class="text-center">PROVEEDOR</th>
-                                <th class="text-center">TOTAL $us</th>
+                                <th class="text-center">TOTAL $US</th>
                                 <th class="text-right">OPCIONES</th>
                             </tr>
                             </thead>
