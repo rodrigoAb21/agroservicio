@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Composicion;
+use App\Http\Requests\AgroquimicoRequest;
 use App\Insumo;
 use App\Subtipo;
 use App\UnidadMedida;
@@ -57,7 +58,7 @@ class AgroquimicoController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(AgroquimicoRequest $request)
     {
 
         try {
@@ -130,8 +131,9 @@ class AgroquimicoController extends Controller
     }
 
 
-    public function update(Request $request, $id)
+    public function update(AgroquimicoRequest $request, $id)
     {
+
         try {
             DB::beginTransaction();
             $insumo = Insumo::findOrFail($id);
