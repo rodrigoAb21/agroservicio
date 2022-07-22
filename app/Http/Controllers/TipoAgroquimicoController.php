@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TipoAgroquimicoRequest;
 use App\Subtipo;
 use Illuminate\Http\Request;
 
@@ -21,7 +22,7 @@ class TipoAgroquimicoController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(TipoAgroquimicoRequest $request)
     {
         $tipo = new Subtipo();
         $tipo->nombre = $request['nombre'];
@@ -40,7 +41,7 @@ class TipoAgroquimicoController extends Controller
     }
 
 
-    public function update(Request $request, $id)
+    public function update(TipoAgroquimicoRequest $request, $id)
     {
         $tipo = Subtipo::findOrFail($id);
         $tipo->nombre = $request['nombre'];

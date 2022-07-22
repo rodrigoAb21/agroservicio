@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Destinatario;
+use App\Http\Requests\DestinatarioRequest;
 use Illuminate\Http\Request;
 
 class DestinatarioController extends Controller
@@ -21,7 +22,7 @@ class DestinatarioController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(DestinatarioRequest $request)
     {
         $destinatario = new Destinatario();
         $destinatario->nombre = $request['nombre'];
@@ -40,7 +41,7 @@ class DestinatarioController extends Controller
     }
 
 
-    public function update(Request $request, $id)
+    public function update(DestinatarioRequest $request, $id)
     {
         $destinatario = Destinatario::findOrFail($id);
         $destinatario->nombre = $request['nombre'];
