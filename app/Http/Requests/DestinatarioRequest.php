@@ -24,7 +24,8 @@ class DestinatarioRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nombre' => 'required|max:255',
+            'nucleo' => 'nullable|max:255',
         ];
     }
 }

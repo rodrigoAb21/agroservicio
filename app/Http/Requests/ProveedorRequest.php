@@ -24,7 +24,18 @@ class ProveedorRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'tecnico' => 'max:255',
+            'empresa' => 'max:255',
+            'telf1' => 'nullable|digits_between:7,8',
+            'telf2' => 'nullable|digits_between:7,8',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'telf1.digits_between' => 'El Telefono 1 debe contener entre 7 y 8 dígitos',
+            'telf2.digits_between' => 'El Telefono 2 debe contener entre 7 y 8 dígitos',
         ];
     }
 }

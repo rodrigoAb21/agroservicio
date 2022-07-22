@@ -8,6 +8,15 @@
                     <h3 class="pb-2">
                         Nuevo proveedor
                     </h3>
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
 
                     <form method="POST" action="{{url('proveedores')}}" autocomplete="off">
                         {{csrf_field()}}

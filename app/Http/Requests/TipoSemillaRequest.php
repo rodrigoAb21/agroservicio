@@ -24,7 +24,7 @@ class TipoSemillaRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nombre' => 'required|max:255',
         ];
     }
 }

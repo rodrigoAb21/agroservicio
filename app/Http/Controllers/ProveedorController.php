@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProveedorRequest;
 use App\Proveedor;
 use Illuminate\Http\Request;
 
@@ -21,7 +22,7 @@ class ProveedorController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(ProveedorRequest $request)
     {
         $proveedor = new Proveedor();
         $proveedor->tecnico = $request['tecnico'];
@@ -50,7 +51,7 @@ class ProveedorController extends Controller
     }
 
 
-    public function update(Request $request, $id)
+    public function update(ProveedorRequest $request, $id)
     {
         $proveedor = Proveedor::findOrFail($id);
         $proveedor->tecnico = $request['tecnico'];
