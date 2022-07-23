@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\DetalleIngreso;
+use App\Http\Requests\IngresoRequest;
 use App\Ingreso;
 use App\Insumo;
 use App\Proveedor;
@@ -65,7 +66,7 @@ class IngresoController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(IngresoRequest $request)
     {
 
         try {
@@ -112,7 +113,7 @@ class IngresoController extends Controller
     }
 
 
-    public function update(Request $request, $id)
+    public function update(IngresoRequest $request, $id)
     {
 
         try {

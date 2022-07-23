@@ -8,6 +8,19 @@
                     <h3 class="pb-2">
                         Editar salida
                     </h3>
+
+                    @if ($errors->any())
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <form method="POST" action="{{url('salidas/'.$salida->id)}}" autocomplete="off">
                         {{csrf_field()}}
                         {{method_field('PATCH')}}
@@ -133,8 +146,8 @@
                                     <th class="text-right">OPC</th>
                                     <th class="text-center">INSUMO</th>
                                     <th class="text-center">CANT</th>
-                                    <th class="text-center">P. UNITARIO $us</th>
-                                    <th class="text-center">SUBTOTAL $us</th>
+                                    <th class="text-center">P. UNITARIO $US</th>
+                                    <th class="text-center">SUBTOTAL $US</th>
                                 </tr>
                                 </thead>
                                 <tbody id="detalle">
@@ -214,13 +227,13 @@
                         +precio[cont]+
                         '</td>' +
                         '<td>'
-                        +subTotal[cont].toFixed(1)+
+                        +subTotal[cont].toFixed(2)+
                         '</td> ' +
                         '</tr>';
 
                     total = total + subTotal[cont];
-                    $('#totalIngreso1').val(total);
-                    $('#totalIngreso2').val(total);
+                    $('#totalIngreso1').val(total.toFixed(2));
+                    $('#totalIngreso2').val(total.toFixed(2));
 
                     cont++;
                     limpiar();
@@ -239,7 +252,7 @@
 
                 idInsumo = datosInsumo[0];
                 nombreInsumo = datosInsumo[1];
-                cantidad[cont] = $('#cantidad').val();
+                cantidad[cont] = parseFloat($('#cantidad').val());
                 precio[cont] = $('#precio').val();
 
                 if (!agregados.includes(idInsumo) && idInsumo != "" && parseInt(idInsumo) > 0 && cantidad[cont] != ""
@@ -268,13 +281,13 @@
                         +precio[cont]+
                         '</td>' +
                         '<td>'
-                        +subTotal[cont].toFixed(1)+
+                        +subTotal[cont].toFixed(2)+
                         '</td> ' +
                         '</tr>';
 
                     total = total + subTotal[cont];
-                    $('#totalIngreso1').val(total);
-                    $('#totalIngreso2').val(total);
+                    $('#totalIngreso1').val(total.toFixed(2));
+                    $('#totalIngreso2').val(total.toFixed(2));
 
                     cont++;
                     limpiar();
@@ -296,8 +309,8 @@
                 cont--;
 
                 $("#fila" + index).remove();
-                $('#totalIngreso1').val(total);
-                $('#totalIngreso2').val(total);
+                $('#totalIngreso1').val(total.toFixed(2));
+                $('#totalIngreso2').val(total.toFixed(2));
                 evaluar();
             }
 

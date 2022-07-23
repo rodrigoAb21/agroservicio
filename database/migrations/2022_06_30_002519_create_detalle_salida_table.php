@@ -15,7 +15,7 @@ class CreateDetalleSalidaTable extends Migration
     {
         Schema::create('detalle_salida', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('cantidad');
+            $table->float('cantidad');
             $table->float('precio_unitario');
      
             $table->unsignedInteger('salida_id');

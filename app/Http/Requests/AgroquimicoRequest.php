@@ -25,13 +25,13 @@ class AgroquimicoRequest extends FormRequest
     {
         return [
             'nombre' => 'required|max:255',
-            'envase' => 'max:255',
-            'info' => 'max:255',
+            'envase' => 'nullable|max:255',
+            'info' => 'nullable|max:255',
             'subtipo_id' => 'required',
             'unidad_medida_id' => 'required',
-            'ingrediente_activoT' => 'array',
+            'ingrediente_activoT' => 'nullable|array',
             'ingrediente_activoT.*' => 'max:255',
-            'concentracionT' => 'array',
+            'concentracionT' => 'nullable|array',
             'concentracionT.*' => 'max:255',
         ];
     }
@@ -41,7 +41,9 @@ class AgroquimicoRequest extends FormRequest
         return [
             'subtipo_id.required' => 'Debe seleccionar un tipo.',
             'unidad_medida_id.required' => 'Debe seleccionar una unidad de medida',
+            'info.max' => 'La información no debe contener más de 255 caracteres.',
             'ingrediente_activoT.*.max' => 'El ingrediente activo no debe contener más de 255 caracteres.',
+            'concentracionT.*.max' => 'La concentración no debe contener más de 255 caracteres.',
         ];
     }
 }

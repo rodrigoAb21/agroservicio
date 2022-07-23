@@ -8,6 +8,7 @@ use App\Insumo;
 use App\Destinatario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Exception;
 
 class SalidaController extends Controller
 {
@@ -66,6 +67,7 @@ class SalidaController extends Controller
                 $detalle->save();
 
                 $insumoAct = Insumo::findOrfail($detalle->insumo_id);
+                if ($insumoAct->existencias < $detalle->cantidad) throw new  \Exception("");
                 $insumoAct->existencias = $insumoAct->existencias - $detalle->cantidad;
                 $insumoAct->update();
 
@@ -77,6 +79,7 @@ class SalidaController extends Controller
         } catch (Exception $e) {
 
             DB::rollback();
+            return redirect('salidas')->with(['message' => 'No es posible realizar la salida.']);
 
         }
 
@@ -163,6 +166,7 @@ class SalidaController extends Controller
                 $detalle->save();
 
                 $insumoAct = Insumo::findOrfail($detalle->insumo_id);
+                if ($insumoAct->existencias < $detalle->cantidad) throw new \Exception("failed");
                 $insumoAct->existencias = $insumoAct->existencias - $detalle->cantidad;
                 $insumoAct->update();
 
@@ -174,6 +178,7 @@ class SalidaController extends Controller
         } catch (Exception $e) {
 
             DB::rollback();
+            return redirect('salidas')->with(['message' => 'No es posible realizar la salida.']);
 
         }
 
