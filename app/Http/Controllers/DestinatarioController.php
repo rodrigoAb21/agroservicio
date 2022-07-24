@@ -12,7 +12,7 @@ class DestinatarioController extends Controller
     {
         return view('vistas.destinatarios.index',
             [
-                'destinatarios' => Destinatario::paginate(10),
+                'destinatarios' => Destinatario::all(),
             ]);
     }
 

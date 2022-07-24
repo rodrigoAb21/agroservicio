@@ -27,7 +27,7 @@
                             <thead>
                             <tr>
                                 <th class="text-center">ID</th>
-                                <th class="w-75 text-center">NOMBRE</th>
+                                <th class="text-center">NOMBRE</th>
                                 <th class="text-center">OPCIONES</th>
                             </tr>
                             </thead>
@@ -36,7 +36,7 @@
                                 <tr class="text-center">
                                     <td>{{$unidad->id}}</td>
                                     <td>{{$unidad->nombre}}</td>
-                                    <td class="text-right ">
+                                    <td>
                                         <a href="{{url('config/unidades/'.$unidad->id.'/edit')}}">
                                             <button class="btn btn-warning">
                                                 <i class="fa fa-pen"></i>
@@ -57,7 +57,7 @@
     </div>
     @include('vistas.modal')
     @push('arriba')
-
+        <link href="{{asset('plantilla/assets/plugins/datatables/dataTables.bootstrap4.css')}}" id="theme" rel="stylesheet">
     @endpush
     @push('scripts')
         <script>
@@ -71,7 +71,7 @@
             }
 
         </script>
-
+        <script type="text/javascript" charset="utf8" src="{{asset('plantilla/assets/plugins/datatables/datatables.min.js')}}"></script>
         <script type="text/javascript">
             $(document).ready(function() {
                 var table = $('#tabla').DataTable(

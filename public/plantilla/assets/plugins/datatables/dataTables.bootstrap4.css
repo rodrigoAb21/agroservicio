@@ -296,7 +296,13 @@ div.table-responsive > div.dataTables_wrapper > div.row > div[class^=col-]:last-
   background-color: #1e88e5;
 }
 
-a.paginate_button:hover {
+a.paginate_button:hover:enabled {
+  color: #ffffff !important;
+  border: 1px solid #1e88e5 !important;
+  background-color: #1e88e5 !important;
+}
+
+a.paginate_button:active:enabled {
   color: #ffffff !important;
   border: 1px solid #1e88e5 !important;
   background-color: #1e88e5 !important;

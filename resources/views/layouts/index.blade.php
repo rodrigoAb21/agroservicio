@@ -16,10 +16,11 @@
     <!-- You can change the theme colors from here -->
     <link href="{{asset('plantilla/material/css/colors/blue.css')}}" id="theme" rel="stylesheet">
     <style rel="stylesheet">
-        th{
+        th, td{
             white-space: nowrap;
         }
     </style>
+
     @stack('arriba')
 </head>
 
@@ -294,6 +295,7 @@
     <!-- Style switcher -->
     <!-- ============================================================== -->
     <script src="{{asset('plantilla/assets/plugins/styleswitcher/jQuery.style.switcher.js')}}"></script>
+
     @stack('scripts')
 </body>
 

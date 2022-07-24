@@ -12,33 +12,11 @@ use Illuminate\Support\Facades\DB;
 
 class AgroquimicoController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
-        $busqueda = trim($request['busqueda']);
-        $agroquimicos = Insumo::where('insumo.tipo','=', 'Agroquimico')
-            ->join('subtipo', 'insumo.subtipo_id', '=', 'subtipo.id')
-            ->join('unidad_medida', 'insumo.unidad_medida_id', '=', 'unidad_medida.id')
-            ->where(function ($query) use ($busqueda) {
-                $query->where('insumo.nombre', 'like', '%'.$busqueda.'%')
-                    ->orWhere('subtipo.nombre', 'like', '%'.$busqueda.'%')
-                    ->orWhere('insumo.envase', 'like', '%'.$busqueda.'%')
-                    ->orWhere('insumo.composicion', 'like', '%'.$busqueda.'%')
-                ;}
-            )
-            ->orderBy('insumo.nombre')
-            ->select(
-                'insumo.nombre',
-                'insumo.envase',
-                'insumo.id',
-                'insumo.existencias',
-                'insumo.composicion',
-                'subtipo.nombre as tipo',
-                'unidad_medida.nombre as unidad')
-            ->paginate(10);
         return view('vistas.insumos.agroquimicos.index',
             [
-                'insumos' => $agroquimicos,
-                'busqueda' => $busqueda,
+                'insumos' => Insumo::where('insumo.tipo','=', 'Agroquimico')->get(),
             ]);
     }
 

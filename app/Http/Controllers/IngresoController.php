@@ -16,7 +16,7 @@ class IngresoController extends Controller
     {
         return view('vistas.ingresos.index',
             [
-                'ingresos' => Ingreso::paginate(10),
+                'ingresos' => Ingreso::all(),
             ]);
     }
 

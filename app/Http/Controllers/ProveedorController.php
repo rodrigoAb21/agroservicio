@@ -12,7 +12,7 @@ class ProveedorController extends Controller
     {
         return view('vistas.proveedores.index',
             [
-                'proveedores' => Proveedor::paginate(10),
+                'proveedores' => Proveedor::all(),
             ]);
     }
 

@@ -16,7 +16,7 @@ class SalidaController extends Controller
     {
         return view('vistas.salidas.index',
             [
-                'salidas' => Salida::paginate(10),
+                'salidas' => Salida::all(),
             ]);
     }
 

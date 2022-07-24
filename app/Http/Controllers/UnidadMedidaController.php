@@ -11,7 +11,7 @@ class UnidadMedidaController extends Controller
     {
         return view('vistas.config.unidades.index',
             [
-                'unidades' => UnidadMedida::paginate(10),
+                'unidades' => UnidadMedida::all(),
             ]);
     }
 

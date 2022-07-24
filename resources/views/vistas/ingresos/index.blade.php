@@ -21,14 +21,14 @@
                         </div>
                     @endif
                     <div class="table-responsive">
-                        <table class="table table-hover table-bordered color-table info-table">
+                        <table id="tabla" class="table table-hover table-bordered color-table info-table">
                             <thead>
                             <tr>
                                 <th class="text-center">ID</th>
                                 <th class="text-center">FECHA</th>
                                 <th class="text-center">PROVEEDOR</th>
                                 <th class="text-center">TOTAL $US</th>
-                                <th class="text-right">OPCIONES</th>
+                                <th class="text-center">OPCIONES</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -38,7 +38,7 @@
                                     <td>{{date_format(date_create($ingreso->fecha), 'd-M-Y')}}</td>
                                     <td>{{$ingreso-> proveedor->empresa.': '.$ingreso->proveedor->tecnico}}  </td>
                                     <td>{{$ingreso -> total}}</td>
-                                    <td class="text-right ">
+                                    <td>
                                         <a href="{{url('ingresos/'.$ingreso->id.'/edit')}}">
                                             <button class="btn btn-warning">
                                                 <i class="fa fa-pen"></i>
@@ -57,13 +57,15 @@
                             @endforeach
                             </tbody>
                         </table>
-                        {{$ingresos->links('pagination.default')}}
                     </div>
                 </div>
             </div>
         </div>
     </div>
     @include('vistas.modal')
+    @push('arriba')
+        <link href="{{asset('plantilla/assets/plugins/datatables/dataTables.bootstrap4.css')}}" id="theme" rel="stylesheet">
+    @endpush
     @push('scripts')
         <script>
 
@@ -76,6 +78,43 @@
             }
 
         </script>
+        <script type="text/javascript" charset="utf8" src="{{asset('plantilla/assets/plugins/datatables/datatables.min.js')}}"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                var table = $('#tabla').DataTable(
+                    {
+                        language: {
+                            "decimal": "",
+                            "emptyTable": "No hay información",
+                            "info": "Mostrando _START_ a _END_ de _TOTAL_ filas",
+                            "infoEmpty": "",
+                            "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+                            "infoPostFix": "",
+                            "thousands": ",",
+                            "lengthMenu": "Mostrar _MENU_ filas",
+                            "loadingRecords": "Cargando...",
+                            "processing": "Procesando...",
+                            "search": "Buscar:",
+                            "zeroRecords": "No se encontraron resultados.",
+                            "paginate": {
+                                "first": "Primero",
+                                "last": "Ultimo",
+                                "next": "Siguiente",
+                                "previous": "Anterior"
+                            }
+                        },
+                        "columns": [
+                            {"name": "ID"},
+                            {"name": "FECHA"},
+                            {"name": "PROVEEDOR"},
+                            {"name": "TOTAL $US"},
+                            {"name": "OPCIONES", "orderable": false},
+                        ],
+                        "order": [[1, 'asc']],
+                    }
+                );
 
+            });
+        </script>
     @endpush()
 @endsection

@@ -10,26 +10,11 @@ use Illuminate\Http\Request;
 
 class SemillaController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
-        $busqueda = trim($request['busqueda']);
-        $semillas = Insumo::where('insumo.tipo','=', 'Semilla')
-            ->join('subtipo', 'insumo.subtipo_id', '=', 'subtipo.id')
-            ->join('unidad_medida', 'insumo.unidad_medida_id', '=', 'unidad_medida.id')
-            ->where(function ($query) use ($busqueda) {
-                $query->where('insumo.nombre', 'like', '%'.$busqueda.'%')
-                    ->orWhere('subtipo.nombre', 'like', '%'.$busqueda.'%')
-                    ->orWhere('insumo.envase', 'like', '%'.$busqueda.'%')
-                ;}
-            )
-            ->select('insumo.nombre', 'insumo.envase','insumo.id', 'unidad_medida.nombre as unidad',
-                'insumo.existencias','subtipo.nombre as tipo')
-            ->orderBy('insumo.nombre')
-            ->paginate(10);
         return view('vistas.insumos.semillas.index',
             [
-                'insumos' => $semillas,
-                'busqueda' => $busqueda,
+                'insumos' => Insumo::where('insumo.tipo','=', 'Semilla')->get(),
             ]);
     }
 
