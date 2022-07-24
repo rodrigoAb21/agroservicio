@@ -23,17 +23,18 @@
                         </div>
                     @endif
                     <div class="table-responsive">
-                        <table class="table table-hover table-bordered color-table info-table">
+                        <table id="tabla" class="table table-hover table-bordered color-table info-table">
                             <thead>
                             <tr>
+                                <th class="text-center">ID</th>
                                 <th class="w-75 text-center">NOMBRE</th>
                                 <th class="text-center">OPCIONES</th>
                             </tr>
                             </thead>
                             <tbody>
                             @foreach($unidades as $unidad)
-                                <tr>
-
+                                <tr class="text-center">
+                                    <td>{{$unidad->id}}</td>
                                     <td>{{$unidad->nombre}}</td>
                                     <td class="text-right ">
                                         <a href="{{url('config/unidades/'.$unidad->id.'/edit')}}">
@@ -49,13 +50,15 @@
                             @endforeach
                             </tbody>
                         </table>
-                        {{$unidades->links('pagination.default')}}
                     </div>
                 </div>
             </div>
         </div>
     </div>
     @include('vistas.modal')
+    @push('arriba')
+
+    @endpush
     @push('scripts')
         <script>
 
@@ -69,5 +72,40 @@
 
         </script>
 
+        <script type="text/javascript">
+            $(document).ready(function() {
+                var table = $('#tabla').DataTable(
+                    {
+                        language: {
+                            "decimal": "",
+                            "emptyTable": "No hay información",
+                            "info": "Mostrando _START_ a _END_ de _TOTAL_ filas",
+                            "infoEmpty": "",
+                            "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+                            "infoPostFix": "",
+                            "thousands": ",",
+                            "lengthMenu": "Mostrar _MENU_ filas",
+                            "loadingRecords": "Cargando...",
+                            "processing": "Procesando...",
+                            "search": "Buscar:",
+                            "zeroRecords": "No se encontraron resultados.",
+                            "paginate": {
+                                "first": "Primero",
+                                "last": "Ultimo",
+                                "next": "Siguiente",
+                                "previous": "Anterior"
+                            }
+                        },
+                        "columns": [
+                            {"name": "ID"},
+                            {"name": "NOMBRE"},
+                            {"name": "OPCIONES", "orderable": false},
+                        ],
+                        "order": [[0, 'desc']],
+                    }
+                );
+
+            });
+        </script>
     @endpush()
 @endsection
