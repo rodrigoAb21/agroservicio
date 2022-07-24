@@ -20,6 +20,14 @@ class IngresoController extends Controller
             ]);
     }
 
+    public function show($id){
+
+        return view('vistas.ingresos.show',
+            [
+                'ingreso' => Ingreso::findOrFail($id),
+            ]);
+    }
+
     public function create()
     {
         return view('vistas.ingresos.create',
@@ -30,45 +38,9 @@ class IngresoController extends Controller
             ]);
     }
 
-    public function show($id){
-        
-        return view('vistas.ingresos.show',
-            [
-                'ingreso' => Ingreso::findOrFail($id),
-            ]);
-    }
-
-    public function edit($id){
-        
-        return view('vistas.ingresos.edit',
-            [
-                'ingreso' => Ingreso::findOrFail($id),
-                'insumos' => Insumo::all(),
-                'tipos' => ['Contado', 'Credito'],
-                'proveedores' => Proveedor::all(),
-                //'detalles' => DetalleIngreso::where('insumo_id', '=', $id)->get(),
-                'detalles' => DB::table('detalle_ingreso')
-                ->join('insumo', 'detalle_ingreso.insumo_id', 'insumo.id')
-                ->join('unidad_medida','insumo.unidad_medida_id', 'unidad_medida.id')
-                ->where('detalle_ingreso.ingreso_id', '=', $id)
-                ->select(
-                    'detalle_ingreso.id',
-                    'detalle_ingreso.insumo_id',
-                    'detalle_ingreso.cantidad',
-                    'detalle_ingreso.precio_unitario',
-                    'insumo.nombre as insumo',
-                    'insumo.envase',
-                    'unidad_medida.nombre as unidad'
-                    )
-                    ->get(),
-                    
-            ]);
-    }
-
-
     public function store(IngresoRequest $request)
     {
-
+        $mensaje = '';
         try {
             DB::beginTransaction();
 
@@ -101,21 +73,48 @@ class IngresoController extends Controller
             }
 
             DB::commit();
+            $mensaje = 'Ingreso creado exitosamente.';
 
         } catch (Exception $e) {
 
             DB::rollback();
-
+            $mensaje = 'No se ha podido crear el ingreso.';
         }
 
-        return redirect('ingresos');
+        return redirect('ingresos')->with(['message' => $mensaje]);
 
+    }
+
+    public function edit($id){
+
+        return view('vistas.ingresos.edit',
+            [
+                'ingreso' => Ingreso::findOrFail($id),
+                'insumos' => Insumo::all(),
+                'tipos' => ['Contado', 'Credito'],
+                'proveedores' => Proveedor::all(),
+                'detalles' => DB::table('detalle_ingreso')
+                    ->join('insumo', 'detalle_ingreso.insumo_id', 'insumo.id')
+                    ->join('unidad_medida','insumo.unidad_medida_id', 'unidad_medida.id')
+                    ->where('detalle_ingreso.ingreso_id', '=', $id)
+                    ->select(
+                        'detalle_ingreso.id',
+                        'detalle_ingreso.insumo_id',
+                        'detalle_ingreso.cantidad',
+                        'detalle_ingreso.precio_unitario',
+                        'insumo.nombre as insumo',
+                        'insumo.envase',
+                        'unidad_medida.nombre as unidad'
+                    )
+                    ->get(),
+
+            ]);
     }
 
 
     public function update(IngresoRequest $request, $id)
     {
-
+        $mensaje = '';
         try {
             DB::beginTransaction();
 
@@ -159,14 +158,15 @@ class IngresoController extends Controller
             }
 
             DB::commit();
+            $mensaje = 'Ingreso editado exitosamente.';
 
         } catch (Exception $e) {
 
             DB::rollback();
-
+            $mensaje = 'No se pudo editar el ingreso.';
         }
 
-        return redirect('ingresos');
+        return redirect('ingresos')->with(['message' => $mensaje]);
 
     }
 
@@ -181,6 +181,6 @@ class IngresoController extends Controller
         $ingreso = Ingreso::findOrFail($id);
         $ingreso->delete();
 
-        return redirect('ingresos');
+        return redirect('ingresos')->with(['message' => 'Ingreso eliminado exitosamente.']);
     }
 }

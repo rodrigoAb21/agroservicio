@@ -13,6 +13,14 @@
                             </a>
                         </div>
                     </h2>
+                    @if(session()->has('message'))
+                        <div class="alert alert-info alert-dismissible fade show" role="alert">
+                            {{ session('message') }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    @endif
                     <form method="GET" action="{{url('insumos/agroquimicos')}}" autocomplete="off">
                         <input type="text" class="form-control mb-2 mr-sm-2"  value="{{$busqueda}}" id="busqueda" name="busqueda" placeholder="Buscar">
                     </form>
@@ -68,8 +76,8 @@
             function modalEliminar(nombre, url) {
                 $('#modalEliminarForm').attr("action", url);
                 $('#metodo').val("delete");
-                $('#modalEliminarTitulo').html("Eliminar Agroquimico");
-                $('#modalEliminarEnunciado').html("Realmente desea eliminar el fitosanitario: " + nombre + "?");
+                $('#modalEliminarTitulo').html("Eliminar Agroquímico");
+                $('#modalEliminarEnunciado').html("Realmente desea eliminar el agroquímico: " + nombre + "?");
                 $('#modalEliminar').modal('show');
             }
 

@@ -26,10 +26,10 @@ class TipoAgroquimicoController extends Controller
     {
         $tipo = new Subtipo();
         $tipo->nombre = $request['nombre'];
-        $tipo->tipo = 'TipoAgroquimico';
+        $tipo->tipo = 'Agroquimico';
         $tipo->save();
 
-        return redirect('config/tipoAgroquimicos');
+        return redirect('config/tipoAgroquimicos')->with(['message' => 'Tipo de Agroquímico creado exitosamente.']);
     }
 
     public function edit($id)
@@ -47,7 +47,7 @@ class TipoAgroquimicoController extends Controller
         $tipo->nombre = $request['nombre'];
         $tipo->update();
 
-        return redirect('config/tipoAgroquimicos');
+        return redirect('config/tipoAgroquimicos')->with(['message' => 'Tipo de Agroquímico editado exitosamente.']);
     }
 
 
@@ -56,6 +56,6 @@ class TipoAgroquimicoController extends Controller
         $tipo = Subtipo::findOrFail($id);
         $tipo->delete();
 
-        return redirect('config/tipoAgroquimicos');
+        return redirect('config/tipoAgroquimicos')->with(['message' => 'Tipo de Agroquímico eliminado exitosamente.']);
     }
 }

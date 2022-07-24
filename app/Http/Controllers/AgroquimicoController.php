@@ -42,12 +42,6 @@ class AgroquimicoController extends Controller
             ]);
     }
 
-    public function getComposicion($ingrediente_activos){
-        $composicion = '';
-
-
-    }
-
     public function create()
     {
         return view('vistas.insumos.agroquimicos.create',
@@ -60,7 +54,7 @@ class AgroquimicoController extends Controller
 
     public function store(AgroquimicoRequest $request)
     {
-
+        $mensaje = '';
         try {
             DB::beginTransaction();
 
@@ -98,16 +92,17 @@ class AgroquimicoController extends Controller
             $insumo->update();
 
             DB::commit();
+            $mensaje = 'Agroquímico creado exitosamente.';
 
         } catch (Exception $e) {
 
             DB::rollback();
+            $mensaje = 'No se pudo crear el agroquímico.';
+
 
         }
 
-
-
-        return redirect('insumos/agroquimicos');
+        return redirect('insumos/agroquimicos')->with(['message' => $mensaje]);
     }
 
     public function edit($id)
@@ -133,7 +128,7 @@ class AgroquimicoController extends Controller
 
     public function update(AgroquimicoRequest $request, $id)
     {
-
+        $mensaje = '';
         try {
             DB::beginTransaction();
             $insumo = Insumo::findOrFail($id);
@@ -167,18 +162,15 @@ class AgroquimicoController extends Controller
                 $insumo->update();
             }
 
-
             DB::commit();
-
+            $mensaje = 'Agroquímico editado exitosamente.';
         } catch (Exception $e) {
 
             DB::rollback();
-
+            $mensaje = 'No se pudo editar el agroquímico.';
         }
 
-
-
-        return redirect('insumos/agroquimicos');
+        return redirect('insumos/agroquimicos')->with(['message' => $mensaje]);
     }
 
 
@@ -187,6 +179,6 @@ class AgroquimicoController extends Controller
         $insumo = Insumo::findOrFail($id);
         $insumo->delete();
 
-        return redirect('insumos/agroquimicos');
+        return redirect('insumos/agroquimicos')->with(['message' => 'Agroquímico eliminado exitosamente.']);
     }
 }

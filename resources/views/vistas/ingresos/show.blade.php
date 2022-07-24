@@ -20,7 +20,7 @@
                         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label><b>Nro Nota</b></label>
-                                <input name="nro_nota" class="form-control" type="text" value="{{$ingreso->nro_nota}}">
+                                <input name="nro_nota" class="form-control" type="text" readonly value="{{$ingreso->nro_nota}}">
                             </div>
                         </div>
 

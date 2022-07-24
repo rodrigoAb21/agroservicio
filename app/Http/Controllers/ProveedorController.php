@@ -31,7 +31,7 @@ class ProveedorController extends Controller
         $proveedor->empresa = $request['empresa'];
         $proveedor->save();
 
-        return redirect('proveedores');
+        return redirect('proveedores')->with(['message' => 'Proveedor creado exitosamente.']);
     }
 
     public function edit($id)
@@ -60,7 +60,7 @@ class ProveedorController extends Controller
         $proveedor->telf2 = $request['telf2'];
         $proveedor->update();
 
-        return redirect('proveedores');
+        return redirect('proveedores')->with(['message' => 'Proveedor editado exitosamente.']);
     }
 
 
@@ -69,6 +69,6 @@ class ProveedorController extends Controller
         $proveedor = Proveedor::findOrFail($id);
         $proveedor->delete();
 
-        return redirect('proveedores');
+        return redirect('proveedores')->with(['message' => 'Proveedor eliminado exitosamente.']);
     }
 }

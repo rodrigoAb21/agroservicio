@@ -4,8 +4,14 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-
-
+                    @if(session()->has('message'))
+                        <div class="alert alert-info alert-dismissible fade show" role="alert">
+                            {{ session('message') }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    @endif
                     <h2 class="pb-2">
                         <i class="fa fa-book-dead"></i> Tipos de Agroquimico
                         <div class="float-right">

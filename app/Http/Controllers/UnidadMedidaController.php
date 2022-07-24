@@ -27,7 +27,7 @@ class UnidadMedidaController extends Controller
         $unidad->nombre = $request['nombre'];
         $unidad->save();
 
-        return redirect('config/unidades');
+        return redirect('config/unidades')->with(['message' => 'Unidad de medida creada exitosamente.']);
     }
 
     public function edit($id)
@@ -45,7 +45,7 @@ class UnidadMedidaController extends Controller
         $unidad->nombre = $request['nombre'];
         $unidad->update();
 
-        return redirect('config/unidades');
+        return redirect('config/unidades')->with(['message' => 'Unidad de medida editada exitosamente.']);
     }
 
 
@@ -54,6 +54,6 @@ class UnidadMedidaController extends Controller
         $unidad = UnidadMedida::findOrFail($id);
         $unidad->delete();
 
-        return redirect('config/unidades');
+        return redirect('config/unidades')->with(['message' => 'Unidad de medida eliminada exitosamente.']);
     }
 }

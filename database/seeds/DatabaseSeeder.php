@@ -299,7 +299,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('insumo')->insert([
-            'nombre' => 'sumo',
+            'nombre' => 'SUMO',
             'tipo' => 'Agroquimico',
             'composicion' => 'CHLORANTRANILIPROLE.',
             'existencias' => 0,

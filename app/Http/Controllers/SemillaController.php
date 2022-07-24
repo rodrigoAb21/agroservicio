@@ -57,7 +57,7 @@ class SemillaController extends Controller
         $insumo->unidad_medida_id = $request['unidad_medida_id'];
         $insumo->save();
 
-        return redirect('insumos/semillas');
+        return redirect('insumos/semillas')->with(['message' => 'Semilla creada exitosamente.']);
     }
 
     public function edit($id)
@@ -90,7 +90,7 @@ class SemillaController extends Controller
         $insumo->subtipo_id = $request['subtipo_id'];
         $insumo->save();
 
-        return redirect('insumos/semillas');
+        return redirect('insumos/semillas')->with(['message' => 'Semilla editada exitosamente.']);
     }
 
 
@@ -99,6 +99,6 @@ class SemillaController extends Controller
         $insumo = Insumo::findOrFail($id);
         $insumo->delete();
 
-        return redirect('insumos/semillas');
+        return redirect('insumos/semillas')->with(['message' => 'Semilla eliminada exitosamente.']);
     }
 }

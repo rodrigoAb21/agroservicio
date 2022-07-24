@@ -29,7 +29,7 @@ class DestinatarioController extends Controller
         $destinatario->nucleo = $request['nucleo'];
         $destinatario->save();
 
-        return redirect('destinatarios');
+        return redirect('destinatarios')->with(['message' => 'Destinatario creado exitosamente.']);;
     }
 
     public function edit($id)
@@ -48,7 +48,7 @@ class DestinatarioController extends Controller
         $destinatario->nucleo = $request['nucleo'];
         $destinatario->update();
 
-        return redirect('destinatarios');
+        return redirect('destinatarios')->with(['message' => 'Destinatario editado exitosamente.']);;
     }
 
 
@@ -57,6 +57,6 @@ class DestinatarioController extends Controller
         $destinatario = Destinatario::findOrFail($id);
         $destinatario->delete();
 
-        return redirect('destinatarios');
+        return redirect('destinatarios')->with(['message' => 'Destinatario eliminado exitosamente.']);;
     }
 }

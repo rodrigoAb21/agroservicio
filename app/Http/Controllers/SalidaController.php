@@ -41,7 +41,7 @@ class SalidaController extends Controller
 
     public function store(Request $request)
     {
-
+        $mensaje = '';
         try {
             DB::beginTransaction();
 
@@ -75,31 +75,19 @@ class SalidaController extends Controller
             }
 
             DB::commit();
+            $mensaje = 'Salida creada exitosamente.';
 
         } catch (Exception $e) {
 
             DB::rollback();
-            return redirect('salidas')->with(['message' => 'No es posible realizar la salida.']);
+            $mensaje = 'No se pudo crear la salida.';
 
         }
 
-        return redirect('salidas');
+        return redirect('salidas')->with(['message' => $mensaje]);
 
     }
 
-    public function destroy($id)
-    {
-        $detalles = DetalleSalida::where('salida_id', '=', $id)->get();
-        foreach ($detalles as $detalle){
-            $insumoAct = Insumo::findOrfail($detalle->insumo_id);
-            $insumoAct->existencias = $insumoAct->existencias + $detalle->cantidad;
-            $insumoAct->update();
-        }
-        $salida = Salida::findOrFail($id);
-        $salida->delete();
-
-        return redirect('salidas');
-    }
 
     public function edit($id){
 
@@ -129,7 +117,7 @@ class SalidaController extends Controller
 
     public function update(Request $request, $id)
     {
-
+        $mensaje = '';
         try {
             DB::beginTransaction();
 
@@ -174,16 +162,30 @@ class SalidaController extends Controller
             }
 
             DB::commit();
+            $mensaje = 'Salida editada exitosamente.';
 
         } catch (Exception $e) {
 
             DB::rollback();
-            return redirect('salidas')->with(['message' => 'No es posible realizar la salida.']);
+            $mensaje = 'No se pudo editar la salida.';
 
         }
 
-        return redirect('salidas');
+        return redirect('salidas')->with(['message' => $mensaje]);
 
     }
 
+    public function destroy($id)
+    {
+        $detalles = DetalleSalida::where('salida_id', '=', $id)->get();
+        foreach ($detalles as $detalle){
+            $insumoAct = Insumo::findOrfail($detalle->insumo_id);
+            $insumoAct->existencias = $insumoAct->existencias + $detalle->cantidad;
+            $insumoAct->update();
+        }
+        $salida = Salida::findOrFail($id);
+        $salida->delete();
+
+        return redirect('salidas')->with(['message' => 'Salida eliminada exitosamente.']);
+    }
 }

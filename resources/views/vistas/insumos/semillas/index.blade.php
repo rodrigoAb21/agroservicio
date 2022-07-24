@@ -14,6 +14,14 @@
                             </a>
                         </div>
                     </h2>
+                    @if(session()->has('message'))
+                        <div class="alert alert-info alert-dismissible fade show" role="alert">
+                            {{ session('message') }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    @endif
                     <form method="GET" action="{{url('insumos/semillas')}}" autocomplete="off">
                         <input type="text" class="form-control mb-2 mr-sm-2"  value="{{$busqueda}}" id="busqueda" name="busqueda" placeholder="Buscar">
                     </form>

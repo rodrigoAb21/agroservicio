@@ -26,10 +26,10 @@ class TipoSemillaController extends Controller
     {
         $tipo = new Subtipo();
         $tipo->nombre = $request['nombre'];
-        $tipo->tipo = 'TipoSemilla';
+        $tipo->tipo = 'Semilla';
         $tipo->save();
 
-        return redirect('config/tipoSemillas');
+        return redirect('config/tipoSemillas')->with(['message' => 'Tipo de Semilla creada exitosamente.']);
     }
 
     public function edit($id)
@@ -47,7 +47,7 @@ class TipoSemillaController extends Controller
         $tipo->nombre = $request['nombre'];
         $tipo->update();
 
-        return redirect('config/tipoSemillas');
+        return redirect('config/tipoSemillas')->with(['message' => 'Tipo de Semilla editada exitosamente.']);
     }
 
 
@@ -56,6 +56,6 @@ class TipoSemillaController extends Controller
         $tipo = Subtipo::findOrFail($id);
         $tipo->delete();
 
-        return redirect('config/tipoSemillas');
+        return redirect('config/tipoSemillas')->with(['message' => 'Tipo de Semilla eliminada exitosamente.']);
     }
 }
