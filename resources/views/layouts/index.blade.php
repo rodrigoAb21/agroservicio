@@ -112,26 +112,53 @@
 
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
-                        <li class="{{ Request::is('insumos*') ? 'nav-item active' : 'nav-item' }}">
+                        <li hidden class="{{ Request::is('insumos*') ? 'nav-item active' : 'nav-item' }}">
                             <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
-                                <i class="fa fa-box-open"></i>
-                                <span class="hide-menu"> Insumos</span>
+                                <i class="fa fa-biohazard"></i>
+                                <span class="hide-menu"> Agroquimicos</span>
                             </a>
                             <ul aria-expanded="false" class="collapse">
-                                <li class="{{ Request::is('insumos/semillas*') ? 'nav-item active' : 'nav-item' }}">
-                                    <a href="{{url('insumos/semillas')}}" >
-                                        <i class="fa fa-leaf"></i>
-                                        <span>  Semillas</span>
-                                    </a>
-                                </li>
+
                                 <li class="{{ Request::is('insumos/agroquimicos*') ? 'nav-item active' : 'nav-item' }}">
                                     <a href="{{url('insumos/agroquimicos')}}" >
                                         <i class="fa fa-biohazard"></i>
-                                        <span>  Agroquimicos</span>
+                                        <span>  Herbicidas</span>
                                     </a>
                                 </li>
-
+                                <li class="{{ Request::is('insumos/semillas*') ? 'nav-item active' : 'nav-item' }}">
+                                    <a href="{{url('insumos/semillas')}}" >
+                                        <i class="fa fa-leaf"></i>
+                                        <span>   Insecticidas</span>
+                                    </a>
+                                </li>
+                                <li class="{{ Request::is('insumos/semillas*') ? 'nav-item active' : 'nav-item' }}">
+                                    <a href="{{url('insumos/semillas')}}" >
+                                        <i class="fa fa-leaf"></i>
+                                        <span>  Fungicidas</span>
+                                    </a>
+                                </li>
+                                <li class="{{ Request::is('insumos/semillas*') ? 'nav-item active' : 'nav-item' }}">
+                                    <a href="{{url('insumos/semillas')}}" >
+                                        <i class="fa fa-leaf"></i>
+                                        <span>  Fertilizantes</span>
+                                    </a>
+                                </li>
                             </ul>
+                        </li>
+
+
+                        <li class="{{ Request::is('insumos/agroquimicos*') ? 'nav-item active' : 'nav-item' }}">
+                            <a href="{{url('insumos/agroquimicos')}}" >
+                                <i class="fa fa-biohazard"></i>
+                                <span class="hide-menu">  Agroquimicos</span>
+                            </a>
+                        </li>
+
+                        <li class="{{ Request::is('insumos/semillas*') ? 'nav-item active' : 'nav-item' }}">
+                            <a href="{{url('insumos/semillas')}}" >
+                                <i class="fa fa-leaf"></i>
+                                <span class="hide-menu">  Semillas</span>
+                            </a>
                         </li>
 
 
@@ -142,24 +169,10 @@
                             </a>
                         </li>
 
-
-                        <li hidden  class="{{ Request::is('maquinarias*') ? 'nav-item active' : 'nav-item' }}">
-                            <a href="{{url('maquinarias')}}" >
-                                <i class="fa fa-tractor"></i>
-                                <span class="hide-menu"> Maquinarias</span>
-                            </a>
-                        </li>
-
                         <li class="{{ Request::is('proveedores*') ? 'nav-item active' : 'nav-item' }}">
                             <a href="{{url('proveedores')}}" >
                                 <i class="fa fa-industry"></i>
                                 <span class="hide-menu"> Proveedores</span>
-                            </a>
-                        </li>
-                        <li  hidden class="{{ Request::is('trabajadores*') ? 'nav-item active' : 'nav-item' }}">
-                            <a href="{{url('trabajadores')}}" >
-                                <i class="fa fa-user-tie"></i>
-                                <span class="hide-menu"> Trabajadores</span>
                             </a>
                         </li>
 
@@ -169,7 +182,7 @@
                                 <span class="hide-menu"> Ingresos</span>
                             </a>
                         </li>
-                        </li>
+
 
                         <li class="{{ Request::is('salidas*') ? 'nav-item active' : 'nav-item' }}">
                             <a href="{{url('salidas')}}" >
@@ -178,12 +191,6 @@
                             </a>
                         </li>
 
-                        <li hidden  class="{{ Request::is('reportes*') ? 'nav-item active' : 'nav-item' }}">
-                            <a href="{{url('reporteInventario')}}" >
-                                <i class="fa fa-file"></i>
-                                <span class="hide-menu"> Reportes</span>
-                            </a>
-                        </li>
                         <li class="{{ Request::is('config*') ? 'nav-item active' : 'nav-item' }}">
                             <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
                                 <i class="fa fa-cogs"></i>
