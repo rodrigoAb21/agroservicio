@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SemillaRequest;
 use App\Insumo;
 use App\Subtipo;
 use App\TipoInsumo;
 use App\UnidadMedida;
-use Illuminate\Http\Request;
 
 class SemillaController extends Controller
 {
@@ -29,7 +29,7 @@ class SemillaController extends Controller
 
 
 
-    public function store(Request $request)
+    public function store(SemillaRequest $request)
     {
         
         $insumo = new Insumo();
@@ -64,7 +64,7 @@ class SemillaController extends Controller
     }
 
 
-    public function update(Request $request, $id)
+    public function update(SemillaRequest $request, $id)
     {
     
         $insumo = Insumo::findOrFail($id);

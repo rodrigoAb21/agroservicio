@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProveedorRequest;
 use App\Proveedor;
-use Illuminate\Http\Request;
+
 
 class ProveedorController extends Controller
 {

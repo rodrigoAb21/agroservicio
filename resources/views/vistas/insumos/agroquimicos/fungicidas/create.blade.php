@@ -6,7 +6,7 @@
         <div class="card">
             <div class="card-body">
                 <h3 class="pb-2">
-                    Nuevo Agroquímico
+                    Nuevo Fungicida
                 </h3>
                 @if ($errors->any())
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -20,16 +20,16 @@
                         </ul>
                     </div>
                 @endif
-                <form method="POST" action="{{url('insumos/agroquimicos')}}" autocomplete="off">
+                <form method="POST" action="{{url('insumos/fungicidas')}}" autocomplete="off">
                     {{csrf_field()}}
                     <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label>Nombre</label>
                                 <input required type="text" class="form-control" value="{{old('nombre')}}" name="nombre">
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label>Envase</label>
                                 <input required type="text" class="form-control" value="{{old('envase')}}" name="envase">
@@ -46,17 +46,6 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                            <div class="form-group">
-                                <label>Tipo</label>
-                                <select class="form-control" name="subtipo_id">
-                                    @foreach($tipos as $tipo)
-                                        <option value="{{$tipo->id}}">{{$tipo->nombre}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label>Info</label>
@@ -92,7 +81,7 @@
 
 
 
-                    <a href="{{url('insumos/agroquimicos')}}" class="btn btn-warning">Atrás</a>
+                    <a href="{{url('insumos/fungicidas')}}" class="btn btn-warning">Atrás</a>
                     <button type="submit" class="btn btn-info">Guardar</button>
                 </form>
             </div>

@@ -6,7 +6,7 @@
             <div class="card">
                 <div class="card-body">
                     <h3 class="pb-2">
-                        Editar Agroquímico: {{$insumo->id}}
+                        Editar Fertilizante: {{$insumo->id}}
                     </h3>
                     @if ($errors->any())
                         <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -20,7 +20,7 @@
                             </ul>
                         </div>
                     @endif
-                    <form method="POST" action="{{url('insumos/agroquimicos/'.$insumo->id)}}" autocomplete="off">
+                    <form method="POST" action="{{url('insumos/fertilizantes/'.$insumo->id)}}" autocomplete="off">
                         {{csrf_field()}}
                         {{method_field('PATCH')}}
                         <div class="row">
@@ -107,7 +107,7 @@
 
 
                         </div>
-                        <a href="{{url('insumos/agroquimicos')}}" class="btn btn-warning">Atrás</a>
+                        <a href="{{url('insumos/fertilizantes')}}" class="btn btn-warning">Atrás</a>
                         <button type="submit" class="btn btn-info">Guardar</button>
                     </form>
                 </div>

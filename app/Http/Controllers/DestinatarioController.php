@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Destinatario;
 use App\Http\Requests\DestinatarioRequest;
-use Illuminate\Http\Request;
+
 
 class DestinatarioController extends Controller
 {

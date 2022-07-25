@@ -113,7 +113,7 @@
 
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
-                        <li hidden class="{{ Request::is('insumos*') ? 'nav-item active' : 'nav-item' }}">
+                        <li class="{{ Request::is('insumos*') ? 'nav-item active' : 'nav-item' }}">
                             <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
                                 <i class="fa fa-biohazard"></i>
                                 <span class="hide-menu"> Agroquimicos</span>
@@ -122,25 +122,26 @@
 
                                 <li class="{{ Request::is('insumos/agroquimicos*') ? 'nav-item active' : 'nav-item' }}">
                                     <a href="{{url('insumos/agroquimicos')}}" >
-                                        <i class="fa fa-biohazard"></i>
+                                        <span>  General</span>
+                                    </a>
+                                </li>
+                                <li class="{{ Request::is('insumos/herbicidas*') ? 'nav-item active' : 'nav-item' }}">
+                                    <a href="{{url('insumos/herbicidas')}}" >
                                         <span>  Herbicidas</span>
                                     </a>
                                 </li>
-                                <li class="{{ Request::is('insumos/semillas*') ? 'nav-item active' : 'nav-item' }}">
-                                    <a href="{{url('insumos/semillas')}}" >
-                                        <i class="fa fa-leaf"></i>
+                                <li class="{{ Request::is('insumos/insecticidas*') ? 'nav-item active' : 'nav-item' }}">
+                                    <a href="{{url('insumos/insecticidas')}}" >
                                         <span>   Insecticidas</span>
                                     </a>
                                 </li>
-                                <li class="{{ Request::is('insumos/semillas*') ? 'nav-item active' : 'nav-item' }}">
-                                    <a href="{{url('insumos/semillas')}}" >
-                                        <i class="fa fa-leaf"></i>
+                                <li class="{{ Request::is('insumos/fungicidas*') ? 'nav-item active' : 'nav-item' }}">
+                                    <a href="{{url('insumos/fungicidas')}}" >
                                         <span>  Fungicidas</span>
                                     </a>
                                 </li>
-                                <li class="{{ Request::is('insumos/semillas*') ? 'nav-item active' : 'nav-item' }}">
-                                    <a href="{{url('insumos/semillas')}}" >
-                                        <i class="fa fa-leaf"></i>
+                                <li class="{{ Request::is('insumos/fertilizantes*') ? 'nav-item active' : 'nav-item' }}">
+                                    <a href="{{url('insumos/fertilizantes')}}" >
                                         <span>  Fertilizantes</span>
                                     </a>
                                 </li>
@@ -148,12 +149,7 @@
                         </li>
 
 
-                        <li class="{{ Request::is('insumos/agroquimicos*') ? 'nav-item active' : 'nav-item' }}">
-                            <a href="{{url('insumos/agroquimicos')}}" >
-                                <i class="fa fa-biohazard"></i>
-                                <span class="hide-menu">  Agroquimicos</span>
-                            </a>
-                        </li>
+
 
                         <li class="{{ Request::is('insumos/semillas*') ? 'nav-item active' : 'nav-item' }}">
                             <a href="{{url('insumos/semillas')}}" >
@@ -195,7 +191,7 @@
                         <li class="{{ Request::is('config*') ? 'nav-item active' : 'nav-item' }}">
                             <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
                                 <i class="fa fa-cogs"></i>
-                                <span class="hide-menu"> Configuracion</span>
+                                <span class="hide-menu"> Configuración</span>
                             </a>
                             <ul aria-expanded="false" class="collapse">
                                 <li class="{{ Request::is('config/unidades*') ? 'nav-item active' : 'nav-item' }}">

@@ -24,6 +24,10 @@ Route::middleware('auth')->group(function () {
     Route::resource('config/tipoMaquinarias','TipoMaquinariaController');
     Route::resource('insumos/semillas','SemillaController');
     Route::resource('insumos/agroquimicos','AgroquimicoController');
+    Route::resource('insumos/herbicidas','HerbicidaController');
+    Route::resource('insumos/insecticidas','InsecticidaController');
+    Route::resource('insumos/fungicidas','FungicidaController');
+    Route::resource('insumos/fertilizantes','FertilizanteController');
     Route::resource('insumos/abonos','AbonoController');
     Route::resource('proveedores','ProveedorController');
     Route::resource('trabajadores','TrabajadorController');

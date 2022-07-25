@@ -265,7 +265,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('insumo')->insert([
-            'nombre' => 'ACAROL PLIS',
+            'nombre' => 'ACAROL PLUS',
             'tipo' => 'Agroquimico',
             'composicion' => 'ABAMECTIN.',
             'existencias' => 0,

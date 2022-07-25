@@ -3,33 +3,34 @@
 namespace App\Http\Controllers;
 
 use App\Composicion;
+use App\Http\Requests\Agroquimico2Request;
 use App\Http\Requests\AgroquimicoRequest;
 use App\Insumo;
 use App\Subtipo;
 use App\UnidadMedida;
 use Illuminate\Support\Facades\DB;
 
-class AgroquimicoController extends Controller
+class FertilizanteController extends Controller
 {
     public function index()
     {
-        return view('vistas.insumos.agroquimicos.index',
+        return view('vistas.insumos.agroquimicos.fertilizantes.index',
             [
-                'insumos' => Insumo::where('insumo.tipo','=', 'Agroquimico')->get(),
+                'insumos' => Insumo::where('insumo.tipo','=', 'Agroquimico')
+                    ->where('insumo.subtipo_id', '=', 4)->get(),
             ]);
     }
 
     public function create()
     {
-        return view('vistas.insumos.agroquimicos.create',
+        return view('vistas.insumos.agroquimicos.fertilizantes.create',
             [
                 'unidades' => UnidadMedida::all(),
-                'tipos' => Subtipo::where('tipo', '=', 'Agroquimico')->get(),
             ]);
     }
 
 
-    public function store(AgroquimicoRequest $request)
+    public function store(Agroquimico2Request $request)
     {
         $mensaje = '';
         try {
@@ -41,7 +42,7 @@ class AgroquimicoController extends Controller
             $insumo->existencias = 0;
             $insumo->envase = $request['envase'];
             $insumo->info = $request['info'];
-            $insumo->subtipo_id = $request['subtipo_id'];
+            $insumo->subtipo_id = 4;
             $insumo->unidad_medida_id = $request['unidad_medida_id'];
             $insumo->save();
 
@@ -79,12 +80,12 @@ class AgroquimicoController extends Controller
 
         }
 
-        return redirect('insumos/agroquimicos')->with(['message' => $mensaje]);
+        return redirect('insumos/fertilizantes')->with(['message' => $mensaje]);
     }
 
     public function edit($id)
     {
-        return view('vistas.insumos.agroquimicos.edit',
+        return view('vistas.insumos.agroquimicos.fertilizantes.edit',
             [
                 'insumo' => Insumo::findOrFail($id),
                 'unidades' => UnidadMedida::all(),
@@ -95,7 +96,7 @@ class AgroquimicoController extends Controller
 
     public function show($id)
     {
-        return view('vistas.insumos.agroquimicos.show',
+        return view('vistas.insumos.agroquimicos.fertilizantes.show',
             [
                 'insumo' => Insumo::findOrFail($id),
                 'detalles' => Composicion::where('insumo_id','=', $id)->get(),
@@ -147,7 +148,7 @@ class AgroquimicoController extends Controller
             $mensaje = 'No se pudo editar el agroquímico.';
         }
 
-        return redirect('insumos/agroquimicos')->with(['message' => $mensaje]);
+        return redirect('insumos/fertilizantes')->with(['message' => $mensaje]);
     }
 
 
@@ -156,6 +157,6 @@ class AgroquimicoController extends Controller
         $insumo = Insumo::findOrFail($id);
         $insumo->delete();
 
-        return redirect('insumos/agroquimicos')->with(['message' => 'Agroquímico eliminado exitosamente.']);
+        return redirect('insumos/fertilizantes')->with(['message' => 'Agroquímico eliminado exitosamente.']);
     }
 }

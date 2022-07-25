@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\TipoSemillaRequest;
 use App\Subtipo;
-use Illuminate\Http\Request;
+
 
 class TipoSemillaController extends Controller
 {

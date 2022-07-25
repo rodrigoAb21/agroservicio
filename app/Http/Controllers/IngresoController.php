@@ -7,7 +7,6 @@ use App\Http\Requests\IngresoRequest;
 use App\Ingreso;
 use App\Insumo;
 use App\Proveedor;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class IngresoController extends Controller

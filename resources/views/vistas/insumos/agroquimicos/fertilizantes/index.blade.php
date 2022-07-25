@@ -6,9 +6,9 @@
             <div class="card">
                 <div class="card-body">
                     <h2 class="pb-2">
-                            <i class="fa fa-biohazard"></i> Agroquímicos
+                            <i class="fa fa-biohazard"></i> Fertilizantes
                         <div class="float-right">
-                            <a class="btn btn-success" href="{{url('insumos/agroquimicos/create')}}">
+                            <a class="btn btn-success" href="{{url('insumos/fertilizantes/create')}}">
                                 <i class="fa fa-plus"></i> Nuevo
                             </a>
                         </div>
@@ -44,17 +44,17 @@
                                     <td>{{$insumo -> composicion}}</td>
                                     <td>{{$insumo -> existencias}}</td>
                                     <td class="text-center" style="white-space: nowrap">
-                                        <a href="{{url('insumos/agroquimicos/'.$insumo->id)}}">
+                                        <a href="{{url('insumos/fertilizantes/'.$insumo->id)}}">
                                             <button class="btn btn-outline-info">
                                                 <i class="fa fa-eye"></i>
                                             </button>
                                         </a>
-                                        <a href="{{url('insumos/agroquimicos/'.$insumo->id.'/edit')}}">
+                                        <a href="{{url('insumos/fertilizantes/'.$insumo->id.'/edit')}}">
                                             <button class="btn btn-warning">
                                                 <i class="fa fa-pen"></i>
                                             </button>
                                         </a>
-                                        <button type="button" class="btn btn-danger" onclick="modalEliminar('{{$insumo -> nombre}}', '{{url('insumos/agroquimicos/'.$insumo -> id)}}');">
+                                        <button type="button" class="btn btn-danger" onclick="modalEliminar('{{$insumo -> nombre}}', '{{url('insumos/fertilizantes/'.$insumo -> id)}}');">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>
@@ -77,8 +77,8 @@
             function modalEliminar(nombre, url) {
                 $('#modalEliminarForm').attr("action", url);
                 $('#metodo').val("delete");
-                $('#modalEliminarTitulo').html("Eliminar Agroquímico");
-                $('#modalEliminarEnunciado').html("Realmente desea eliminar el agroquímico: " + nombre + "?");
+                $('#modalEliminarTitulo').html("Eliminar Fertilizante");
+                $('#modalEliminarEnunciado').html("Realmente desea eliminar el fertilizante: " + nombre + "?");
                 $('#modalEliminar').modal('show');
             }
 

@@ -6,7 +6,7 @@
             <div class="card">
                 <div class="card-body">
                     <h3 class="pb-2">
-                        Ver Agroquímico: {{$insumo->nombre}}
+                        Ver Fungicida: {{$insumo->nombre}}
                     </h3>
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -85,7 +85,7 @@
 
 
                     </div>
-                    <a href="{{url('insumos/agroquimicos')}}" class="btn btn-warning">Atrás</a>
+                    <a href="{{url('insumos/fungicidas')}}" class="btn btn-warning">Atrás</a>
 
 
                 </div>

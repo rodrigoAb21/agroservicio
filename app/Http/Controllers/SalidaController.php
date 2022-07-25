@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\DetalleSalida;
+use App\Http\Requests\SalidaRequest;
 use App\Salida;
 use App\Insumo;
 use App\Destinatario;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Exception;
 
@@ -39,7 +39,7 @@ class SalidaController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(SalidaRequest $request)
     {
         $mensaje = '';
         try {
@@ -115,7 +115,7 @@ class SalidaController extends Controller
             ]);
     }
 
-    public function update(Request $request, $id)
+    public function update(SalidaRequest $request, $id)
     {
         $mensaje = '';
         try {

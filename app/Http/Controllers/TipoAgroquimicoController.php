@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\TipoAgroquimicoRequest;
 use App\Subtipo;
-use Illuminate\Http\Request;
+
 
 class TipoAgroquimicoController extends Controller
 {
