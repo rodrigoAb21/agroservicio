@@ -72,7 +72,7 @@
             function modalEliminar(nombre, url) {
                 $('#modalEliminarForm').attr("action", url);
                 $('#metodo').val("delete");
-                $('#modalEliminarTitulo').html("Eliminar Ingreso de Insumos");
+                $('#modalEliminarTitulo').html("Eliminar Salida de Insumos");
                 $('#modalEliminarEnunciado').html("Realmente desea eliminar el salida: " + nombre + "?");
                 $('#modalEliminar').modal('show');
             }

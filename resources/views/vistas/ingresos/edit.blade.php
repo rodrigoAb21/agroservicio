@@ -45,7 +45,7 @@
                                             name="nro_nota"
                                             class="form-control"
                                             value="{{$ingreso->nro_nota}}"
-                                            type="text">
+                                            type="number">
                                 </div>
                             </div>
 

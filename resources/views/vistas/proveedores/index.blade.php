@@ -70,7 +70,7 @@
             function modalEliminar(nombre, url) {
                 $('#modalEliminarForm').attr("action", url);
                 $('#metodo').val("delete");
-                $('#modalEliminarTitulo').html("Eliminar Tipo");
+                $('#modalEliminarTitulo').html("Eliminar Proveedor");
                 $('#modalEliminarEnunciado').html("Realmente desea eliminar al proveedor: " + nombre + "?");
                 $('#modalEliminar').modal('show');
             }
