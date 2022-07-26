@@ -36,7 +36,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="{{url('config/tipoSemillas')}}" class="btn btn-warning">Atras</a>
+                        <a href="{{url('config/tipoSemillas')}}" class="btn btn-warning">Atrás</a>
                         <button type="submit" class="btn btn-info">Guardar</button>
                     </form>
                 </div>

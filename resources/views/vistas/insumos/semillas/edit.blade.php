@@ -6,7 +6,7 @@
             <div class="card">
                 <div class="card-body">
                     <h3 class="pb-2">
-                        Editar insumo: {{$insumo->id}}
+                        Editar Semilla: {{$insumo->id}}
                     </h3>
 
                     @if ($errors->any())
@@ -85,7 +85,7 @@
 
 
                         </div>
-                        <a href="{{url('insumos/semillas')}}" class="btn btn-warning">Atras</a>
+                        <a href="{{url('insumos/semillas')}}" class="btn btn-warning">Atrás</a>
                         <button type="submit" class="btn btn-info">Guardar</button>
                     </form>
                 </div>

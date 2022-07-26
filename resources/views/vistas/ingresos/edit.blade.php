@@ -155,7 +155,7 @@
 
                         </div>
 
-                        <a href="{{url('ingresos')}}" class="btn btn-warning">Atras</a>
+                        <a href="{{url('ingresos')}}" class="btn btn-warning">Atrás</a>
                         <button type="submit" id="guardar" class="btn btn-info">Guardar</button>
                     </form>
                 </div>

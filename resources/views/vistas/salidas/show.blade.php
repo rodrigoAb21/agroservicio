@@ -75,7 +75,7 @@
 
                         </div>
 
-                        <a href="{{url('salidas')}}" class="btn btn-warning">Atras</a>
+                        <a href="{{url('salidas')}}" class="btn btn-warning">Atrás</a>
                 </div>
             </div>
         </div>

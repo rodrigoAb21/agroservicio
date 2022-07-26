@@ -6,7 +6,7 @@
             <div class="card">
                 <div class="card-body">
                     <h3 class="pb-2">
-                        Ver insumo: {{$insumo->id}}
+                        Ver Semilla: {{$insumo->id}}
                     </h3>
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -58,7 +58,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="{{url('insumos/semillas')}}" class="btn btn-warning">Atras</a>
+                        <a href="{{url('insumos/semillas')}}" class="btn btn-warning">Atrás</a>
                 </div>
             </div>
         </div>
