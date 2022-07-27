@@ -69,7 +69,7 @@
     </div>
     @include('vistas.modal')
     @push('arriba')
-        <link href="{{asset('plantilla/assets/plugins/datatables/dataTables.bootstrap4.css')}}" id="theme" rel="stylesheet">
+        <link href="{{asset('plantilla/assets/plugins/DataTables2/DataTables-1.12.1/css/dataTables.bootstrap4.css')}}" id="theme" rel="stylesheet">
     @endpush
     @push('scripts')
         <script>
@@ -83,7 +83,12 @@
             }
 
         </script>
-        <script type="text/javascript" charset="utf8" src="{{asset('plantilla/assets/plugins/datatables/datatables.min.js')}}"></script>
+        <script type="text/javascript" charset="utf8" src="{{asset('plantilla/assets/plugins/datatables/datatables.js')}}"></script>
+        <script type="text/javascript" charset="utf8" src="{{asset('plantilla/assets/plugins/DataTables2/Buttons-2.2.3/js/dataTables.buttons.js')}}"></script>
+        <script type="text/javascript" charset="utf8" src="{{asset('plantilla/assets/plugins/DataTables2/JSZip-2.5.0/jszip.js')}}"></script>
+        <script type="text/javascript" charset="utf8" src="{{asset('plantilla/assets/plugins/DataTables2/pdfmake-0.1.36/pdfmake.js')}}"></script>
+        <script type="text/javascript" charset="utf8" src="{{asset('plantilla/assets/plugins/DataTables2/pdfmake-0.1.36/vfs_fonts.js')}}"></script>
+        <script type="text/javascript" charset="utf8" src="{{asset('plantilla/assets/plugins/DataTables2/Buttons-2.2.3/js/buttons.html5.js')}}"></script>
         <script type="text/javascript">
             $(document).ready(function() {
                 var table = $('#tabla').DataTable(
@@ -108,6 +113,23 @@
                                 "previous": "Anterior"
                             }
                         },
+                        dom: 'Bfrtip',
+                        buttons: [
+                            {
+                                extend: 'pdfHtml5',
+                                orientation: 'landscape',
+                                title:'Agroquimicos',
+                                pageSize: 'LETTER',
+                                customize: function(doc) {
+                                    doc.styles.tableBodyEven.alignment = 'center';
+                                    doc.styles.tableBodyOdd.alignment = 'center';
+                                    doc.content[1].margin = [ 100, 0, 100, 0 ];
+                                },
+                                exportOptions: {
+                                    columns: [ 0, 1, 2, 3, 4, 5 ]
+                                }
+                            }
+                        ],
                         "columns": [
                             {"name": "ID"},
                             {"name": "NOMBRE"},
@@ -115,9 +137,9 @@
                             {"name": "TIPO"},
                             {"name": "INGREDIENTE ACTIVO"},
                             {"name": "EXISTENCIAS"},
-                            {"name": "OPCIONES", "orderable": false},
+                            {"name": "OPCIONES", "orderable": false}
                         ],
-                        "order": [[1, 'asc']],
+                        "order": [[1, 'asc']]
                     }
                 );
 
