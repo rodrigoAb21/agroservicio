@@ -124,6 +124,22 @@
                                     doc.styles.tableBodyEven.alignment = 'center';
                                     doc.styles.tableBodyOdd.alignment = 'center';
                                     doc.content[1].margin = [ 100, 0, 100, 0 ];
+                                    doc['footer']=(function(page, pages) {
+                                        return {
+                                            columns: [
+
+                                                {
+                                                    alignment: 'center',
+                                                    text: [
+                                                        { text: page.toString(), italics: true },
+                                                        ' of ',
+                                                        { text: pages.toString(), italics: true }
+                                                    ]
+                                                }
+                                            ],
+                                            margin: [10, 0]
+                                        }
+                                    });
                                 },
                                 exportOptions: {
                                     columns: [ 0, 1, 2, 3, 4, 5 ]

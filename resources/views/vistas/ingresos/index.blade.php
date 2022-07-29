@@ -78,7 +78,12 @@
             }
 
         </script>
-        <script type="text/javascript" charset="utf8" src="{{asset('plantilla/assets/plugins/datatables/datatables.min.js')}}"></script>
+        <script type="text/javascript" charset="utf8" src="{{asset('plantilla/assets/plugins/datatables/datatables.js')}}"></script>
+        <script type="text/javascript" charset="utf8" src="{{asset('plantilla/assets/plugins/DataTables2/Buttons-2.2.3/js/dataTables.buttons.js')}}"></script>
+        <script type="text/javascript" charset="utf8" src="{{asset('plantilla/assets/plugins/DataTables2/JSZip-2.5.0/jszip.js')}}"></script>
+        <script type="text/javascript" charset="utf8" src="{{asset('plantilla/assets/plugins/DataTables2/pdfmake-0.1.36/pdfmake.js')}}"></script>
+        <script type="text/javascript" charset="utf8" src="{{asset('plantilla/assets/plugins/DataTables2/pdfmake-0.1.36/vfs_fonts.js')}}"></script>
+        <script type="text/javascript" charset="utf8" src="{{asset('plantilla/assets/plugins/DataTables2/Buttons-2.2.3/js/buttons.html5.js')}}"></script>
         <script type="text/javascript">
             $(document).ready(function() {
                 var table = $('#tabla').DataTable(
@@ -103,6 +108,39 @@
                                 "previous": "Anterior"
                             }
                         },
+                        dom: 'Bfrtip',
+                        buttons: [
+                            {
+                                extend: 'pdfHtml5',
+                                orientation: 'portrait',
+                                title:'Ingreso de Insumos',
+                                pageSize: 'LETTER',
+                                customize: function(doc) {
+                                    doc.styles.tableBodyEven.alignment = 'center';
+                                    doc.styles.tableBodyOdd.alignment = 'center';
+                                    doc.content[1].margin = [ 100, 0, 100, 0 ];
+                                    doc['footer']=(function(page, pages) {
+                                        return {
+                                            columns: [
+
+                                                {
+                                                    alignment: 'center',
+                                                    text: [
+                                                        { text: page.toString(), italics: true },
+                                                        ' of ',
+                                                        { text: pages.toString(), italics: true }
+                                                    ]
+                                                }
+                                            ],
+                                            margin: [10, 0]
+                                        }
+                                    });
+                                },
+                                exportOptions: {
+                                    columns: [ 0, 1, 2, 3 ]
+                                }
+                            }
+                        ],
                         "columns": [
                             {"name": "ID"},
                             {"name": "FECHA"},
@@ -110,7 +148,7 @@
                             {"name": "TOTAL $US"},
                             {"name": "OPCIONES", "orderable": false},
                         ],
-                        "order": [[1, 'asc']],
+                        "order": [[0, 'desc']]
                     }
                 );
 
