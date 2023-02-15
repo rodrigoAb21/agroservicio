@@ -31,7 +31,7 @@
                                     <input required
                                            type="date"
                                            class="form-control"
-                                           value="{{date("Y-m-d")}}"
+                                           value="{{date('Y-m-d')}}"
                                            name="fecha">
                                 </div>
                             </div>
