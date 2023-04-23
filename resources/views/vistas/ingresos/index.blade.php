@@ -86,6 +86,8 @@
         <script type="text/javascript" charset="utf8" src="{{asset('plantilla/assets/plugins/DataTables2/Buttons-2.2.3/js/buttons.html5.js')}}"></script>
         <script type="text/javascript">
             $(document).ready(function() {
+                const fechaHoraActual = new Date();
+                const fechaHoraString = `${fechaHoraActual.getDate()}-${fechaHoraActual.getMonth()+1}-${fechaHoraActual.getFullYear()} ${fechaHoraActual.getHours()}:${fechaHoraActual.getMinutes()}:${fechaHoraActual.getSeconds()}`;
                 var table = $('#tabla').DataTable(
                     {
                         language: {
@@ -113,7 +115,7 @@
                             {
                                 extend: 'pdfHtml5',
                                 orientation: 'portrait',
-                                title:'Ingreso de Insumos',
+                                title:'Ingreso de Insumos '+fechaHoraString,
                                 pageSize: 'LETTER',
                                 customize: function(doc) {
                                     doc.styles.tableBodyEven.alignment = 'center';
