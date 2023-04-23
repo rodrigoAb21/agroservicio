@@ -125,7 +125,7 @@
     }
 
     function quitar(index) {
-        cont--;
+        // cont--;
         $("#fila" + index).remove();
     }
 </script>

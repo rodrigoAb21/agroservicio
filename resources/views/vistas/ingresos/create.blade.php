@@ -219,7 +219,7 @@
                     agregados.splice(i, 1);
                 }
                 total = total - subTotal[index];
-                cont--;
+                // cont--;
 
                 $("#fila" + index).remove();
                 $('#totalIngreso1').val(total);
