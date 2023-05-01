@@ -121,7 +121,7 @@
                             <table class="table table-hover table-bordered color-table info-table">
                                 <thead>
                                 <tr>
-                                    <th class="text-right">OPC</th>
+                                    <th class="text-center">OPC</th>
                                     <th class="text-center">INSUMO</th>
                                     <th class="text-center">CANT</th>
                                     <th class="text-center">P. UNITARIO $US</th>
@@ -174,7 +174,7 @@
                     subTotal[cont] = cantidad[cont] * precio[cont];
 
                     var fila=
-                        '<tr id="fila'+cont+'">' +
+                        '<tr class="text-center" id="fila'+cont+'">' +
                         '<td>' +
                         '<button type="button" class="btn btn-danger btn-sm" onclick="quitar('+cont+','+idInsumo+');">' +
                         '<i class="fa fa-times" aria-hidden="true"></i>' +
@@ -193,13 +193,13 @@
                         +precio[cont]+
                         '</td>' +
                         '<td>'
-                        +subTotal[cont].toFixed(2)+
+                        +subTotal[cont].toFixed(3)+
                         '</td> ' +
                         '</tr>';
 
                     total = total + subTotal[cont];
-                    $('#totalIngreso1').val(total.toFixed(2));
-                    $('#totalIngreso2').val(total.toFixed(2));
+                    $('#totalIngreso1').val(total.toFixed(3));
+                    $('#totalIngreso2').val(total.toFixed(3));
 
                     cont++;
                     limpiar();

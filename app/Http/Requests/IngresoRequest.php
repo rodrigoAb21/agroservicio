@@ -26,7 +26,7 @@ class IngresoRequest extends FormRequest
         return [
             'fecha' => 'required|date',
             'nro_nota' => 'nullable|numeric|integer',
-            'total' => 'required|numeric|min:1',
+            'total' => 'required|numeric|min:0',
             'tipo' => 'required',
             'proveedor_id' => 'required',
             'idInsumoT' => 'required|array|min:1',
@@ -42,7 +42,7 @@ class IngresoRequest extends FormRequest
     {
         return [
             'proveedor_id.required' => 'Debe seleccionar a un proveedor.',
-            'total.min' => 'El total no puede ser menor a 1.',
+            'total.min' => 'El total no puede ser menor a 0.',
             'nro_nota.numeric' => 'El número de nota debe ser un número entero.',
             'nro_nota.integer' => 'El número de nota debe ser un número entero.',
             'idInsumoT.required' => 'Debe ingresar al menos un insumo.',

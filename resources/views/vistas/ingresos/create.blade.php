@@ -96,14 +96,14 @@
                             <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12">
                                 <div class="form-group">
 
-                                    <input type="number" class="form-control" id="cantidad" min="1"  placeholder="Cantidad">
+                                    <input type="number" class="form-control" id="cantidad" min="0"  placeholder="Cantidad">
                                 </div>
                             </div>
 
                             <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12">
                                 <div class="form-group">
 
-                                    <input type="number" class="form-control" id="precio" min="1" placeholder="P. Unitario  $us">
+                                    <input type="number" class="form-control" id="precio" min="0" placeholder="P. Unitario  $us">
                                 </div>
                             </div>
 
@@ -122,7 +122,7 @@
                             <table class="table table-hover table-bordered color-table info-table">
                                 <thead>
                                 <tr>
-                                    <th class="text-right">OPC</th>
+                                    <th class="text-center">OPC</th>
                                     <th class="text-center">INSUMO</th>
                                     <th class="text-center">CANT</th>
                                     <th class="text-center">P. UNITARIO $US</th>
@@ -169,13 +169,13 @@
 
 
                 if (!agregados.includes(idInsumo) && idInsumo != "" && idInsumo > 0 && cantidad[cont] != ""
-                    && cantidad[cont] > 0 && precio[cont] != "" && precio[cont] > 0){
+                    && cantidad[cont] > 0 && precio[cont] != "" && precio[cont] >= 0){
 
                     agregados.push(idInsumo);
                     subTotal[cont] = cantidad[cont] * precio[cont];
 
                     var fila=
-                        '<tr id="fila'+cont+'">' +
+                        '<tr class="text-center" id="fila'+cont+'">' +
                         '<td>' +
                         '<button type="button" class="btn btn-danger btn-sm" onclick="quitar('+cont+','+idInsumo+');">' +
                         '<i class="fa fa-times" aria-hidden="true"></i>' +
