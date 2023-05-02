@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\DetalleSalida;
 use App\Http\Requests\SalidaRequest;
-use App\Salida;
-use App\Insumo;
-use App\Destinatario;
+use App\Models\DetalleSalida;
+use App\Models\Salida;
+use App\Models\Insumo;
+use App\Models\Destinatario;
 use Illuminate\Support\Facades\DB;
 use Exception;
 
@@ -17,6 +17,54 @@ class SalidaController extends Controller
         return view('vistas.salidas.index',
             [
                 'salidas' => Salida::all(),
+            ]);
+    }
+
+    public function index2()
+    {
+        $salidas = DB::table('salida')
+        ->join('destinatario', 'salida.destinatario_id', '=', 'destinatario.id')
+        ->select(
+            'destinatario.nombre', 
+            'destinatario.nucleo',
+            'destinatario.id'
+            )
+        ->groupBy(
+            'destinatario.nombre',
+             'destinatario.nucleo',
+             'destinatario.id'
+             )
+        ->get();
+
+        return view('vistas.salidas.index2',
+            [
+                'salidas' => $salidas,
+            ]);
+    }
+
+    public function show2($id){
+        $detalles = DB::table('salida')
+        ->join('destinatario', 'salida.destinatario_id', '=', 'destinatario.id') 
+        ->join('detalle_salida', 'detalle_salida.salida_id', '=', 'salida.id') 
+        ->join('insumo', 'detalle_salida.insumo_id', '=', 'insumo.id')
+        ->join('unidad_medida', 'insumo.unidad_medida_id', '=', 'unidad_medida.id')
+        ->where('destinatario.id', '=', $id)
+        ->select(
+            'destinatario.nombre as destinatario', 
+            'destinatario.nucleo as nucleo', 
+            'salida.id as id',
+            'salida.fecha as fecha',
+            'insumo.nombre as insumo',
+            'insumo.envase as envase',
+            'detalle_salida.cantidad as cantidad',
+            'detalle_salida.precio_unitario as precio_unitario',
+            'unidad_medida.nombre as unidad'
+            )
+        ->get();
+
+        return view('vistas.salidas.show2',
+            [
+                'detalles' => $detalles,
             ]);
     }
 
@@ -67,7 +115,7 @@ class SalidaController extends Controller
                 $detalle->save();
 
                 $insumoAct = Insumo::findOrfail($detalle->insumo_id);
-                if ($insumoAct->existencias < $detalle->cantidad) throw new  \Exception("");
+                if ($insumoAct->existencias < $detalle->cantidad) throw new  Exception("");
                 $insumoAct->existencias = $insumoAct->existencias - $detalle->cantidad;
                 $insumoAct->update();
 
@@ -154,7 +202,7 @@ class SalidaController extends Controller
                 $detalle->save();
 
                 $insumoAct = Insumo::findOrfail($detalle->insumo_id);
-                if ($insumoAct->existencias < $detalle->cantidad) throw new \Exception("failed");
+                if ($insumoAct->existencias < $detalle->cantidad) throw new Exception("failed");
                 $insumoAct->existencias = $insumoAct->existencias - $detalle->cantidad;
                 $insumoAct->update();
 

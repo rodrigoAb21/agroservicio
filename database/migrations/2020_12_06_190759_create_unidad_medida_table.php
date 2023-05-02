@@ -14,7 +14,7 @@ class CreateUnidadMedidaTable extends Migration
     public function up()
     {
         Schema::create('unidad_medida', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string('nombre');
         });
     }

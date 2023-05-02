@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\TipoSemillaRequest;
-use App\Subtipo;
+use App\Models\Subtipo;
 
 
 class TipoSemillaController extends Controller

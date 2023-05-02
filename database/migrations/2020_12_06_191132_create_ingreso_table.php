@@ -14,14 +14,14 @@ class CreateIngresoTable extends Migration
     public function up()
     {
         Schema::create('ingreso', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string('nro_nota')->nullable();
             $table->string('tipo');  // Contado/credito
             $table->date('fecha');
-            $table->float('total')->nullable();
+            $table->decimal('total', 8, 2, true);
 
 
-            $table->unsignedInteger('proveedor_id');
+            $table->foreignId('proveedor_id');
             $table->foreign('proveedor_id')->references('id')->on('proveedor')->onDelete('cascade');
         });
     }

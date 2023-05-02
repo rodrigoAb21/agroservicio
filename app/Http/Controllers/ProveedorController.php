@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProveedorRequest;
-use App\Proveedor;
+use App\Models\Proveedor;
 
 
 class ProveedorController extends Controller

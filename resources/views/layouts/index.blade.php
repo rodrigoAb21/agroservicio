@@ -181,10 +181,23 @@
 
 
                         <li class="{{ Request::is('salidas*') ? 'nav-item active' : 'nav-item' }}">
-                            <a href="{{url('salidas')}}" >
-                                <i class="fas fa-cash-register"></i>
+                            <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
+                                <i class="fa fa-biohazard"></i>
                                 <span class="hide-menu"> Salidas</span>
                             </a>
+                            <ul aria-expanded="false" class="collapse">
+                        
+                                <li class="{{ Request::is('salidas/*') ? 'nav-item active' : 'nav-item' }}">
+                                    <a href="{{url('salidas')}}" >
+                                        <span>  General</span>
+                                    </a>
+                                </li>
+                                <li class="{{ Request::is('salidasagrupadas*') ? 'nav-item active' : 'nav-item' }}">
+                                    <a href="{{url('salidasagrupadas')}}" >
+                                        <span>  Agrupadas</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
 
                         <li class="{{ Request::is('config*') ? 'nav-item active' : 'nav-item' }}">

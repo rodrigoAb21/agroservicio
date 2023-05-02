@@ -117,14 +117,14 @@
                             <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12">
                                 <div class="form-group">
 
-                                    <input type="number" class="form-control" id="cantidad" min="1"  placeholder="Cantidad">
+                                    <input type="number" step="0.01"  class="form-control" id="cantidad" min="0"  placeholder="Cantidad">
                                 </div>
                             </div>
 
                             <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12">
                                 <div class="form-group">
 
-                                    <input type="number" class="form-control" id="precio" min="1" placeholder="P. Unitario  $us">
+                                    <input type="number" step="0.01"  class="form-control" id="precio" min="0" placeholder="P. Unitario  $us">
                                 </div>
                             </div>
 
@@ -227,13 +227,13 @@
                         +precio[cont]+
                         '</td>' +
                         '<td>'
-                        +subTotal[cont].toFixed(3)+
+                        +subTotal[cont].toFixed(2)+
                         '</td> ' +
                         '</tr>';
 
                     total = total + subTotal[cont];
-                    $('#totalIngreso1').val(total.toFixed(3));
-                    $('#totalIngreso2').val(total.toFixed(3));
+                    $('#totalIngreso1').val(total.toFixed(2));
+                    $('#totalIngreso2').val(total.toFixed(2));
 
                     cont++;
                     limpiar();
@@ -281,13 +281,13 @@
                         +precio[cont]+
                         '</td>' +
                         '<td>'
-                        +subTotal[cont].toFixed(3)+
+                        +subTotal[cont].toFixed(2)+
                         '</td> ' +
                         '</tr>';
 
                     total = total + subTotal[cont];
-                    $('#totalIngreso1').val(total.toFixed(3));
-                    $('#totalIngreso2').val(total.toFixed(3));
+                    $('#totalIngreso1').val(total.toFixed(2));
+                    $('#totalIngreso2').val(total.toFixed(2));
 
                     cont++;
                     limpiar();
@@ -309,8 +309,8 @@
                 // cont--;
 
                 $("#fila" + index).remove();
-                $('#totalIngreso1').val(total.toFixed(3));
-                $('#totalIngreso2').val(total.toFixed(3));
+                $('#totalIngreso1').val(total.toFixed(2));
+                $('#totalIngreso2').val(total.toFixed(2));
                 evaluar();
             }
 

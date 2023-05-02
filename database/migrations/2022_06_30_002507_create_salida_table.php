@@ -14,13 +14,13 @@ class CreateSalidaTable extends Migration
     public function up()
     {
         Schema::create('salida', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->date('fecha');
             $table->string('nro_nota')->nullable();
             $table->string('tipo');
-            $table->float('total')->nullable();
+            $table->decimal('total', 8, 2, true);
 
-            $table->unsignedInteger('destinatario_id');
+            $table->foreignId('destinatario_id');
             $table->foreign('destinatario_id')->references('id')->on('destinatario')->onDelete('cascade');
         });
     }

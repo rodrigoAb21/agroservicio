@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Destinatario;
+use App\Models\Destinatario;
 use App\Http\Requests\DestinatarioRequest;
 
 

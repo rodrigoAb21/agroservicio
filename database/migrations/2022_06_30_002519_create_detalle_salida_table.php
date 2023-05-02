@@ -14,14 +14,14 @@ class CreateDetalleSalidaTable extends Migration
     public function up()
     {
         Schema::create('detalle_salida', function (Blueprint $table) {
-            $table->increments('id');
-            $table->float('cantidad');
-            $table->float('precio_unitario');
+            $table->id();
+            $table->decimal('cantidad', 8, 2, true);
+            $table->decimal('precio_unitario', 8, 2, true);
      
-            $table->unsignedInteger('salida_id');
+            $table->foreignId('salida_id');
             $table->foreign('salida_id')->references('id')->on('salida')->onDelete('cascade');
 
-            $table->unsignedInteger('insumo_id');
+            $table->foreignId('insumo_id');
             $table->foreign('insumo_id')->references('id')->on('insumo')->onDelete('cascade');
         });
     }

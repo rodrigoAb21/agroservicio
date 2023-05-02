@@ -14,7 +14,7 @@ class CreateCampoTable extends Migration
     public function up()
     {
         Schema::create('campo', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string('nombre');
             $table->float('superficie')->nullable();
         });

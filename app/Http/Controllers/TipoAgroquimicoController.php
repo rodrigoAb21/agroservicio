@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\TipoAgroquimicoRequest;
-use App\Subtipo;
+use App\Models\Subtipo;
 
 
 class TipoAgroquimicoController extends Controller

@@ -14,11 +14,11 @@ class CreateComposicionTable extends Migration
     public function up()
     {
         Schema::create('composicion', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string('ingrediente_activo');
             $table->string('concentracion')->nullable();
 
-            $table->unsignedInteger('insumo_id');
+            $table->foreignId('insumo_id');
             $table->foreign('insumo_id')->references('id')->on('insumo')->onDelete('cascade');
 
         });

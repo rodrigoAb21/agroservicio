@@ -5,7 +5,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h2 class="pb-2"><i class="fa fa-dolly"></i> Salida de Insumos
+                    <h2 class="pb-2"><i class="fas fa-cash-register"></i> Salida de Insumos
                         <div class="float-right">
                             <a class="btn btn-success" href="{{url('salidas/create')}}">
                                 <i class="fa fa-plus"></i> Nueva

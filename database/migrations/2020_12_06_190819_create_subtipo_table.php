@@ -14,7 +14,7 @@ class CreateSubtipoTable extends Migration
     public function up()
     {
         Schema::create('subtipo', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string('nombre');
             $table->string('tipo');
         });

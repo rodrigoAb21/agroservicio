@@ -14,15 +14,15 @@ class CreateDetalleIngresoTable extends Migration
     public function up()
     {
         Schema::create('detalle_ingreso', function (Blueprint $table) {
-            $table->increments('id');
-            $table->float('cantidad');
-            $table->float('precio_unitario')->nullable();
+            $table->id();
+            $table->decimal('cantidad', 8, 2, true);
+            $table->decimal('precio_unitario', 8, 2, true);
 
 
-            $table->unsignedInteger('ingreso_id');
+            $table->foreignId('ingreso_id');
             $table->foreign('ingreso_id')->references('id')->on('ingreso')->onDelete('cascade');
 
-            $table->unsignedInteger('insumo_id');
+            $table->foreignId('insumo_id');
             $table->foreign('insumo_id')->references('id')->on('insumo')->onDelete('cascade');
         });
     }

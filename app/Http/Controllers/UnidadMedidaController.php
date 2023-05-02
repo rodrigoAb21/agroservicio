@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UnidadMedidaRequest;
-use App\UnidadMedida;
+use App\Models\UnidadMedida;
 
 
 class UnidadMedidaController extends Controller

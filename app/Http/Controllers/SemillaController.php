@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SemillaRequest;
-use App\Insumo;
-use App\Subtipo;
-use App\TipoInsumo;
-use App\UnidadMedida;
+use App\Models\Insumo;
+use App\Models\Subtipo;
+use App\Models\UnidadMedida;
 
 class SemillaController extends Controller
 {

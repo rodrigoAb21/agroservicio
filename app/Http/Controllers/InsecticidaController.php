@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Composicion;
 use App\Http\Requests\Agroquimico2Request;
 use App\Http\Requests\AgroquimicoRequest;
-use App\Insumo;
-use App\Subtipo;
-use App\UnidadMedida;
+use App\Models\Composicion;
+use App\Models\Insumo;
+use App\Models\Subtipo;
+use App\Models\UnidadMedida;
 use Illuminate\Support\Facades\DB;
+use Exception;
 
 class InsecticidaController extends Controller
 {
