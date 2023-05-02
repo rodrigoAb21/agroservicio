@@ -24,9 +24,9 @@ class CreateUsersTable extends Migration
         });
 
         DB::table('users')->insert([
-            'nombre' => 'admin',
-            'email' => 'admin@gmail.com',
-            'password' => bcrypt('rodrigo'),
+            'nombre' => 'Fernando Abasto Berbetty',
+            'email' => 'fer86167q@gmail.com',
+            'password' => bcrypt('Fer71336420'),
         ]);
     }
 
