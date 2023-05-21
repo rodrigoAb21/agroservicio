@@ -163,7 +163,7 @@
                 datosInsumo = document.getElementById('selectorInsumo').value.split('_');
                 idInsumo = datosInsumo[0];
                 nombreInsumo = datosInsumo[1];
-                existencias = parseInt(datosInsumo[2]);
+                existencias = parseFloat(datosInsumo[2]);
                 cantidad[cont] = parseFloat($('#cantidad').val());
                 precio[cont] = $('#precio').val();
 
